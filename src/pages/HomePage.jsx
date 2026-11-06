@@ -8,159 +8,161 @@ import {
   CheckCircle2, 
   Layers, 
   Code2, 
-  Globe, 
+  Laptop, 
   Smartphone, 
   Zap, 
   Users, 
   BarChart3, 
-  Terminal,
-  Lock,
+  Briefcase,
   Star,
-  ExternalLink
+  ExternalLink,
+  Globe
 } from 'lucide-react';
-import { COMPANY_INFO, STATS, THREE_PILLARS, SERVICES, PROJECTS, TESTIMONIALS } from '../data/content';
+import BrandLogo from '../components/BrandLogo';
+import { COMPANY_INFO, STATS, THREE_PILLARS, SERVICES, PROJECTS, TESTIMONIALS, BANNER_OFFERINGS } from '../data/content';
 
 export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
   return (
     <div className="space-y-24 pb-20">
       
-      {/* 1. HERO SECTION */}
-      <section className="relative pt-12 lg:pt-20 pb-16 overflow-hidden">
+      {/* 1. HERO SECTION - REDESIGNED EXACTLY FROM THE REFERENCE BANNER */}
+      <section className="relative pt-8 lg:pt-16 pb-16 overflow-hidden">
         
-        {/* Glowing Radial Cyber Ambient in Logo Cyan */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-cyan-500/15 blur-[140px] pointer-events-none rounded-full" />
-        <div className="absolute top-12 -left-20 w-80 h-80 bg-cyan-400/10 blur-[110px] pointer-events-none rounded-full" />
-        <div className="absolute top-32 -right-20 w-80 h-80 bg-cyan-600/10 blur-[110px] pointer-events-none rounded-full" />
+        {/* Ambient Glowing Cyber Radial Lights */}
+        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-cyan-500/12 blur-[150px] pointer-events-none rounded-full" />
+        <div className="absolute top-10 right-0 w-96 h-96 bg-cyan-400/10 blur-[130px] pointer-events-none rounded-full" />
+
+        {/* Digital Wireframe Globe Graphic in Background (Matches reference banner right side) */}
+        <div className="absolute top-6 -right-20 w-[420px] h-[420px] sm:w-[540px] sm:h-[540px] opacity-25 pointer-events-none">
+          <div className="w-full h-full rounded-full border border-cyan-400/40 relative animate-spin" style={{ animationDuration: '45s' }}>
+            <div className="absolute inset-4 rounded-full border border-dashed border-cyan-300/30" />
+            <div className="absolute inset-12 rounded-full border border-cyan-400/20" />
+            {/* Latitude / Longitude lines */}
+            <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-48 rounded-[100%] border border-cyan-400/30" />
+            <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-48 rounded-[100%] border border-cyan-400/30" />
+          </div>
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          {/* Main Hero Container with Cyber Armor Tech Framing */}
+          <div className="cyber-corner-box glass-panel rounded-3xl p-6 sm:p-12 lg:p-14 border border-cyan-400/35 shadow-[0_0_60px_rgba(0,240,255,0.2)] relative overflow-hidden">
             
-            {/* Left Column: Headlines & CTA */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+            {/* Top Row: Logo with Holographic Pedestal + Brand Typography */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-cyan-300 text-xs font-semibold shadow-[0_0_15px_rgba(0,240,255,0.25)] border border-cyan-400/40">
-                <span className="flex h-2 w-2 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-300 shadow-[0_0_8px_#00f0ff]"></span>
-                </span>
-                <span className="font-sub tracking-widest uppercase text-[11px] font-bold">
-                  Next-Gen IT Solutions & Talent Incubator
-                </span>
+              {/* Left Column: Holographic Emblem with Pedestal (From Reference Banner 2) */}
+              <div className="lg:col-span-5 flex flex-col items-center justify-center">
+                <div className="relative flex flex-col items-center">
+                  
+                  {/* Floating Logo with Cyan Rim Glow */}
+                  <div className="relative w-52 h-52 sm:w-64 sm:h-64 z-10 animate-float">
+                    <img 
+                      src="/ir-logo.jpg" 
+                      alt="IR InfoTech Official Emblem" 
+                      className="w-full h-full object-contain filter drop-shadow-[0_0_35px_rgba(0,240,255,0.85)]"
+                    />
+                  </div>
+
+                  {/* Holographic Circular Pedestal Platform (Matches Reference Banner) */}
+                  <div className="hologram-pedestal -mt-6 z-0">
+                    <div className="hologram-beam" />
+                    <div className="hologram-rings" />
+                    <div className="hologram-inner-ring" />
+                    {/* Center Vertex Ground Glow */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-16 h-3 rounded-full bg-cyan-300 blur-sm shadow-[0_0_20px_#00f0ff]" />
+                  </div>
+
+                </div>
               </div>
 
-              {/* Main Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
-                Engineering The Next Dimension of{' '}
-                <span className="font-tech text-cyan-400 drop-shadow-[0_0_25px_rgba(0,240,255,0.8)]">
-                  Intelligent Technology
-                </span>
-              </h1>
-
-              {/* Sub-headline */}
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                <span className="text-cyan-400 font-semibold">IR InfoTech</span> delivers cutting-edge software development, AI solutions, and cloud architectures to global enterprises — while cultivating elite developer talent through verified student internship cohorts.
-              </p>
-
-              {/* Primary Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                <button
-                  onClick={() => setActivePage('services')}
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-[0_0_25px_rgba(0,240,255,0.6)] hover:shadow-[0_0_35px_rgba(0,240,255,0.9)] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer font-sub"
-                >
-                  <Cpu className="w-4 h-4" />
-                  <span>Explore Enterprise Solutions</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-
-                <button
-                  onClick={onOpenApply}
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-cyan-300 glass-pill hover:bg-cyan-400 hover:text-black border border-cyan-400/50 transition-all flex items-center justify-center gap-2 cursor-pointer font-sub shadow-[0_0_15px_rgba(0,240,255,0.2)]"
-                >
-                  <GraduationCap className="w-4 h-4" />
-                  <span>Apply for Internship</span>
-                </button>
-              </div>
-
-              {/* Quick Trust Highlights */}
-              <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-400 font-sub tracking-wider uppercase font-semibold">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shadow-[0_0_10px_#00f0ff]" />
-                  <span>Zero-Trust Security</span>
+              {/* Right Column: Large Brand Header & Tagline (Matches Reference Banner) */}
+              <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+                
+                {/* Brand Name Typography */}
+                <div>
+                  <BrandLogo size="xl" showTagline={true} />
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shadow-[0_0_10px_#00f0ff]" />
-                  <span>99.98% SLA Availability</span>
+
+                {/* Laser Flare Divider with Center Starburst (From Reference) */}
+                <div className="w-full max-w-lg laser-flare my-4 mx-auto lg:mx-0" />
+
+                {/* Value Proposition */}
+                <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                  Engineering the next dimension of enterprise software, artificial intelligence, and cybersecurity — while preparing future tech leaders through hands-on paid internships.
+                </p>
+
+                {/* Dual Action Buttons */}
+                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                  <button
+                    onClick={() => setActivePage('services')}
+                    className="w-full sm:w-auto px-7 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-[0_0_25px_rgba(0,240,255,0.7)] hover:shadow-[0_0_35px_rgba(0,240,255,0.9)] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer font-sub"
+                  >
+                    <Cpu className="w-4 h-4" />
+                    <span>Explore Solutions</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+
+                  <button
+                    onClick={onOpenApply}
+                    className="w-full sm:w-auto px-7 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-cyan-300 glass-pill hover:bg-cyan-400 hover:text-black border border-cyan-400/50 transition-all flex items-center justify-center gap-2 cursor-pointer font-sub shadow-[0_0_15px_rgba(0,240,255,0.25)]"
+                  >
+                    <GraduationCap className="w-4 h-4" />
+                    <span>Apply for Internship</span>
+                  </button>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shadow-[0_0_10px_#00f0ff]" />
-                  <span>Verifiable Certifications</span>
-                </div>
+
               </div>
 
             </div>
 
-            {/* Right Column: Cyber Holographic Logo Showcase */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative group w-full max-w-md">
-                
-                {/* Glowing Outer Rings in Logo Colors */}
-                <div className="absolute -inset-4 bg-cyan-400/20 rounded-3xl blur-2xl group-hover:blur-3xl opacity-80 group-hover:opacity-100 transition-all duration-700 animate-pulse-glow" />
+            {/* Bottom Row: THE 6 CORE OFFERING PILLS (Exact representation of Reference Banner) */}
+            <div className="mt-12 pt-8 border-t border-cyan-500/25">
+              <div className="text-center mb-6">
+                <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-cyan-400 font-bold">
+                  Core Technology Capabilities & Programs
+                </span>
+              </div>
 
-                <div className="relative glass-panel rounded-3xl p-6 sm:p-8 shadow-[0_0_40px_rgba(0,240,255,0.35)] border border-cyan-400/40">
-                  
-                  {/* Holographic Header */}
-                  <div className="flex items-center justify-between pb-4 border-b border-cyan-500/20 text-xs">
-                    <div className="flex items-center gap-2 font-mono text-cyan-400">
-                      <Terminal className="w-4 h-4" />
-                      <span>SYS://IR_INFOTECH_CORE</span>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+                {BANNER_OFFERINGS.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      if (item.id === 'internships' || item.id === 'training') {
+                        setActivePage('internships');
+                      } else {
+                        setActivePage('services');
+                      }
+                    }}
+                    className="cyber-offering-pill p-4 text-center group cursor-pointer flex flex-col items-center justify-between"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-300 mb-2.5 group-hover:scale-110 group-hover:border-cyan-400 transition-all shadow-[0_0_15px_rgba(0,240,255,0.25)]">
+                      {item.icon === 'Code2' && <Code2 className="w-5 h-5 text-cyan-400" />}
+                      {item.icon === 'Laptop' && <Laptop className="w-5 h-5 text-cyan-400" />}
+                      {item.icon === 'Cpu' && <Cpu className="w-5 h-5 text-cyan-400" />}
+                      {item.icon === 'BarChart3' && <BarChart3 className="w-5 h-5 text-cyan-400" />}
+                      {item.icon === 'GraduationCap' && <GraduationCap className="w-5 h-5 text-cyan-400" />}
+                      {item.icon === 'Briefcase' && <Briefcase className="w-5 h-5 text-cyan-400" />}
                     </div>
-                    <span className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-400/40 text-[10px] text-cyan-300 font-mono">
-                      ONLINE · v4.2
-                    </span>
-                  </div>
 
-                  {/* Logo Centerpiece */}
-                  <div className="py-6 flex flex-col items-center justify-center">
-                    <div className="relative w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center animate-float">
-                      <img 
-                        src="/ir-logo.jpg" 
-                        alt="IR InfoTech Official Emblem" 
-                        className="w-full h-full object-contain filter drop-shadow-[0_0_30px_rgba(0,240,255,0.7)]"
-                      />
+                    <div>
+                      <h4 className="text-xs font-bold text-white group-hover:text-cyan-300 transition-colors leading-snug">
+                        {item.title}
+                      </h4>
+                      <p className="text-[10px] text-cyan-400/70 font-mono mt-0.5">
+                        {item.tag}
+                      </p>
                     </div>
-
-                    {/* Laser Flare Divider matching the logo bottom beam */}
-                    <div className="w-52 my-3 laser-flare" />
-
-                    <div className="mt-2 text-center">
-                      <h2 className="font-tech text-2xl font-black tracking-widest text-white drop-shadow-[0_0_15px_rgba(0,240,255,0.8)]">
-                        IR INFOTECH
-                      </h2>
-                    </div>
-                  </div>
-
-                  {/* Micro Terminal Stats with Glass Cards */}
-                  <div className="pt-4 border-t border-cyan-500/20 grid grid-cols-2 gap-3 text-left">
-                    <div className="glass-card p-2.5 rounded-xl border border-cyan-500/20">
-                      <p className="text-[10px] text-slate-400 font-mono">ENCRYPTION</p>
-                      <p className="text-xs font-bold text-cyan-300 font-mono">AES-256 / ZERO-TRUST</p>
-                    </div>
-                    <div className="glass-card p-2.5 rounded-xl border border-cyan-500/20">
-                      <p className="text-[10px] text-slate-400 font-mono">GLOBAL UPTIME</p>
-                      <p className="text-xs font-bold text-emerald-400 font-mono">99.98% VERIFIED</p>
-                    </div>
-                  </div>
-
-                </div>
-
+                  </button>
+                ))}
               </div>
             </div>
 
           </div>
 
           {/* Real-Time Stats Strip in Glassmorphism */}
-          <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4">
             {STATS.map((stat, i) => (
               <div
                 key={i}
@@ -198,7 +200,6 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
               key={pillar.id}
               className="glass-card rounded-3xl p-8 hover:border-cyan-400 transition-all duration-300 group flex flex-col justify-between relative overflow-hidden"
             >
-              {/* Subtle Rim Light */}
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
 
               <div>
@@ -246,7 +247,7 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
               Capabilities
             </p>
             <h2 className="font-tech text-3xl sm:text-4xl font-extrabold text-white">
-              Enterprise Technology Solutions
+              Enterprise Solutions & Systems
             </h2>
             <p className="text-sm text-slate-400 max-w-xl">
               From high-concurrency microservices to generative AI workflows and cyber-resilient cloud architectures.
@@ -271,7 +272,7 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
               <div>
                 <div className="w-10 h-10 rounded-xl bg-cyan-950/60 border border-cyan-400/40 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform shadow-[0_0_12px_rgba(0,240,255,0.3)]">
                   {service.id === 'software-dev' && <Code2 className="w-5 h-5" />}
-                  {service.id === 'web-dev' && <Globe className="w-5 h-5" />}
+                  {service.id === 'web-dev' && <Laptop className="w-5 h-5" />}
                   {service.id === 'mobile-apps' && <Smartphone className="w-5 h-5" />}
                   {service.id === 'ai-ml' && <Sparkles className="w-5 h-5" />}
                   {service.id === 'data-science' && <BarChart3 className="w-5 h-5" />}
@@ -307,7 +308,7 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
         </div>
       </section>
 
-      {/* 4. INTERNSHIP & TALENT INCUBATOR HIGHLIGHTS */}
+      {/* 4. INTERNSHIPS & TALENT INCUBATOR HIGHLIGHTS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-3xl glass-panel p-8 sm:p-12 overflow-hidden shadow-[0_0_60px_rgba(0,240,255,0.2)] border border-cyan-400/40">
           

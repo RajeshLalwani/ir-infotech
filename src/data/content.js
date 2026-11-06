@@ -1,7 +1,7 @@
 export const COMPANY_INFO = {
   name: "IR InfoTech",
-  tagline: "Enterprise Software & Talent Incubator",
-  slogan: "Engineering the Next Dimension of Intelligent Technology",
+  tagline: "IDEAS | INNOVATION | IMPACT",
+  slogan: "IDEAS | INNOVATION | IMPACT",
   email: "info.irinfotech@gmail.com",
   careersEmail: "info.irinfotech@gmail.com",
   internshipsEmail: "info.irinfotech@gmail.com",
@@ -11,6 +11,15 @@ export const COMPANY_INFO = {
   hours: "Mon - Sat: 9:00 AM – 7:00 PM IST (24/7 Client Emergency Support)",
   linkedin: "https://www.linkedin.com/company/ir-infotech-official/home/",
 };
+
+export const BANNER_OFFERINGS = [
+  { id: "software-dev", title: "Software Development", icon: "Code2", tag: "Enterprise Code" },
+  { id: "web-dev", title: "Web Development", icon: "Laptop", tag: "Next.js & React" },
+  { id: "ai-ml", title: "AI & ML", icon: "Cpu", tag: "Agentic AI & RAG" },
+  { id: "data-science", title: "Data Science & Analytics", icon: "BarChart3", tag: "Data Pipelines" },
+  { id: "training", title: "IT Courses & Training", icon: "GraduationCap", tag: "Corporate Mentorship" },
+  { id: "internships", title: "Paid Internships", icon: "Briefcase", tag: "Live Projects" },
+];
 
 export const STATS = [
   { label: "System Uptime SLA", value: "99.98%", description: "Enterprise-grade reliability" },

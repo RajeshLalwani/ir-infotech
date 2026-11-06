@@ -6,6 +6,7 @@ import {
   MapPin, 
   GraduationCap
 } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 import { COMPANY_INFO, SERVICES, INTERNSHIP_DOMAINS } from '../data/content';
 
 export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpenApply }) {
@@ -36,11 +37,7 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
                   className="w-full h-full object-cover rounded-[10px]"
                 />
               </div>
-              <div>
-                <span className="font-tech text-xl font-extrabold tracking-wider text-white drop-shadow-[0_0_12px_rgba(0,240,255,0.6)]">
-                  IR INFOTECH
-                </span>
-              </div>
+              <BrandLogo size="md" showTagline={true} />
             </div>
 
             <p className="text-sm text-slate-300 leading-relaxed max-w-md">

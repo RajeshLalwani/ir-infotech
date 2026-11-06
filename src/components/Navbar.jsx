@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, ShieldCheck, ArrowRight, GraduationCap } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenVerify }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,21 +26,21 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
   };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-2xl bg-black/85 border-b border-cyan-400/20">
+    <header className="sticky top-0 z-50 backdrop-blur-2xl bg-black/90 border-b border-cyan-400/20">
       
       {/* Top Laser Line */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/80 to-transparent shadow-[0_0_10px_#00f0ff]" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/90 to-transparent shadow-[0_0_12px_#00f0ff]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Logo & Brand (Clean, no "Technology Solutions" subtitle) */}
+          {/* Logo & Brand matching Reference Banner */}
           <button 
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-3.5 group text-left cursor-pointer focus:outline-none"
           >
             <div className="relative">
-              <div className="w-12 h-12 rounded-xl overflow-hidden bg-black border border-cyan-400/50 shadow-[0_0_20px_rgba(0,240,255,0.4)] group-hover:shadow-[0_0_30px_rgba(0,240,255,0.8)] transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl overflow-hidden bg-black border border-cyan-400/60 shadow-[0_0_20px_rgba(0,240,255,0.45)] group-hover:shadow-[0_0_30px_rgba(0,240,255,0.85)] transition-all duration-300">
                 <img 
                   src="/ir-logo.jpg" 
                   alt="IR InfoTech Logo" 
@@ -52,11 +53,7 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
               </span>
             </div>
 
-            <div>
-              <span className="font-tech text-xl font-extrabold tracking-wider text-white group-hover:text-cyan-300 transition-colors drop-shadow-[0_0_12px_rgba(0,240,255,0.6)]">
-                IR INFOTECH
-              </span>
-            </div>
+            <BrandLogo size="md" />
           </button>
 
           {/* Desktop Navigation */}

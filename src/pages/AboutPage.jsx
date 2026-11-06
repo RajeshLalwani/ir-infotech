@@ -10,6 +10,7 @@ import {
   Lightbulb, 
   ArrowRight 
 } from 'lucide-react';
+import BrandLogo from '../components/BrandLogo';
 import { COMPANY_INFO } from '../data/content';
 
 export default function AboutPage({ setActivePage, onOpenApply }) {
@@ -100,10 +101,8 @@ export default function AboutPage({ setActivePage, onOpenApply }) {
                 <img src="/ir-logo.jpg" alt="IR InfoTech Official Emblem" className="w-full h-full object-contain filter drop-shadow-[0_0_25px_rgba(0,240,255,0.7)]" />
               </div>
               <div className="w-40 mx-auto laser-flare" />
-              <div>
-                <h3 className="font-tech text-xl font-bold text-white tracking-wider drop-shadow-[0_0_10px_rgba(0,240,255,0.6)]">
-                  IR INFOTECH
-                </h3>
+              <div className="flex justify-center">
+                <BrandLogo size="md" showTagline={true} />
               </div>
               <p className="text-xs text-slate-400 italic">
                 "The Eye of Providence symbolizes visionary architecture, vigilance in cybersecurity, and clarity of digital purpose."

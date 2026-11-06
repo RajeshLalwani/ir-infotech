@@ -9,6 +9,7 @@ import {
   MessageSquare, 
   ShieldCheck
 } from 'lucide-react';
+import BrandLogo from '../components/BrandLogo';
 import { COMPANY_INFO } from '../data/content';
 
 export default function ContactPage() {
@@ -143,8 +144,7 @@ export default function ContactPage() {
               <img src="/ir-logo.jpg" alt="Logo" className="w-full h-full object-cover rounded-lg" />
             </div>
             <div>
-              <h4 className="font-tech text-base font-bold text-white">IR INFOTECH</h4>
-              <p className="text-[11px] text-slate-400 mt-0.5">Enterprise Software · AI · Verified Training</p>
+              <BrandLogo size="sm" showTagline={true} />
             </div>
           </div>
 

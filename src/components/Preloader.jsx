@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Sparkles } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 export default function Preloader({ onFinish }) {
   const [progress, setProgress] = useState(15);
@@ -85,9 +86,7 @@ export default function Preloader({ onFinish }) {
       {/* Brand Name & Loading Bar */}
       <div className="text-center space-y-3 z-10">
         <div>
-          <h1 className="font-tech text-2xl sm:text-3xl font-black tracking-widest text-white drop-shadow-[0_0_15px_rgba(0,240,255,0.8)]">
-            IR INFOTECH
-          </h1>
+          <BrandLogo size="lg" showTagline={true} />
         </div>
 
         {/* Glowing Progress Bar */}
