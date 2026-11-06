@@ -180,8 +180,8 @@ export default function VerifyCertModal({ isOpen, onClose }) {
                 {/* Authority Stamp */}
                 <div className="mt-4 pt-3 border-t border-cyan-500/20 flex items-center justify-between text-[11px] text-slate-400">
                   <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 rounded border border-cyan-400/50 p-0.5 bg-black">
-                      <img src="/ir-logo.jpg" alt="Stamp" className="w-full h-full object-cover" />
+                    <div className="w-8 h-8 flex items-center justify-center">
+                      <img src="/ir-logo.png" alt="Stamp" className="w-full h-full object-contain filter drop-shadow-[0_0_8px_#00f0ff]" />
                     </div>
                     <span>{result.authorizedSignatory}</span>
                   </div>

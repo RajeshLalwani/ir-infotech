@@ -97,8 +97,8 @@ export default function AboutPage({ setActivePage, onOpenApply }) {
           <div className="relative group w-full max-w-sm">
             <div className="absolute -inset-2 bg-cyan-400/20 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition-all duration-500" />
             <div className="relative glass-panel rounded-3xl p-8 text-center space-y-4 border border-cyan-400/40">
-              <div className="w-52 h-52 mx-auto flex items-center justify-center animate-float">
-                <img src="/ir-logo.jpg" alt="IR InfoTech Official Emblem" className="w-full h-full object-contain filter drop-shadow-[0_0_25px_rgba(0,240,255,0.7)]" />
+              <div className="w-56 h-56 mx-auto flex items-center justify-center animate-float">
+                <img src="/ir-logo.png" alt="IR InfoTech Official Emblem" className="w-full h-full object-contain filter drop-shadow-[0_0_30px_rgba(0,240,255,0.85)]" />
               </div>
               <div className="w-40 mx-auto laser-flare" />
               <div className="flex justify-center">

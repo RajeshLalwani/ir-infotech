@@ -55,12 +55,12 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
               <div className="lg:col-span-5 flex flex-col items-center justify-center">
                 <div className="relative flex flex-col items-center">
                   
-                  {/* Floating Logo with Cyan Rim Glow */}
-                  <div className="relative w-52 h-52 sm:w-64 sm:h-64 z-10 animate-float">
+                  {/* Floating Logo with Electric Aqua Rim Glow - Transparent with ZERO black box */}
+                  <div className="relative w-56 h-56 sm:w-68 sm:h-68 z-10 animate-float flex items-center justify-center">
                     <img 
-                      src="/ir-logo.jpg" 
+                      src="/ir-logo.png" 
                       alt="IR InfoTech Official Emblem" 
-                      className="w-full h-full object-contain filter drop-shadow-[0_0_35px_rgba(0,240,255,0.85)]"
+                      className="w-full h-full object-contain filter drop-shadow-[0_0_35px_rgba(0,240,255,0.9)] hover:scale-105 transition-transform duration-500"
                     />
                   </div>
 

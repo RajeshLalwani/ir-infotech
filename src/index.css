@@ -221,3 +221,21 @@
 .animate-float {
   animation: floatSlow 5s ease-in-out infinite;
 }
+
+@keyframes laserScan {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.hover-glow {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.55), 0 10px 20px -5px rgba(0, 0, 0, 0.8);
+}

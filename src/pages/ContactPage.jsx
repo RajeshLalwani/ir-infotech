@@ -139,9 +139,9 @@ export default function ContactPage() {
           </div>
 
           {/* Hologram Brand Badge */}
-          <div className="glass-panel rounded-2xl p-6 flex items-center gap-4 border border-cyan-400/20">
-            <div className="w-14 h-14 rounded-xl overflow-hidden p-0.5 bg-gradient-to-br from-cyan-400 to-cyan-600 shrink-0 shadow-[0_0_20px_rgba(0,240,255,0.5)]">
-              <img src="/ir-logo.jpg" alt="Logo" className="w-full h-full object-cover rounded-lg" />
+          <div className="glass-panel rounded-2xl p-6 flex items-center gap-4 border border-[#00f0ff]/25 hover:border-[#00f0ff]/60 transition-all">
+            <div className="w-14 h-14 flex items-center justify-center shrink-0">
+              <img src="/ir-logo.png" alt="Logo" className="w-full h-full object-contain filter drop-shadow-[0_0_15px_#00f0ff]" />
             </div>
             <div>
               <BrandLogo size="sm" showTagline={true} />
