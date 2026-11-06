@@ -28,12 +28,12 @@ export default function Preloader({ onFinish }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#000206] transition-opacity duration-600 ${
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black transition-opacity duration-600 ${
         fadeOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
       {/* Ambient background glow in logo cyan */}
-      <div className="absolute w-[450px] h-[450px] rounded-full bg-cyan-500/10 blur-[130px] pointer-events-none animate-pulse" />
+      <div className="absolute w-[450px] h-[450px] rounded-full bg-cyan-400/10 blur-[140px] pointer-events-none animate-pulse" />
 
       {/* Centerpiece: Orbital Ring with Center Glitter in Logo Color */}
       <div className="relative flex items-center justify-center mb-8">
@@ -64,7 +64,7 @@ export default function Preloader({ onFinish }) {
           <div className="w-20 h-20 rounded-full bg-cyan-400/20 blur-md animate-ping" style={{ animationDuration: '2s' }} />
           
           {/* Radiant Glass Core */}
-          <div className="absolute w-16 h-16 rounded-full bg-[#010814]/80 border border-cyan-300/60 backdrop-blur-md flex items-center justify-center shadow-[0_0_25px_rgba(0,240,255,0.7)]">
+          <div className="absolute w-16 h-16 rounded-full bg-black/90 border border-cyan-300/60 backdrop-blur-md flex items-center justify-center shadow-[0_0_25px_rgba(0,240,255,0.7)]">
             
             {/* Glitter Icon with Multi-Sparkle Animation */}
             <div className="relative flex items-center justify-center">
@@ -88,9 +88,6 @@ export default function Preloader({ onFinish }) {
           <h1 className="font-tech text-2xl sm:text-3xl font-black tracking-widest text-white drop-shadow-[0_0_15px_rgba(0,240,255,0.8)]">
             IR INFOTECH
           </h1>
-          <p className="text-[10px] uppercase tracking-[0.35em] text-cyan-400 font-semibold font-sub">
-            Technology Solutions
-          </p>
         </div>
 
         {/* Glowing Progress Bar */}

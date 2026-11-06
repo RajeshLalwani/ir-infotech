@@ -40,9 +40,6 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
                 <span className="font-tech text-xl font-extrabold tracking-wider text-white drop-shadow-[0_0_12px_rgba(0,240,255,0.6)]">
                   IR INFOTECH
                 </span>
-                <p className="text-[10px] uppercase tracking-[0.25em] font-semibold text-cyan-400 font-sub">
-                  Technology Solutions
-                </p>
               </div>
             </div>
 
@@ -219,7 +216,7 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
 
         {/* Bottom Copyright */}
         <div className="pt-6 border-t border-cyan-500/10 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© {currentYear} IR InfoTech (IR InfoTech Technology Solutions). All rights reserved.</p>
+          <p>© {currentYear} IR InfoTech. All rights reserved.</p>
           <p className="text-[11px] text-slate-500 text-center md:text-right max-w-md">
             Dedicated to engineering excellence, scalable cloud software, and ethical student workforce development.
           </p>

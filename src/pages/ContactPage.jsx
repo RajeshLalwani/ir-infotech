@@ -144,8 +144,7 @@ export default function ContactPage() {
             </div>
             <div>
               <h4 className="font-tech text-base font-bold text-white">IR INFOTECH</h4>
-              <p className="text-[11px] text-cyan-400 font-sub tracking-wider uppercase font-semibold">Technology Solutions</p>
-              <p className="text-[11px] text-slate-400 mt-1">Enterprise Software · AI · Verified Training</p>
+              <p className="text-[11px] text-slate-400 mt-0.5">Enterprise Software · AI · Verified Training</p>
             </div>
           </div>
 

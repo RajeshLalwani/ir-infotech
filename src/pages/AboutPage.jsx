@@ -96,16 +96,14 @@ export default function AboutPage({ setActivePage, onOpenApply }) {
           <div className="relative group w-full max-w-sm">
             <div className="absolute -inset-2 bg-cyan-400/20 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition-all duration-500" />
             <div className="relative glass-panel rounded-3xl p-8 text-center space-y-4 border border-cyan-400/40">
-              <div className="w-40 h-40 mx-auto rounded-2xl overflow-hidden p-1 bg-gradient-to-tr from-cyan-400 to-cyan-600 shadow-[0_0_30px_rgba(0,240,255,0.6)]">
-                <img src="/ir-logo.jpg" alt="IR InfoTech Official Emblem" className="w-full h-full object-cover rounded-xl" />
+              <div className="w-52 h-52 mx-auto flex items-center justify-center animate-float">
+                <img src="/ir-logo.jpg" alt="IR InfoTech Official Emblem" className="w-full h-full object-contain filter drop-shadow-[0_0_25px_rgba(0,240,255,0.7)]" />
               </div>
+              <div className="w-40 mx-auto laser-flare" />
               <div>
                 <h3 className="font-tech text-xl font-bold text-white tracking-wider drop-shadow-[0_0_10px_rgba(0,240,255,0.6)]">
                   IR INFOTECH
                 </h3>
-                <p className="text-xs font-sub font-semibold uppercase tracking-widest text-cyan-400">
-                  Technology Solutions
-                </p>
               </div>
               <p className="text-xs text-slate-400 italic">
                 "The Eye of Providence symbolizes visionary architecture, vigilance in cybersecurity, and clarity of digital purpose."

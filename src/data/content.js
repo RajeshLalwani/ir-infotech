@@ -1,6 +1,6 @@
 export const COMPANY_INFO = {
   name: "IR InfoTech",
-  tagline: "Technology Solutions & Talent Incubator",
+  tagline: "Enterprise Software & Talent Incubator",
   slogan: "Engineering the Next Dimension of Intelligent Technology",
   email: "info.irinfotech@gmail.com",
   careersEmail: "info.irinfotech@gmail.com",

@@ -43,13 +43,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#000308] text-slate-100 flex flex-col relative selection:bg-cyan-400 selection:text-black">
+    <div className="min-h-screen bg-black text-slate-100 flex flex-col relative selection:bg-cyan-400 selection:text-black">
       
       {/* 1. Futuristic Orbital Preloader with Center Glitter in Logo Colors */}
       {loading && <Preloader onFinish={() => setLoading(false)} />}
-
-      {/* Cyber Grid Pattern */}
-      <div className="fixed inset-0 cyber-grid pointer-events-none opacity-40 z-0" />
 
       {/* Glassmorphic Header Navigation */}
       <Navbar

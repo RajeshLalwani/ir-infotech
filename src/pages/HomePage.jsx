@@ -122,21 +122,21 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
 
                   {/* Logo Centerpiece */}
                   <div className="py-6 flex flex-col items-center justify-center">
-                    <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden p-1 bg-gradient-to-tr from-cyan-300 via-cyan-400 to-cyan-600 shadow-[0_0_40px_rgba(0,240,255,0.7)] animate-float">
+                    <div className="relative w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center animate-float">
                       <img 
                         src="/ir-logo.jpg" 
-                        alt="IR InfoTech Official Holographic Emblem" 
-                        className="w-full h-full object-cover rounded-[14px]"
+                        alt="IR InfoTech Official Emblem" 
+                        className="w-full h-full object-contain filter drop-shadow-[0_0_30px_rgba(0,240,255,0.7)]"
                       />
                     </div>
 
-                    <div className="mt-5 text-center">
+                    {/* Laser Flare Divider matching the logo bottom beam */}
+                    <div className="w-52 my-3 laser-flare" />
+
+                    <div className="mt-2 text-center">
                       <h2 className="font-tech text-2xl font-black tracking-widest text-white drop-shadow-[0_0_15px_rgba(0,240,255,0.8)]">
                         IR INFOTECH
                       </h2>
-                      <p className="text-xs font-sub font-bold uppercase tracking-[0.3em] text-cyan-400 mt-0.5">
-                        Technology Solutions
-                      </p>
                     </div>
                   </div>
 

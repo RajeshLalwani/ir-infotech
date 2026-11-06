@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, ShieldCheck, ArrowRight, Sparkles, GraduationCap } from 'lucide-react';
+import { Menu, X, ShieldCheck, ArrowRight, GraduationCap } from 'lucide-react';
 
 export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenVerify }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,25 +25,25 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
   };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-2xl bg-[#000308]/80 border-b border-cyan-400/20">
+    <header className="sticky top-0 z-50 backdrop-blur-2xl bg-black/85 border-b border-cyan-400/20">
       
-      {/* Top Laser Glow Highlight */}
+      {/* Top Laser Line */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/80 to-transparent shadow-[0_0_10px_#00f0ff]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Logo & Brand */}
+          {/* Logo & Brand (Clean, no "Technology Solutions" subtitle) */}
           <button 
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-3.5 group text-left cursor-pointer focus:outline-none"
           >
             <div className="relative">
-              <div className="w-12 h-12 rounded-xl overflow-hidden p-0.5 bg-gradient-to-br from-cyan-400 to-cyan-600 shadow-[0_0_20px_rgba(0,240,255,0.5)] group-hover:shadow-[0_0_30px_rgba(0,240,255,0.8)] transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl overflow-hidden bg-black border border-cyan-400/50 shadow-[0_0_20px_rgba(0,240,255,0.4)] group-hover:shadow-[0_0_30px_rgba(0,240,255,0.8)] transition-all duration-300">
                 <img 
                   src="/ir-logo.jpg" 
                   alt="IR InfoTech Logo" 
-                  className="w-full h-full object-cover rounded-[10px]"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <span className="absolute -bottom-1 -right-1 flex h-3 w-3">
@@ -53,14 +53,9 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
             </div>
 
             <div>
-              <div className="flex items-center gap-1.5">
-                <span className="font-tech text-xl font-extrabold tracking-wider text-white group-hover:text-cyan-300 transition-colors drop-shadow-[0_0_12px_rgba(0,240,255,0.5)]">
-                  IR INFOTECH
-                </span>
-              </div>
-              <p className="text-[10px] uppercase tracking-[0.25em] font-semibold text-cyan-400 font-sub">
-                Technology Solutions
-              </p>
+              <span className="font-tech text-xl font-extrabold tracking-wider text-white group-hover:text-cyan-300 transition-colors drop-shadow-[0_0_12px_rgba(0,240,255,0.6)]">
+                IR INFOTECH
+              </span>
             </div>
           </button>
 
@@ -74,8 +69,8 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
                   onClick={() => handleNavClick(link.id)}
                   className={`relative px-3.5 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-1.5 font-sub ${
                     isActive
-                      ? 'text-cyan-300 bg-cyan-400/10 border border-cyan-400/40 shadow-[0_0_15px_rgba(0,240,255,0.2)]'
-                      : 'text-slate-300 hover:text-white hover:bg-cyan-950/30'
+                      ? 'text-cyan-300 bg-cyan-400/10 border border-cyan-400/40 shadow-[0_0_15px_rgba(0,240,255,0.25)]'
+                      : 'text-slate-300 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   {link.label}
@@ -94,7 +89,7 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
             {/* Verify Certificate Quick Trigger */}
             <button
               onClick={onOpenVerify}
-              className="px-3.5 py-2 text-xs font-bold font-sub uppercase tracking-wider rounded-xl border border-cyan-400/30 text-cyan-300 glass-pill hover:bg-cyan-950/60 hover:border-cyan-400 transition-all flex items-center gap-1.5 cursor-pointer shadow-[0_0_10px_rgba(0,240,255,0.15)]"
+              className="px-3.5 py-2 text-xs font-bold font-sub uppercase tracking-wider rounded-xl border border-cyan-400/30 text-cyan-300 glass-pill hover:bg-cyan-950/40 hover:border-cyan-400 transition-all flex items-center gap-1.5 cursor-pointer shadow-[0_0_10px_rgba(0,240,255,0.15)]"
               title="Verify Student Internship Certificate"
             >
               <ShieldCheck className="w-4 h-4 text-cyan-400" />
@@ -133,7 +128,7 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#000511]/95 backdrop-blur-2xl border-b border-cyan-400/25 px-4 pt-3 pb-6 space-y-2">
+        <div className="lg:hidden bg-black/95 backdrop-blur-2xl border-b border-cyan-400/25 px-4 pt-3 pb-6 space-y-2">
           {navLinks.map((link) => (
             <button
               key={link.id}
@@ -141,7 +136,7 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
               className={`w-full text-left px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-between transition-colors font-sub ${
                 activePage === link.id
                   ? 'bg-cyan-400/15 text-cyan-300 border border-cyan-400/40 shadow-[0_0_15px_rgba(0,240,255,0.2)]'
-                  : 'text-slate-300 hover:bg-cyan-950/20'
+                  : 'text-slate-300 hover:bg-white/5'
               }`}
             >
               <span>{link.label}</span>
