@@ -178,7 +178,7 @@ export default function LegalModal({ isOpen, onClose, initialDoc = 'privacy' }) 
           </div>
 
           <div className="pt-4 border-t border-cyan-500/20 flex justify-between items-center text-xs">
-            <span className="text-slate-400">Queries? Reach out to <span className="text-cyan-400">legal@irinfotech.in</span></span>
+            <span className="text-slate-400">Queries? Reach out to <a href={`mailto:${COMPANY_INFO.email}`} className="text-cyan-400 hover:underline">{COMPANY_INFO.email}</a></span>
             <button
               onClick={onClose}
               className="px-4 py-2 rounded-xl bg-cyan-400 text-black font-bold uppercase tracking-wider hover:bg-cyan-300 cursor-pointer font-sub"

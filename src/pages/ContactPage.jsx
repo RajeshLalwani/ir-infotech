@@ -62,11 +62,11 @@ export default function ContactPage() {
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-slate-400">Business & Client Inquiries:</p>
+                  <p className="text-slate-400">Official Business & Inquiries:</p>
                   <a href={`mailto:${COMPANY_INFO.email}`} className="text-sm font-semibold text-white hover:text-cyan-400 transition-colors">
                     {COMPANY_INFO.email}
                   </a>
-                  <p className="text-[11px] text-slate-500 mt-0.5">Internships: {COMPANY_INFO.internshipsEmail}</p>
+                  <p className="text-[11px] text-cyan-400/80 mt-0.5">All Client, Internship & Career Correspondence</p>
                 </div>
               </div>
 
