@@ -9,6 +9,7 @@ export const COMPANY_INFO = {
   whatsapp: "+91 98765 43210",
   address: "Innovation Tech Park, Sector 62, Noida, NCR, India",
   hours: "Mon - Sat: 9:00 AM – 7:00 PM IST (24/7 Client Emergency Support)",
+  linkedin: "https://www.linkedin.com/company/ir-infotech-official/home/",
 };
 
 export const STATS = [
