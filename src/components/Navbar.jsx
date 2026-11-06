@@ -45,10 +45,6 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
                 alt="IR InfoTech" 
                 className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(0,240,255,0.7)] group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_#00f0ff] transition-all duration-300"
               />
-              <span className="absolute -bottom-0.5 -right-0.5 flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00f0ff] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#00f0ff] shadow-[0_0_8px_#00f0ff]"></span>
-              </span>
             </div>
 
             <BrandLogo size="md" />
