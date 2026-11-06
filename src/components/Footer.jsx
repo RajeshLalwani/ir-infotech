@@ -4,11 +4,7 @@ import {
   Mail, 
   Phone, 
   MapPin, 
-  ExternalLink, 
-  ArrowUpRight, 
-  GraduationCap, 
-  CheckCircle2,
-  Heart
+  GraduationCap
 } from 'lucide-react';
 import { COMPANY_INFO, SERVICES, INTERNSHIP_DOMAINS } from '../data/content';
 
@@ -21,9 +17,10 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
   };
 
   return (
-    <footer className="bg-[#03060d] border-t border-cyan-500/20 text-slate-400 relative overflow-hidden">
-      {/* Ambient background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-48 bg-gradient-to-b from-cyan-500/5 to-transparent blur-3xl pointer-events-none" />
+    <footer className="bg-[#000206] border-t border-cyan-400/20 text-slate-400 relative overflow-hidden">
+      
+      {/* Top Glowing Laser Rim */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/70 to-transparent shadow-[0_0_12px_#00f0ff]" />
 
       {/* Main Footer Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
@@ -32,7 +29,7 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
           {/* Column 1: Brand & Identity */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl overflow-hidden p-0.5 bg-gradient-to-br from-cyan-400 to-blue-600 shadow-[0_0_20px_rgba(0,240,255,0.4)]">
+              <div className="w-12 h-12 rounded-xl overflow-hidden p-0.5 bg-gradient-to-br from-cyan-400 to-cyan-600 shadow-[0_0_20px_rgba(0,240,255,0.5)]">
                 <img 
                   src="/ir-logo.jpg" 
                   alt="IR InfoTech" 
@@ -40,7 +37,7 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
                 />
               </div>
               <div>
-                <span className="font-tech text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">
+                <span className="font-tech text-xl font-extrabold tracking-wider text-white drop-shadow-[0_0_12px_rgba(0,240,255,0.6)]">
                   IR INFOTECH
                 </span>
                 <p className="text-[10px] uppercase tracking-[0.25em] font-semibold text-cyan-400 font-sub">
@@ -73,14 +70,14 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
             <div className="pt-3 flex flex-wrap items-center gap-2.5">
               <button
                 onClick={onOpenVerify}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 hover:bg-cyan-900/40 transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold glass-pill text-cyan-300 hover:bg-cyan-950/60 transition-colors cursor-pointer border border-cyan-400/30 font-sub uppercase tracking-wider"
               >
                 <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Verify Credential ID</span>
               </button>
               <button
                 onClick={onOpenApply}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-400 text-black hover:bg-cyan-300 transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-cyan-400 text-black hover:bg-cyan-300 transition-colors cursor-pointer font-sub uppercase tracking-wider shadow-[0_0_15px_rgba(0,240,255,0.4)]"
               >
                 <GraduationCap className="w-3.5 h-3.5" />
                 <span>Apply for Internship</span>
@@ -95,38 +92,38 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
             </p>
             <ul className="space-y-2 text-sm">
               <li>
-                <button onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors cursor-pointer">
+                <button onClick={() => handleNav('home')} className="hover:text-cyan-300 transition-colors cursor-pointer">
                   Home
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('about')} className="hover:text-cyan-400 transition-colors cursor-pointer">
+                <button onClick={() => handleNav('about')} className="hover:text-cyan-300 transition-colors cursor-pointer">
                   About Us
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('services')} className="hover:text-cyan-400 transition-colors cursor-pointer">
+                <button onClick={() => handleNav('services')} className="hover:text-cyan-300 transition-colors cursor-pointer">
                   Services & Solutions
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('portfolio')} className="hover:text-cyan-400 transition-colors cursor-pointer">
+                <button onClick={() => handleNav('portfolio')} className="hover:text-cyan-300 transition-colors cursor-pointer">
                   Portfolio / Case Studies
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('internships')} className="hover:text-cyan-400 transition-colors cursor-pointer flex items-center gap-1.5">
+                <button onClick={() => handleNav('internships')} className="hover:text-cyan-300 transition-colors cursor-pointer flex items-center gap-1.5">
                   <span>Internships & Training</span>
-                  <span className="text-[10px] bg-cyan-500/20 text-cyan-300 px-1.5 rounded">Hiring</span>
+                  <span className="text-[10px] bg-cyan-400 text-black font-extrabold px-1.5 rounded">Apply</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('careers')} className="hover:text-cyan-400 transition-colors cursor-pointer">
+                <button onClick={() => handleNav('careers')} className="hover:text-cyan-300 transition-colors cursor-pointer">
                   Careers & Openings
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('contact')} className="hover:text-cyan-400 transition-colors cursor-pointer">
+                <button onClick={() => handleNav('contact')} className="hover:text-cyan-300 transition-colors cursor-pointer">
                   Contact & Inquiries
                 </button>
               </li>
@@ -174,43 +171,43 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
         </div>
 
         {/* Legal Policies Strip */}
-        <div className="pt-8 pb-6 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4 text-xs">
+        <div className="pt-8 pb-6 border-t border-cyan-500/20 flex flex-wrap items-center justify-between gap-4 text-xs">
           <div className="flex flex-wrap items-center gap-y-2 gap-x-5 text-slate-400">
             <span className="text-slate-200 font-semibold">Legal & Policies:</span>
-            <button onClick={() => onOpenLegal('privacy')} className="hover:text-cyan-400 transition-colors cursor-pointer">
+            <button onClick={() => onOpenLegal('privacy')} className="hover:text-cyan-300 transition-colors cursor-pointer">
               Privacy Policy
             </button>
             <span className="text-slate-700">·</span>
-            <button onClick={() => onOpenLegal('terms')} className="hover:text-cyan-400 transition-colors cursor-pointer">
+            <button onClick={() => onOpenLegal('terms')} className="hover:text-cyan-300 transition-colors cursor-pointer">
               Terms & Conditions
             </button>
             <span className="text-slate-700">·</span>
-            <button onClick={() => onOpenLegal('internship-terms')} className="hover:text-cyan-400 transition-colors cursor-pointer">
+            <button onClick={() => onOpenLegal('internship-terms')} className="hover:text-cyan-300 transition-colors cursor-pointer">
               Internship Terms
             </button>
             <span className="text-slate-700">·</span>
-            <button onClick={() => onOpenLegal('refund')} className="hover:text-cyan-400 transition-colors cursor-pointer">
+            <button onClick={() => onOpenLegal('refund')} className="hover:text-cyan-300 transition-colors cursor-pointer">
               Refund & Cancellation Policy
             </button>
             <span className="text-slate-700">·</span>
-            <button onClick={() => onOpenLegal('disclaimer')} className="hover:text-cyan-400 transition-colors cursor-pointer">
+            <button onClick={() => onOpenLegal('disclaimer')} className="hover:text-cyan-300 transition-colors cursor-pointer">
               Disclaimer
             </button>
             <span className="text-slate-700">·</span>
-            <button onClick={() => onOpenLegal('cookie')} className="hover:text-cyan-400 transition-colors cursor-pointer">
+            <button onClick={() => onOpenLegal('cookie')} className="hover:text-cyan-300 transition-colors cursor-pointer">
               Cookie Policy
             </button>
           </div>
 
           {/* System status pill */}
-          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-[11px]">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full glass-pill border border-emerald-500/30 text-emerald-400 text-[11px]">
+            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]" />
             <span>All Enterprise Systems Operational · 99.98% SLA</span>
           </div>
         </div>
 
-        {/* Bottom Copyright & Disclaimer notice */}
-        <div className="pt-6 border-t border-slate-900 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        {/* Bottom Copyright */}
+        <div className="pt-6 border-t border-cyan-500/10 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <p>© {currentYear} IR InfoTech (IR InfoTech Technology Solutions). All rights reserved.</p>
           <p className="text-[11px] text-slate-500 text-center md:text-right max-w-md">
             Dedicated to engineering excellence, scalable cloud software, and ethical student workforce development.

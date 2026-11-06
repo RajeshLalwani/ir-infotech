@@ -1,10 +1,8 @@
 import React from 'react';
 import { 
   Briefcase, 
-  Sparkles, 
   MapPin, 
   Clock, 
-  CheckCircle2, 
   ArrowRight, 
   Mail, 
   Zap, 
@@ -27,13 +25,13 @@ export default function CareersPage({ onOpenApply }) {
       
       {/* 1. Header Banner */}
       <section className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-cyan-300 text-xs font-semibold">
+        <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full glass-pill border border-cyan-400/40 text-cyan-300 text-xs font-semibold">
           <Briefcase className="w-4 h-4 text-cyan-400" />
           <span>Careers at IR InfoTech</span>
         </div>
         <h1 className="font-tech text-4xl sm:text-5xl font-extrabold text-white leading-tight">
           Build Mission-Critical Systems <br />
-          <span className="text-cyan-400 glow-text">With Our Engineering Team</span>
+          <span className="text-cyan-400 drop-shadow-[0_0_20px_rgba(0,240,255,0.8)]">With Our Engineering Team</span>
         </h1>
         <p className="text-base text-slate-300 leading-relaxed">
           We are always searching for passionate software engineers, cloud architects, and tech mentors who refuse to write mediocre code.
@@ -55,8 +53,8 @@ export default function CareersPage({ onOpenApply }) {
           {perks.map((p, idx) => {
             const Icon = p.icon;
             return (
-              <div key={idx} className="bg-[#091122] border border-cyan-500/20 rounded-2xl p-6 space-y-3 hover:border-cyan-400/50 transition-all">
-                <div className="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+              <div key={idx} className="glass-card rounded-2xl p-6 space-y-3 hover:border-cyan-400 transition-all border border-cyan-400/20">
+                <div className="w-10 h-10 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h4 className="text-base font-bold text-white">{p.title}</h4>
@@ -78,7 +76,7 @@ export default function CareersPage({ onOpenApply }) {
               Current Engineering Opportunities
             </h2>
           </div>
-          <span className="text-xs font-mono text-cyan-400 bg-cyan-950 px-3 py-1.5 rounded-lg border border-cyan-500/30">
+          <span className="text-xs font-mono text-cyan-300 glass-pill px-3 py-1.5 rounded-xl border border-cyan-400/30">
             {CAREER_OPENINGS.length} ACTIVE POSITIONS
           </span>
         </div>
@@ -87,12 +85,12 @@ export default function CareersPage({ onOpenApply }) {
           {CAREER_OPENINGS.map((job) => (
             <div
               key={job.id}
-              className="bg-[#091122] border border-cyan-500/20 rounded-2xl p-6 hover:border-cyan-400/50 hover:shadow-[0_0_30px_rgba(0,240,255,0.15)] transition-all flex flex-col md:flex-row md:items-center justify-between gap-6"
+              className="glass-card rounded-2xl p-6 hover:border-cyan-400 transition-all flex flex-col md:flex-row md:items-center justify-between gap-6 border border-cyan-400/20"
             >
               <div className="space-y-2 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="text-lg font-bold text-white">{job.title}</h3>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 border border-cyan-500/40 text-cyan-300">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded glass-pill border border-cyan-400/40 text-cyan-300">
                     {job.type}
                   </span>
                 </div>
@@ -115,7 +113,7 @@ export default function CareersPage({ onOpenApply }) {
                 {/* Skills tags */}
                 <div className="flex flex-wrap gap-1.5 pt-2">
                   {job.skills.map((s, idx) => (
-                    <span key={idx} className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300">
+                    <span key={idx} className="text-[10px] font-mono px-2 py-0.5 rounded glass-panel text-slate-300 border border-cyan-400/20">
                       {s}
                     </span>
                   ))}
@@ -125,7 +123,7 @@ export default function CareersPage({ onOpenApply }) {
               <div className="shrink-0">
                 <button
                   onClick={onOpenApply}
-                  className="w-full md:w-auto px-6 py-3 rounded-xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all cursor-pointer font-sub shadow-[0_0_15px_rgba(0,240,255,0.3)] flex items-center justify-center gap-2"
+                  className="w-full md:w-auto px-6 py-3 rounded-xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all cursor-pointer font-sub shadow-[0_0_15px_rgba(0,240,255,0.4)] flex items-center justify-center gap-2"
                 >
                   <span>Apply Now</span>
                   <ArrowRight className="w-4 h-4" />
@@ -137,7 +135,7 @@ export default function CareersPage({ onOpenApply }) {
       </section>
 
       {/* 4. Recruitment Desk Notice */}
-      <section className="rounded-3xl bg-[#080e1e] border border-cyan-500/25 p-8 sm:p-12 text-center space-y-4">
+      <section className="rounded-3xl glass-panel border border-cyan-400/30 p-8 sm:p-12 text-center space-y-4 shadow-[0_0_40px_rgba(0,240,255,0.15)]">
         <h3 className="font-tech text-2xl font-bold text-white">
           Don't See Your Exact Role?
         </h3>
@@ -147,9 +145,9 @@ export default function CareersPage({ onOpenApply }) {
         <div className="pt-2">
           <a
             href={`mailto:${COMPANY_INFO.careersEmail}`}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-cyan-950 border border-cyan-500/40 text-cyan-300 text-xs font-bold font-mono hover:bg-cyan-900/50 hover:border-cyan-400 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-pill border border-cyan-400/40 text-cyan-300 text-xs font-bold font-mono hover:bg-cyan-400 hover:text-black transition-all"
           >
-            <Mail className="w-4 h-4 text-cyan-400" />
+            <Mail className="w-4 h-4" />
             <span>{COMPANY_INFO.careersEmail}</span>
           </a>
         </div>

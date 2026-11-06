@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ShieldAlert, FileText, CheckCircle2 } from 'lucide-react';
+import { X, FileText } from 'lucide-react';
 import { COMPANY_INFO } from '../data/content';
 
 export default function LegalModal({ isOpen, onClose, initialDoc = 'privacy' }) {
@@ -17,21 +17,21 @@ export default function LegalModal({ isOpen, onClose, initialDoc = 'privacy' }) 
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-3xl bg-[#090f20] border border-cyan-500/40 rounded-2xl shadow-[0_0_50px_rgba(0,240,255,0.2)] overflow-hidden my-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl overflow-y-auto">
+      <div className="relative w-full max-w-3xl glass-panel rounded-3xl p-6 sm:p-8 space-y-6 shadow-[0_0_60px_rgba(0,240,255,0.25)] border border-cyan-400/40 my-6">
         
         {/* Glow Header Accent */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_15px_#00f0ff]" />
 
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors cursor-pointer"
+          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-xl hover:bg-cyan-950/40 transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
-        <div className="p-6 sm:p-8 space-y-6">
+        <div className="space-y-6">
           
           <div>
             <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-wider font-sub">
@@ -44,15 +44,15 @@ export default function LegalModal({ isOpen, onClose, initialDoc = 'privacy' }) 
           </div>
 
           {/* Doc Switcher Tabs */}
-          <div className="flex flex-wrap gap-2 border-b border-slate-800 pb-3">
+          <div className="flex flex-wrap gap-2 border-b border-cyan-500/20 pb-3">
             {docs.map((d) => (
               <button
                 key={d.id}
                 onClick={() => setActiveDoc(d.id)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer font-sub uppercase tracking-wider ${
                   activeDoc === d.id
-                    ? 'bg-cyan-400 text-black shadow-[0_0_12px_rgba(0,240,255,0.4)]'
-                    : 'bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800'
+                    ? 'bg-cyan-400 text-black shadow-[0_0_15px_rgba(0,240,255,0.6)] font-bold'
+                    : 'glass-card text-slate-300 hover:text-white border border-cyan-400/20'
                 }`}
               >
                 {d.title}
@@ -170,18 +170,18 @@ export default function LegalModal({ isOpen, onClose, initialDoc = 'privacy' }) 
                 </p>
                 <h4 className="font-semibold text-cyan-300 pt-2">1. Essential Cookies</h4>
                 <p>
-                  These are necessary for user navigation, submitting forms, and viewing digital certificates. You may disable cookies in your browser settings, though certain interactive features may experience reduced functionality.
+                  These are necessary for user navigation, submitting forms, and viewing digital certificates.
                 </p>
               </div>
             )}
 
           </div>
 
-          <div className="pt-4 border-t border-slate-800 flex justify-between items-center text-xs">
+          <div className="pt-4 border-t border-cyan-500/20 flex justify-between items-center text-xs">
             <span className="text-slate-400">Queries? Reach out to <span className="text-cyan-400">legal@irinfotech.in</span></span>
             <button
               onClick={onClose}
-              className="px-4 py-2 rounded-lg bg-cyan-400 text-black font-bold uppercase tracking-wider hover:bg-cyan-300 cursor-pointer"
+              className="px-4 py-2 rounded-xl bg-cyan-400 text-black font-bold uppercase tracking-wider hover:bg-cyan-300 cursor-pointer font-sub"
             >
               Close
             </button>

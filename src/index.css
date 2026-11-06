@@ -3,11 +3,9 @@
 @layer base {
   :root {
     color-scheme: dark;
-    --cyber-black: #050811;
-    --cyber-dark: #0a0f1d;
-    --cyber-card: #0d1527;
-    --cyber-cyan: #00f0ff;
-    --cyber-glow: rgba(0, 240, 255, 0.35);
+    --logo-cyan: #00f0ff;
+    --logo-cyan-glow: rgba(0, 240, 255, 0.45);
+    --logo-bg: #000308;
   }
 
   html {
@@ -16,74 +14,94 @@
   }
 
   body {
-    background-color: #050811;
-    color: #e2e8f0;
+    background-color: #000308;
+    color: #f1f5f9;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
   }
 
-  /* Custom cyber scrollbar */
+  /* Electric cyan scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
   }
   ::-webkit-scrollbar-track {
-    background: #080c18;
+    background: #00040a;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e293b;
+    background: #04253a;
     border-radius: 4px;
-    border: 1px solid rgba(0, 240, 255, 0.2);
+    border: 1px solid rgba(0, 240, 255, 0.3);
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #00f0ff;
+    box-shadow: 0 0 10px #00f0ff;
   }
 }
 
-/* Custom Glow & Cyber Utilities */
-.glow-cyan {
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.25);
+/* Glassmorphism & Cyber Utilities */
+.glass-panel {
+  background: rgba(1, 8, 20, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.06);
 }
 
-.glow-cyan-sm {
-  box-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
+.glass-panel:hover {
+  border-color: rgba(0, 240, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.18);
 }
 
-.glow-text {
-  text-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+.glass-card {
+  background: linear-gradient(135deg, rgba(2, 12, 28, 0.65) 0%, rgba(1, 6, 16, 0.45) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.8), 0 0 16px -2px rgba(0, 240, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glow-text-lg {
-  text-shadow: 0 0 25px rgba(0, 240, 255, 0.8), 0 0 50px rgba(0, 240, 255, 0.3);
+.glass-card:hover {
+  border-color: rgba(0, 240, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.9), 0 0 25px 2px rgba(0, 240, 255, 0.25);
+}
+
+.glass-pill {
+  background: rgba(0, 240, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+/* Neon Glow Effects Matching the Logo */
+.neon-glow-cyan {
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.45), 0 0 50px rgba(0, 240, 255, 0.15);
+}
+
+.neon-glow-cyan-sm {
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+}
+
+.neon-text {
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.8), 0 0 30px rgba(0, 240, 255, 0.35);
 }
 
 .cyber-grid {
-  background-size: 40px 40px;
+  background-size: 44px 44px;
   background-image: 
-    linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
-}
-
-.cyber-gradient-border {
-  position: relative;
-  border-radius: 1rem;
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.3), rgba(0, 140, 255, 0.1), transparent);
-  padding: 1px;
-}
-
-.cyber-gradient-border > div {
-  background: #090f20;
-  border-radius: calc(1rem - 1px);
+    linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
 }
 
 @keyframes pulseGlow {
   0%, 100% {
-    opacity: 0.4;
+    opacity: 0.35;
     transform: scale(1);
   }
   50% {
-    opacity: 0.8;
-    transform: scale(1.05);
+    opacity: 0.85;
+    transform: scale(1.04);
   }
 }
 

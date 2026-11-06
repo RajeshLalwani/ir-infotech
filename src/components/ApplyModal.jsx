@@ -1,273 +1,143 @@
-import React, { useState } from 'react';
-import { X, CheckCircle2, GraduationCap, Briefcase, Sparkles, Send, ArrowRight } from 'lucide-react';
-import { INTERNSHIP_DOMAINS, CAREER_OPENINGS } from '../data/content';
+import React from 'react';
+import { X, ExternalLink, FileSpreadsheet, Mail, Sparkles, GraduationCap, CheckCircle2 } from 'lucide-react';
+import { COMPANY_INFO } from '../data/content';
 
-export default function ApplyModal({ isOpen, onClose, initialTab = 'internship', selectedDomain = '' }) {
-  const [activeTab, setActiveTab] = useState(initialTab); // 'internship' | 'career'
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    collegeOrOrg: '',
-    yearOrExp: '',
-    domain: selectedDomain || INTERNSHIP_DOMAINS[0].title,
-    portfolioUrl: '',
-    duration: '2 Months',
-    message: ''
-  });
-
+export default function ApplyModal({ isOpen, onClose, initialTab = 'internship' }) {
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
-  const handleReset = () => {
-    setSubmitted(false);
-    onClose();
-  };
+  // Customizable Google Form & LinkedIn links
+  const GOOGLE_FORM_URL = "https://forms.google.com"; // Replace with your actual Google Form URL
+  const LINKEDIN_URL = "https://www.linkedin.com/company/ir-infotech"; // Replace with company LinkedIn
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-2xl bg-[#090f20] border border-cyan-500/40 rounded-2xl shadow-[0_0_50px_rgba(0,240,255,0.25)] overflow-hidden my-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl animate-fadeIn">
+      <div className="relative w-full max-w-lg glass-panel rounded-3xl p-6 sm:p-8 space-y-6 shadow-[0_0_60px_rgba(0,240,255,0.25)] border border-cyan-400/40 my-6">
         
-        {/* Top Glowing Header Accent */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-400" />
+        {/* Top Rim Light */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_15px_#00f0ff]" />
 
-        {/* Modal Close Button */}
+        {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800/60 transition-colors cursor-pointer"
+          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-xl hover:bg-cyan-950/40 transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
-        {submitted ? (
-          <div className="p-8 sm:p-12 text-center space-y-5">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center mx-auto text-emerald-400 shadow-[0_0_25px_rgba(16,185,129,0.3)]">
-              <CheckCircle2 className="w-9 h-9" />
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="font-tech text-2xl font-bold text-white">Application Received!</h3>
-              <p className="text-sm text-slate-300 max-w-md mx-auto">
-                Thank you for applying to <span className="text-cyan-400 font-semibold">IR InfoTech</span>. Your application reference ID is:
-              </p>
-              <div className="inline-block px-4 py-2 bg-slate-900 border border-cyan-500/30 rounded-lg text-cyan-300 font-mono text-sm font-bold tracking-wider">
-                APP-{Math.floor(100000 + Math.random() * 900000)}
-              </div>
-            </div>
-
-            <div className="bg-slate-950/60 border border-slate-800 rounded-xl p-4 text-xs text-slate-300 text-left space-y-2 max-w-md mx-auto">
-              <p className="font-semibold text-cyan-400">Next Steps:</p>
-              <ul className="list-disc list-inside space-y-1 text-slate-400">
-                <li>Our technical evaluation cell will review your profile.</li>
-                <li>You will receive an official confirmation on <span className="text-slate-200">{formData.email || 'your email'}</span> within 24 hours.</li>
-                <li>Shortlisted applicants will receive a Google Meet link for technical alignment.</li>
-              </ul>
-            </div>
-
-            <button
-              onClick={handleReset}
-              className="px-6 py-2.5 rounded-lg bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-colors cursor-pointer"
-            >
-              Done & Return
-            </button>
+        {/* Modal Header */}
+        <div className="text-center space-y-2 pt-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill text-cyan-300 text-xs font-semibold">
+            <Sparkles className="w-4 h-4 text-cyan-400" />
+            <span>Fast-Track Application</span>
           </div>
-        ) : (
-          <div className="p-6 sm:p-8 space-y-6">
-            
-            {/* Header info */}
-            <div>
-              <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-wider font-sub">
-                <Sparkles className="w-4 h-4" />
-                <span>Join IR InfoTech</span>
+
+          <h3 className="font-tech text-2xl font-black text-white">
+            Apply For Internship & Careers
+          </h3>
+
+          <p className="text-xs text-slate-300 max-w-sm mx-auto">
+            Hamara application process simplified hai. Direct Google Form ya LinkedIn ke through apply karein.
+          </p>
+        </div>
+
+        {/* Direct Action Cards */}
+        <div className="space-y-3.5 pt-1">
+          
+          {/* 1. Google Form Option (Recommended) */}
+          <a
+            href={GOOGLE_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block p-4 rounded-2xl glass-card border border-cyan-400/40 hover:border-cyan-400 transition-all cursor-pointer relative overflow-hidden"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-xl bg-cyan-950/80 border border-cyan-400/50 flex items-center justify-center text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.3)] group-hover:scale-105 transition-transform">
+                  <FileSpreadsheet className="w-5 h-5 text-cyan-400" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h4 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors">
+                      Official Google Form
+                    </h4>
+                    <span className="text-[10px] bg-cyan-400 text-black font-extrabold px-1.5 py-0.5 rounded uppercase font-sub">
+                      Recommended
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-300 mt-0.5">
+                    Fill the quick 2-minute internship registration form
+                  </p>
+                </div>
               </div>
-              <h2 className="text-2xl font-extrabold text-white mt-1">
-                Fast-Track Your Tech Career
-              </h2>
-              <p className="text-xs text-slate-400 mt-1">
-                Apply for industry-grade live project internships or explore lateral engineering roles.
-              </p>
+              <ExternalLink className="w-4 h-4 text-cyan-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </div>
+          </a>
 
-            {/* Tab switch */}
-            <div className="grid grid-cols-2 p-1 bg-slate-950/80 border border-slate-800 rounded-xl">
-              <button
-                type="button"
-                onClick={() => setActiveTab('internship')}
-                className={`py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-2 transition-all cursor-pointer ${
-                  activeTab === 'internship'
-                    ? 'bg-cyan-500 text-black shadow-[0_0_15px_rgba(0,240,255,0.4)]'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <GraduationCap className="w-4 h-4" />
-                <span>Internship & Training</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab('career')}
-                className={`py-2 text-xs font-bold rounded-lg flex items-center justify-center gap-2 transition-all cursor-pointer ${
-                  activeTab === 'career'
-                    ? 'bg-cyan-500 text-black shadow-[0_0_15px_rgba(0,240,255,0.4)]'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <Briefcase className="w-4 h-4" />
-                <span>Full-Time Careers</span>
-              </button>
+          {/* 2. LinkedIn Option with custom crisp SVG */}
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block p-4 rounded-2xl glass-card border border-cyan-400/20 hover:border-cyan-400/60 transition-all cursor-pointer"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-xl bg-[#001428] border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform">
+                  <svg className="w-5 h-5 fill-current text-cyan-400" viewBox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.27 1.64 1.64 0 0 0 0 3.27m1.4 9.74v-8.37H5.06v8.37h2.8z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors">
+                    Apply via LinkedIn
+                  </h4>
+                  <p className="text-xs text-slate-400 mt-0.5">
+                    View active internship cohort posts & lateral job openings
+                  </p>
+                </div>
+              </div>
+              <ExternalLink className="w-4 h-4 text-cyan-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </div>
+          </a>
 
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1">Full Name *</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Rahul Sharma"
-                    className="w-full px-3 py-2 text-sm bg-slate-950/90 border border-slate-700/80 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
-                  />
+          {/* 3. Direct Email Fallback */}
+          <a
+            href={`mailto:${COMPANY_INFO.internshipsEmail}?subject=Application for IR InfoTech Internship`}
+            className="group block p-4 rounded-2xl glass-card border border-cyan-400/20 hover:border-cyan-400/60 transition-all cursor-pointer"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-xl bg-[#001428] border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform">
+                  <Mail className="w-5 h-5 text-cyan-300" />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1">Email Address *</label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="rahul@example.com"
-                    className="w-full px-3 py-2 text-sm bg-slate-950/90 border border-slate-700/80 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
-                  />
+                  <h4 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors">
+                    Send Resume via Email
+                  </h4>
+                  <p className="text-xs text-slate-400 mt-0.5">
+                    {COMPANY_INFO.internshipsEmail}
+                  </p>
                 </div>
               </div>
+              <ExternalLink className="w-4 h-4 text-cyan-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </div>
+          </a>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1">Phone / WhatsApp Number *</label>
-                  <input
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+91 98765 43210"
-                    className="w-full px-3 py-2 text-sm bg-slate-950/90 border border-slate-700/80 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1">
-                    {activeTab === 'internship' ? 'College / University *' : 'Current Company / Last Org *'}
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.collegeOrOrg}
-                    onChange={(e) => setFormData({ ...formData, collegeOrOrg: e.target.value })}
-                    placeholder={activeTab === 'internship' ? 'e.g. AKTU / Delhi University' : 'e.g. Freelance / Tech Co'}
-                    className="w-full px-3 py-2 text-sm bg-slate-950/90 border border-slate-700/80 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
-                  />
-                </div>
-              </div>
+        </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1">
-                    {activeTab === 'internship' ? 'Select Training Domain *' : 'Select Career Role *'}
-                  </label>
-                  <select
-                    value={formData.domain}
-                    onChange={(e) => setFormData({ ...formData, domain: e.target.value })}
-                    className="w-full px-3 py-2 text-sm bg-slate-950 border border-slate-700/80 rounded-lg text-white focus:outline-none focus:border-cyan-400"
-                  >
-                    {activeTab === 'internship' ? (
-                      INTERNSHIP_DOMAINS.map((d) => (
-                        <option key={d.id} value={d.title}>
-                          {d.title}
-                        </option>
-                      ))
-                    ) : (
-                      CAREER_OPENINGS.map((j) => (
-                        <option key={j.id} value={j.title}>
-                          {j.title}
-                        </option>
-                      ))
-                    )}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1">
-                    {activeTab === 'internship' ? 'Preferred Duration' : 'Total Experience'}
-                  </label>
-                  {activeTab === 'internship' ? (
-                    <select
-                      value={formData.duration}
-                      onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
-                      className="w-full px-3 py-2 text-sm bg-slate-950 border border-slate-700/80 rounded-lg text-white focus:outline-none focus:border-cyan-400"
-                    >
-                      <option value="1 Month">1 Month (Intensive Foundation)</option>
-                      <option value="2 Months">2 Months (Standard Project)</option>
-                      <option value="3 Months">3 Months (Advanced Capstone)</option>
-                      <option value="6 Months">6 Months (Full Industry Track)</option>
-                    </select>
-                  ) : (
-                    <input
-                      type="text"
-                      placeholder="e.g. 2.5 Years"
-                      value={formData.yearOrExp}
-                      onChange={(e) => setFormData({ ...formData, yearOrExp: e.target.value })}
-                      className="w-full px-3 py-2 text-sm bg-slate-950 border border-slate-700/80 rounded-lg text-white focus:outline-none focus:border-cyan-400"
-                    />
-                  )}
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1">
-                  GitHub Profile / LinkedIn / Portfolio URL (Optional)
-                </label>
-                <input
-                  type="url"
-                  value={formData.portfolioUrl}
-                  onChange={(e) => setFormData({ ...formData, portfolioUrl: e.target.value })}
-                  placeholder="https://github.com/username or https://linkedin.com/in/username"
-                  className="w-full px-3 py-2 text-sm bg-slate-950 border border-slate-700/80 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1">
-                  Why do you want to join IR InfoTech? (Brief note)
-                </label>
-                <textarea
-                  rows="2"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Tell us about your interests, programming projects, and goals..."
-                  className="w-full px-3 py-2 text-sm bg-slate-950 border border-slate-700/80 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
-                ></textarea>
-              </div>
-
-              {/* Submit CTA */}
-              <button
-                type="submit"
-                className="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Send className="w-4 h-4" />
-                <span>Submit {activeTab === 'internship' ? 'Internship Application' : 'Job Application'}</span>
-              </button>
-
-              <p className="text-[11px] text-center text-slate-500">
-                🔒 By submitting, you agree to IR InfoTech's Terms & Conditions and Privacy Policy.
-              </p>
-            </form>
-          </div>
-        )}
+        {/* Bottom Note */}
+        <div className="pt-3 border-t border-cyan-500/20 flex items-center justify-between text-[11px] text-slate-400">
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400" />
+            <span>Response within 24 hours</span>
+          </span>
+          <button
+            onClick={onClose}
+            className="text-cyan-300 hover:text-white font-semibold cursor-pointer"
+          >
+            Close
+          </button>
+        </div>
 
       </div>
     </div>

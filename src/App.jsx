@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Preloader from './components/Preloader';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ApplyModal from './components/ApplyModal';
@@ -14,6 +15,7 @@ import CareersPage from './pages/CareersPage';
 import ContactPage from './pages/ContactPage';
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
   const [activePage, setActivePage] = useState('home');
   const [isApplyOpen, setIsApplyOpen] = useState(false);
   const [applyInitialTab, setApplyInitialTab] = useState('internship');
@@ -41,12 +43,15 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050811] text-slate-100 flex flex-col relative selection:bg-cyan-400 selection:text-black">
+    <div className="min-h-screen bg-[#000308] text-slate-100 flex flex-col relative selection:bg-cyan-400 selection:text-black">
       
-      {/* Background Cyber Grid Lines */}
+      {/* 1. Futuristic Orbital Preloader with Center Glitter in Logo Colors */}
+      {loading && <Preloader onFinish={() => setLoading(false)} />}
+
+      {/* Cyber Grid Pattern */}
       <div className="fixed inset-0 cyber-grid pointer-events-none opacity-40 z-0" />
 
-      {/* Floating Header Navigation */}
+      {/* Glassmorphic Header Navigation */}
       <Navbar
         activePage={activePage}
         setActivePage={setActivePage}
@@ -109,7 +114,7 @@ export default function App() {
         onOpenApply={() => handleOpenApply('internship')}
       />
 
-      {/* 1. Interactive Apply Now Modal */}
+      {/* 1. Simplified Apply Modal (Google Form + LinkedIn) */}
       <ApplyModal
         isOpen={isApplyOpen}
         onClose={() => setIsApplyOpen(false)}

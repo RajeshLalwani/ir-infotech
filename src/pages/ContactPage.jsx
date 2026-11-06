@@ -7,9 +7,7 @@ import {
   Send, 
   CheckCircle2, 
   MessageSquare, 
-  Sparkles, 
-  ShieldCheck,
-  ExternalLink
+  ShieldCheck
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/content';
 
@@ -34,13 +32,13 @@ export default function ContactPage() {
       
       {/* 1. Header Banner */}
       <section className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-cyan-300 text-xs font-semibold">
+        <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full glass-pill border border-cyan-400/40 text-cyan-300 text-xs font-semibold">
           <MessageSquare className="w-4 h-4 text-cyan-400" />
           <span>Connect With IR InfoTech</span>
         </div>
         <h1 className="font-tech text-4xl sm:text-5xl font-extrabold text-white leading-tight">
           Let’s Architect <br />
-          <span className="text-cyan-400 glow-text">Something Extraordinary</span>
+          <span className="text-cyan-400 drop-shadow-[0_0_20px_rgba(0,240,255,0.8)]">Something Extraordinary</span>
         </h1>
         <p className="text-base text-slate-300 leading-relaxed">
           Whether you need enterprise software development, wish to enroll in our student training cohort, or explore strategic partnerships, our team responds within 24 hours.
@@ -53,14 +51,14 @@ export default function ContactPage() {
         {/* Left Column: Direct Info Cards */}
         <div className="lg:col-span-5 space-y-6">
           
-          <div className="bg-[#091122] border border-cyan-500/25 rounded-2xl p-6 sm:p-8 space-y-6">
+          <div className="glass-card rounded-3xl p-6 sm:p-8 space-y-6 border border-cyan-400/30">
             <h3 className="font-tech text-xl font-bold text-white">Direct Communication</h3>
             
             <div className="space-y-4 text-xs">
               
               {/* Business Email */}
               <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-xl bg-cyan-950 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shrink-0 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
@@ -74,7 +72,7 @@ export default function ContactPage() {
 
               {/* Phone / WhatsApp */}
               <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-xl bg-cyan-950 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shrink-0 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
@@ -82,13 +80,13 @@ export default function ContactPage() {
                   <a href={`tel:${COMPANY_INFO.phone}`} className="text-sm font-semibold text-white hover:text-cyan-400 transition-colors">
                     {COMPANY_INFO.phone}
                   </a>
-                  <p className="text-[11px] text-emerald-400 mt-0.5">WhatsApp Chat Active</p>
+                  <p className="text-[11px] text-emerald-400 mt-0.5">WhatsApp Active</p>
                 </div>
               </div>
 
               {/* Location */}
               <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-xl bg-cyan-950 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shrink-0 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
@@ -99,7 +97,7 @@ export default function ContactPage() {
 
               {/* Hours */}
               <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-xl bg-cyan-950 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shrink-0 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
                   <Clock className="w-4 h-4" />
                 </div>
                 <div>
@@ -111,7 +109,7 @@ export default function ContactPage() {
             </div>
 
             {/* Response Guarantee Badge */}
-            <div className="pt-4 border-t border-slate-800 flex items-center gap-2.5 text-xs text-cyan-300">
+            <div className="pt-4 border-t border-cyan-500/20 flex items-center gap-2.5 text-xs text-cyan-300">
               <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0" />
               <span>Standard response SLA: Within 24 business hours.</span>
             </div>
@@ -119,33 +117,33 @@ export default function ContactPage() {
           </div>
 
           {/* Hologram Brand Badge */}
-          <div className="bg-[#050a17] border border-cyan-500/20 rounded-2xl p-6 flex items-center gap-4">
-            <div className="w-14 h-14 rounded-xl overflow-hidden p-0.5 bg-gradient-to-br from-cyan-400 to-blue-600 shrink-0 shadow-[0_0_15px_rgba(0,240,255,0.4)]">
+          <div className="glass-panel rounded-2xl p-6 flex items-center gap-4 border border-cyan-400/20">
+            <div className="w-14 h-14 rounded-xl overflow-hidden p-0.5 bg-gradient-to-br from-cyan-400 to-cyan-600 shrink-0 shadow-[0_0_20px_rgba(0,240,255,0.5)]">
               <img src="/ir-logo.jpg" alt="Logo" className="w-full h-full object-cover rounded-lg" />
             </div>
             <div>
               <h4 className="font-tech text-base font-bold text-white">IR INFOTECH</h4>
-              <p className="text-[11px] text-cyan-400 font-sub tracking-wider uppercase">Technology Solutions</p>
+              <p className="text-[11px] text-cyan-400 font-sub tracking-wider uppercase font-semibold">Technology Solutions</p>
               <p className="text-[11px] text-slate-400 mt-1">Enterprise Software · AI · Verified Training</p>
             </div>
           </div>
 
         </div>
 
-        {/* Right Column: Interactive Form */}
+        {/* Right Column: Interactive Form in Glassmorphism */}
         <div className="lg:col-span-7">
-          <div className="bg-[#091122] border border-cyan-500/30 rounded-2xl p-6 sm:p-10 shadow-[0_0_35px_rgba(0,240,255,0.15)]">
+          <div className="glass-panel rounded-3xl p-6 sm:p-10 shadow-[0_0_40px_rgba(0,240,255,0.2)] border border-cyan-400/40">
             
             {submitted ? (
               <div className="py-12 text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-400 flex items-center justify-center mx-auto text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+                <div className="w-16 h-16 rounded-full bg-cyan-950 border border-cyan-400 flex items-center justify-center mx-auto text-cyan-400 shadow-[0_0_25px_rgba(0,240,255,0.4)]">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="font-tech text-2xl font-bold text-white">Message Dispatched!</h3>
                 <p className="text-sm text-slate-300 max-w-md mx-auto">
                   Thank you, <span className="text-cyan-400 font-semibold">{formData.name}</span>. Your inquiry has been routed to our technical advisory team.
                 </p>
-                <div className="inline-block px-4 py-2 bg-slate-950 border border-cyan-500/30 rounded-lg text-cyan-300 font-mono text-xs">
+                <div className="inline-block px-4 py-2 glass-pill rounded-xl text-cyan-300 font-mono text-xs border border-cyan-400/30">
                   INQ REF: {Math.floor(100000 + Math.random() * 900000)}
                 </div>
                 <div className="pt-4">
@@ -154,7 +152,7 @@ export default function ContactPage() {
                       setSubmitted(false);
                       setFormData({ name: '', email: '', phone: '', company: '', message: '' });
                     }}
-                    className="px-6 py-2.5 rounded-lg bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all cursor-pointer font-sub"
+                    className="px-6 py-2.5 rounded-xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all cursor-pointer font-sub shadow-[0_0_15px_rgba(0,240,255,0.4)]"
                   >
                     Send Another Message
                   </button>
@@ -180,10 +178,10 @@ export default function ContactPage() {
                         type="button"
                         key={type}
                         onClick={() => setInquiryType(type)}
-                        className={`py-2 px-3 rounded-lg text-xs font-semibold transition-all cursor-pointer text-center ${
+                        className={`py-2 px-3 rounded-xl text-xs font-semibold transition-all cursor-pointer text-center font-sub ${
                           inquiryType === type
-                            ? 'bg-cyan-400 text-black shadow-[0_0_12px_rgba(0,240,255,0.4)]'
-                            : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                            ? 'bg-cyan-400 text-black shadow-[0_0_12px_rgba(0,240,255,0.5)] font-bold'
+                            : 'glass-card text-slate-400 hover:text-white border border-cyan-400/20'
                         }`}
                       >
                         {type}
@@ -201,7 +199,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Vikram Singhania"
-                      className="w-full px-3 py-2.5 text-sm bg-slate-950 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+                      className="w-full px-3.5 py-2.5 text-sm glass-panel border border-cyan-400/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
                     />
                   </div>
                   <div>
@@ -212,7 +210,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="vikram@company.com"
-                      className="w-full px-3 py-2.5 text-sm bg-slate-950 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+                      className="w-full px-3.5 py-2.5 text-sm glass-panel border border-cyan-400/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
                     />
                   </div>
                 </div>
@@ -226,7 +224,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+91 98765 43210"
-                      className="w-full px-3 py-2.5 text-sm bg-slate-950 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+                      className="w-full px-3.5 py-2.5 text-sm glass-panel border border-cyan-400/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
                     />
                   </div>
                   <div>
@@ -236,7 +234,7 @@ export default function ContactPage() {
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="e.g. TechCorp Solutions"
-                      className="w-full px-3 py-2.5 text-sm bg-slate-950 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+                      className="w-full px-3.5 py-2.5 text-sm glass-panel border border-cyan-400/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
                     />
                   </div>
                 </div>
@@ -249,13 +247,13 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Describe your project requirements, technology stack, timeline or student queries..."
-                    className="w-full px-3 py-2.5 text-sm bg-slate-950 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+                    className="w-full px-3.5 py-2.5 text-sm glass-panel border border-cyan-400/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
+                  className="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-[0_0_20px_rgba(0,240,255,0.6)] transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send Inquiry</span>
