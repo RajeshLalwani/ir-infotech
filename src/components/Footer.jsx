@@ -60,8 +60,17 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
               </div>
             </div>
 
-            {/* Verification, Apply & LinkedIn Pills */}
+            {/* Verification, Apply, WhatsApp & LinkedIn Pills */}
             <div className="pt-3 flex flex-wrap items-center gap-2.5">
+              <a
+                href="https://wa.me/918488984951?text=Hi%20IR%20InfoTech%2C%20I%20would%20like%20to%20connect%20with%20your%20team."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500/25 transition-colors cursor-pointer border border-emerald-400/40 font-sub uppercase tracking-wider shadow-[0_0_12px_rgba(16,185,129,0.25)]"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>WhatsApp</span>
+              </a>
               <a
                 href={COMPANY_INFO.linkedin}
                 target="_blank"

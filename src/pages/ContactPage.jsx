@@ -73,15 +73,23 @@ export default function ContactPage() {
 
               {/* Phone / WhatsApp */}
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shrink-0 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
+                <div className="w-10 h-10 rounded-xl bg-emerald-950/70 border border-emerald-400/40 flex items-center justify-center text-emerald-400 shrink-0 shadow-[0_0_12px_rgba(16,185,129,0.35)]">
                   <Phone className="w-4 h-4" />
                 </div>
-                <div>
-                  <p className="text-slate-400">Telephone & WhatsApp:</p>
-                  <a href={`tel:${COMPANY_INFO.phone}`} className="text-sm font-semibold text-white hover:text-cyan-400 transition-colors">
+                <div className="space-y-1">
+                  <p className="text-slate-400 text-xs">Official WhatsApp & Voice Desk:</p>
+                  <a href={`tel:${COMPANY_INFO.phone}`} className="block text-sm font-bold text-white hover:text-[#00f0ff] transition-colors">
                     {COMPANY_INFO.phone}
                   </a>
-                  <p className="text-[11px] text-emerald-400 mt-0.5">WhatsApp Active</p>
+                  <a 
+                    href={`https://wa.me/918488984951?text=${encodeURIComponent('Hi IR InfoTech, I would like to connect with your team.')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 hover:bg-emerald-500/25 text-xs font-semibold transition-all shadow-[0_0_10px_rgba(16,185,129,0.2)]"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>Chat on WhatsApp (+91 84889 84951)</span>
+                  </a>
                 </div>
               </div>
 
@@ -243,7 +251,7 @@ export default function ContactPage() {
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 84889 84951"
                       className="w-full px-3.5 py-2.5 text-sm glass-panel border border-cyan-400/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
                     />
                   </div>

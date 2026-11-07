@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import ApplyModal from './components/ApplyModal';
 import VerifyCertModal from './components/VerifyCertModal';
 import LegalModal from './components/LegalModal';
+import WhatsAppButton from './components/WhatsAppButton';
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -130,6 +131,9 @@ export default function App() {
         onClose={() => setIsLegalOpen(false)}
         initialDoc={activeLegalDoc}
       />
+
+      {/* 4. Floating 1-Click WhatsApp Quick Action Desk */}
+      <WhatsAppButton />
 
     </div>
   );
