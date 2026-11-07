@@ -92,45 +92,58 @@
 /* Holographic Pedestal Platform (matches reference banner 2) */
 .hologram-pedestal {
   position: relative;
-  width: 260px;
-  height: 60px;
+  width: 320px;
+  max-width: 100%;
+  height: 75px;
   margin: 0 auto;
-  perspective: 400px;
+  perspective: 450px;
 }
 
 .hologram-rings {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 2px solid rgba(0, 240, 255, 0.8);
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.6), inset 0 0 25px rgba(0, 240, 255, 0.4);
-  transform: rotateX(72deg);
+  border: 2px solid rgba(0, 240, 255, 0.95);
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.75), inset 0 0 30px rgba(0, 240, 255, 0.5);
+  transform: rotateX(74deg);
 }
 
 .hologram-inner-ring {
   position: absolute;
-  top: 15%;
-  left: 15%;
-  right: 15%;
-  bottom: 15%;
+  top: 14%;
+  left: 14%;
+  right: 14%;
+  bottom: 14%;
   border-radius: 50%;
-  border: 1px dashed rgba(0, 240, 255, 0.9);
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.8);
-  transform: rotateX(72deg);
-  animation: spin 10s linear infinite;
+  border: 1.5px dashed #00f0ff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.9);
+  transform: rotateX(74deg);
+  animation: spin 8s linear infinite;
+}
+
+.hologram-emitter {
+  position: absolute;
+  top: 32%;
+  left: 32%;
+  right: 32%;
+  bottom: 32%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, #00f0ff 40%, transparent 75%);
+  box-shadow: 0 0 25px #00f0ff, 0 0 50px rgba(0, 240, 255, 0.6);
+  transform: rotateX(74deg);
 }
 
 .hologram-beam {
   position: absolute;
-  bottom: 25px;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
-  width: 140px;
-  height: 120px;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 240, 255, 0.25) 80%, rgba(0, 240, 255, 0.8) 100%);
-  clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+  width: 180px;
+  height: 140px;
+  background: linear-gradient(180deg, rgba(0, 240, 255, 0.05) 0%, rgba(0, 240, 255, 0.25) 50%, rgba(0, 240, 255, 0.85) 100%);
+  clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
   pointer-events: none;
-  filter: blur(4px);
+  filter: blur(3px);
 }
 
 /* Laser Flare Divider (matches reference banner) */

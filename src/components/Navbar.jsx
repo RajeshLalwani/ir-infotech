@@ -39,11 +39,12 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-3.5 group text-left cursor-pointer focus:outline-none"
           >
-            <div className="relative w-12 h-12 flex items-center justify-center">
+            {/* High-visibility Brand Emblem */}
+            <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center shrink-0">
               <img 
                 src="/ir-logo.png" 
-                alt="IR InfoTech" 
-                className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(0,240,255,0.7)] group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_#00f0ff] transition-all duration-300"
+                alt="IR InfoTech Emblem" 
+                className="w-full h-full object-contain filter drop-shadow-[0_0_16px_rgba(0,240,255,0.9)] group-hover:scale-105 group-hover:drop-shadow-[0_0_24px_#00f0ff] transition-all duration-300"
               />
             </div>
 
