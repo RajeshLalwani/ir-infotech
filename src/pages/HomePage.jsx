@@ -51,35 +51,21 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
             {/* Top Row: Logo with Holographic Pedestal + Brand Typography */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
-              {/* Left Column: Holographic Emblem with Pedestal (From Reference Banner 2) */}
+              {/* Left Column: Official Emblem (Clean, Original Artwork) */}
               <div className="lg:col-span-5 flex flex-col items-center justify-center">
                 <div className="relative flex flex-col items-center">
                   
-                  {/* Cyber Orbital HUD Circle behind Emblem (from Reference Banner 2) */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-88 sm:h-88 lg:w-[420px] lg:h-[420px] rounded-full border border-[#00f0ff]/30 shadow-[0_0_35px_rgba(0,240,255,0.25)] pointer-events-none" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] rounded-full border border-dashed border-[#00f0ff]/20 pointer-events-none animate-spin" style={{ animationDuration: '30s' }} />
-
-                  {/* Ambient Electric Aqua Radial Backlight for High Contrast & Clarity */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-[#00f0ff]/20 blur-3xl pointer-events-none" />
-
-                  {/* Floating Logo - Crystal Clear, High Luminance, Razor Sharp */}
-                  <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[370px] lg:h-[370px] z-10 animate-float flex items-center justify-center">
+                  {/* Clean Original Logo - Crisp, Authentic, Natural Contrast */}
+                  <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 z-10 animate-float flex items-center justify-center">
                     <img 
                       src="/ir-logo.png" 
                       alt="IR InfoTech Official Emblem" 
-                      className="w-full h-full object-contain filter drop-shadow-[0_0_40px_rgba(0,240,255,1)] hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(0,240,255,0.35)] hover:scale-105 transition-transform duration-500"
                     />
                   </div>
 
-                  {/* Holographic Circular Pedestal Platform (Matches Reference Banner 2) */}
-                  <div className="hologram-pedestal -mt-8 z-0">
-                    <div className="hologram-beam" />
-                    <div className="hologram-rings" />
-                    <div className="hologram-inner-ring" />
-                    <div className="hologram-emitter" />
-                    {/* Center Ground Glow */}
-                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-24 h-4 rounded-full bg-cyan-300 blur-sm shadow-[0_0_25px_#00f0ff]" />
-                  </div>
+                  {/* Subtle Ground Anchor Flare */}
+                  <div className="w-48 h-1 -mt-2 rounded-full bg-gradient-to-r from-transparent via-[#00f0ff]/40 to-transparent blur-sm" />
 
                 </div>
               </div>

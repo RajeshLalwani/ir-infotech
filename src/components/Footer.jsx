@@ -30,11 +30,11 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
           {/* Column 1: Brand & Identity */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shrink-0">
                 <img 
                   src="/ir-logo.png" 
                   alt="IR InfoTech Emblem" 
-                  className="w-full h-full object-contain filter drop-shadow-[0_0_18px_rgba(0,240,255,0.9)]"
+                  className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(0,240,255,0.4)]"
                 />
               </div>
               <BrandLogo size="md" showTagline={true} />

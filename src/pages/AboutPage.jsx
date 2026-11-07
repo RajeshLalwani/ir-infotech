@@ -97,13 +97,11 @@ export default function AboutPage({ setActivePage, onOpenApply }) {
           <div className="relative group w-full max-w-sm">
             <div className="absolute -inset-2 bg-cyan-400/20 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition-all duration-500" />
             <div className="relative glass-panel rounded-3xl p-8 text-center space-y-4 border border-cyan-400/40">
-              <div className="relative w-64 h-64 sm:w-72 sm:h-72 mx-auto flex items-center justify-center animate-float">
-                {/* Ambient Radial Aqua Bloom */}
-                <div className="absolute inset-0 bg-[#00f0ff]/15 rounded-full blur-2xl pointer-events-none" />
+              <div className="w-56 h-56 sm:w-64 sm:h-64 mx-auto flex items-center justify-center animate-float">
                 <img 
                   src="/ir-logo.png" 
                   alt="IR InfoTech Official Emblem" 
-                  className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_0_35px_rgba(0,240,255,0.95)]" 
+                  className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(0,240,255,0.35)]" 
                 />
               </div>
               <div className="w-40 mx-auto laser-flare" />
