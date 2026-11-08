@@ -52,10 +52,8 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
                 </span>
               </div>
               
-              {/* Clean Hairline Underline */}
-              <div className="relative w-full h-[1px] bg-gradient-to-r from-transparent via-[#00f0ff]/50 to-transparent my-0.5">
-                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white/90" />
-              </div>
+              {/* Glowing Electric Aqua Laser Underline */}
+              <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent shadow-[0_0_8px_#00f0ff] my-0.5" />
 
               <p className="text-[8px] sm:text-[9.5px] font-sub uppercase font-bold text-slate-300 tracking-[0.2em] whitespace-nowrap">
                 IDEAS <span className="text-[#00f0ff] font-semibold px-0.5">|</span> INNOVATION <span className="text-[#00f0ff] font-semibold px-0.5">|</span> IMPACT

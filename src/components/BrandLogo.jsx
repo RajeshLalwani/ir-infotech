@@ -79,11 +79,9 @@ export default function BrandLogo({
           </span>
         </div>
 
-        {/* Clean Hairline Underline with Center Node */}
+        {/* Glowing Electric Aqua Laser Underline */}
         {showTagline && withUnderline && (
-          <div className="relative w-full h-[1px] bg-gradient-to-r from-transparent via-[#00f0ff]/50 to-transparent my-1">
-            <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white/90" />
-          </div>
+          <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent shadow-[0_0_8px_#00f0ff] my-1" />
         )}
 
         {/* Clean Professional Slogan: IDEAS | INNOVATION | IMPACT */}
