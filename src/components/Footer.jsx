@@ -9,7 +9,7 @@ import {
 import BrandLogo from './BrandLogo';
 import { COMPANY_INFO, SERVICES, INTERNSHIP_DOMAINS } from '../data/content';
 
-export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpenApply }) {
+export default function Footer({ setActivePage, onOpenLegal, onOpenApply }) {
   const currentYear = new Date().getFullYear();
 
   const handleNav = (page) => {
@@ -83,13 +83,6 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
                 </svg>
                 <span>LinkedIn</span>
               </a>
-              <button
-                onClick={onOpenVerify}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold glass-pill text-cyan-300 hover:bg-cyan-950/60 transition-colors cursor-pointer border border-white/10 font-sub uppercase tracking-wider"
-              >
-                <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Verify Credential</span>
-              </button>
               <button
                 onClick={onOpenApply}
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-cyan-400 text-black hover:bg-cyan-300 transition-colors cursor-pointer font-sub uppercase tracking-wider shadow-md"

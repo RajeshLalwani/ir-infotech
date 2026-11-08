@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { INTERNSHIP_DOMAINS, INTERNSHIP_FAQS } from '../data/content';
 
-export default function InternshipsPage({ onOpenApply, onOpenVerify }) {
+export default function InternshipsPage({ onOpenApply }) {
   const [openFaq, setOpenFaq] = useState(0);
 
   const steps = [
@@ -44,7 +44,7 @@ export default function InternshipsPage({ onOpenApply, onOpenVerify }) {
           Step beyond classroom theory. Write real-world production code on live enterprise projects, learn from senior software architects, and earn a digitally verifiable credential.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+        <div className="pt-2 flex justify-center">
           <button
             onClick={onOpenApply}
             className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
@@ -52,13 +52,6 @@ export default function InternshipsPage({ onOpenApply, onOpenVerify }) {
             <FileSpreadsheet className="w-4 h-4" />
             <span>Apply via Google Form</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
-          <button
-            onClick={onOpenVerify}
-            className="w-full sm:w-auto px-6 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-cyan-300 glass-pill hover:bg-cyan-400 hover:text-black border border-white/10 hover:border-cyan-400/40 transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
-          >
-            <ShieldCheck className="w-4 h-4 text-cyan-400" />
-            <span>Verify Existing Certificate</span>
           </button>
         </div>
       </section>
@@ -206,15 +199,6 @@ export default function InternshipsPage({ onOpenApply, onOpenVerify }) {
           <p className="text-xs text-slate-300 leading-relaxed">
             Eligible contributors working on client production sprints receive a performance stipend. Every candidate who completes capstone milestones receives an official verifiable credential.
           </p>
-          <div className="pt-2">
-            <button
-              onClick={onOpenVerify}
-              className="text-xs font-bold text-cyan-400 hover:text-white flex items-center gap-1 font-sub uppercase tracking-wider"
-            >
-              <span>Test Certificate Verifier</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
         </div>
 
       </section>

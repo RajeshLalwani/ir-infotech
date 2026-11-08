@@ -3,7 +3,6 @@ import Preloader from './components/Preloader';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ApplyModal from './components/ApplyModal';
-import VerifyCertModal from './components/VerifyCertModal';
 import LegalModal from './components/LegalModal';
 import WhatsAppButton from './components/WhatsAppButton';
 
@@ -20,7 +19,6 @@ export default function App() {
   const [activePage, setActivePage] = useState('home');
   const [isApplyOpen, setIsApplyOpen] = useState(false);
   const [applyInitialTab, setApplyInitialTab] = useState('internship');
-  const [isVerifyOpen, setIsVerifyOpen] = useState(false);
   const [isLegalOpen, setIsLegalOpen] = useState(false);
   const [activeLegalDoc, setActiveLegalDoc] = useState('privacy');
 
@@ -32,10 +30,6 @@ export default function App() {
   const handleOpenApply = (tab = 'internship') => {
     setApplyInitialTab(tab);
     setIsApplyOpen(true);
-  };
-
-  const handleOpenVerify = () => {
-    setIsVerifyOpen(true);
   };
 
   const handleOpenLegal = (doc = 'privacy') => {
@@ -54,7 +48,6 @@ export default function App() {
         activePage={activePage}
         setActivePage={setActivePage}
         onOpenApply={() => handleOpenApply('internship')}
-        onOpenVerify={handleOpenVerify}
       />
 
       {/* Main Page Content Body */}
@@ -63,7 +56,6 @@ export default function App() {
           <HomePage
             setActivePage={setActivePage}
             onOpenApply={() => handleOpenApply('internship')}
-            onOpenVerify={handleOpenVerify}
           />
         )}
 
@@ -89,7 +81,6 @@ export default function App() {
         {activePage === 'internships' && (
           <InternshipsPage
             onOpenApply={() => handleOpenApply('internship')}
-            onOpenVerify={handleOpenVerify}
           />
         )}
 
@@ -108,7 +99,6 @@ export default function App() {
       <Footer
         setActivePage={setActivePage}
         onOpenLegal={handleOpenLegal}
-        onOpenVerify={handleOpenVerify}
         onOpenApply={() => handleOpenApply('internship')}
       />
 
@@ -119,20 +109,14 @@ export default function App() {
         initialTab={applyInitialTab}
       />
 
-      {/* 2. Interactive Certificate Verification Modal */}
-      <VerifyCertModal
-        isOpen={isVerifyOpen}
-        onClose={() => setIsVerifyOpen(false)}
-      />
-
-      {/* 3. Comprehensive Legal & Compliance Modal */}
+      {/* 2. Comprehensive Legal & Compliance Modal */}
       <LegalModal
         isOpen={isLegalOpen}
         onClose={() => setIsLegalOpen(false)}
         initialDoc={activeLegalDoc}
       />
 
-      {/* 4. Floating 1-Click WhatsApp Quick Action Desk */}
+      {/* 3. Floating 1-Click WhatsApp Quick Action Desk */}
       <WhatsAppButton />
 
     </div>

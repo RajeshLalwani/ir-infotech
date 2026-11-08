@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Menu, X, ArrowRight, ShieldCheck, GraduationCap } from 'lucide-react';
+import { Menu, X, ArrowRight, GraduationCap } from 'lucide-react';
 
-export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenVerify }) {
+export default function Navbar({ activePage, setActivePage, onOpenApply }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -94,16 +94,6 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-3">
-            {/* Verify Certificate */}
-            <button
-              onClick={onOpenVerify}
-              className="px-3.5 py-2 text-xs font-semibold font-sub uppercase tracking-wider rounded-xl border border-white/15 text-slate-200 hover:text-white hover:border-[#00f0ff]/60 bg-white/5 hover:bg-white/10 transition-all flex items-center gap-1.5 cursor-pointer"
-              title="Verify Student Internship Certificate"
-            >
-              <ShieldCheck className="w-4 h-4 text-[#00f0ff]" />
-              <span>Verify Certificate</span>
-            </button>
-
             {/* Apply Now Primary CTA */}
             <button
               onClick={onOpenApply}
@@ -156,16 +146,6 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
             </button>
           ))}
           <div className="pt-4 border-t border-white/10 flex flex-col gap-2.5">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenVerify();
-              }}
-              className="w-full py-2.5 px-4 text-xs font-semibold font-sub uppercase tracking-wider rounded-xl border border-white/15 text-slate-200 bg-white/5 flex items-center justify-center gap-2"
-            >
-              <ShieldCheck className="w-4 h-4 text-[#00f0ff]" />
-              <span>Verify Certificate</span>
-            </button>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

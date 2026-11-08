@@ -21,7 +21,7 @@ import {
 import BrandLogo from '../components/BrandLogo';
 import { COMPANY_INFO, STATS, THREE_PILLARS, SERVICES, PROJECTS, TESTIMONIALS, BANNER_OFFERINGS } from '../data/content';
 
-export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
+export default function HomePage({ setActivePage, onOpenApply }) {
   return (
     <div className="space-y-24 pb-20">
       
@@ -315,20 +315,13 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <div className="shrink-0">
               <button
                 onClick={onOpenApply}
                 className="px-6 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
               >
                 <GraduationCap className="w-4 h-4" />
                 <span>Apply via Google Form</span>
-              </button>
-              <button
-                onClick={onOpenVerify}
-                className="px-5 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-cyan-300 glass-pill hover:bg-cyan-400 hover:text-black border border-white/10 hover:border-cyan-400/40 transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
-              >
-                <ShieldCheck className="w-4 h-4 text-cyan-400" />
-                <span>Verify Credential</span>
               </button>
             </div>
           </div>
