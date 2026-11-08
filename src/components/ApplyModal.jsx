@@ -6,7 +6,7 @@ export default function ApplyModal({ isOpen, onClose, initialTab = 'internship' 
   if (!isOpen) return null;
 
   // Customizable Google Form & LinkedIn links
-  const GOOGLE_FORM_URL = "https://forms.google.com"; // Replace with your actual Google Form URL
+  const GOOGLE_FORM_URL = COMPANY_INFO.googleFormUrl;
   const LINKEDIN_URL = COMPANY_INFO.linkedin;
 
   return (

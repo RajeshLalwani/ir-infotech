@@ -316,13 +316,16 @@ export default function HomePage({ setActivePage, onOpenApply }) {
             </div>
 
             <div className="shrink-0">
-              <button
-                onClick={onOpenApply}
+              <a
+                href={COMPANY_INFO.googleFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
               >
                 <GraduationCap className="w-4 h-4" />
                 <span>Apply via Google Form</span>
-              </button>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
 

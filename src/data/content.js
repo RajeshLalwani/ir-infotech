@@ -8,6 +8,7 @@ export const COMPANY_INFO = {
   phone: "+91 84889 84951",
   whatsapp: "+91 84889 84951",
   whatsappUrl: "https://wa.me/918488984951",
+  googleFormUrl: "https://forms.gle/yZZnR1GW9dj7rC5A8",
   address: "Anand, Gujarat",
   hours: "Mon - Sat: 9:00 AM – 7:00 PM IST (24/7 Client Emergency Support)",
   linkedin: "https://www.linkedin.com/company/ir-infotech-official/home/",

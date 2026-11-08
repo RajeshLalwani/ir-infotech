@@ -15,7 +15,7 @@ import {
   ExternalLink,
   FileSpreadsheet
 } from 'lucide-react';
-import { INTERNSHIP_DOMAINS, INTERNSHIP_FAQS } from '../data/content';
+import { COMPANY_INFO, INTERNSHIP_DOMAINS, INTERNSHIP_FAQS } from '../data/content';
 
 export default function InternshipsPage({ onOpenApply }) {
   const [openFaq, setOpenFaq] = useState(0);
@@ -45,14 +45,16 @@ export default function InternshipsPage({ onOpenApply }) {
         </p>
 
         <div className="pt-2 flex justify-center">
-          <button
-            onClick={onOpenApply}
+          <a
+            href={COMPANY_INFO.googleFormUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
           >
             <FileSpreadsheet className="w-4 h-4" />
             <span>Apply via Google Form</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
       </section>
 
@@ -273,12 +275,14 @@ export default function InternshipsPage({ onOpenApply }) {
         <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
           Cohort seats are limited to ensure 1-on-1 mentor attention. Submit your application today.
         </p>
-        <button
-          onClick={onOpenApply}
-          className="px-8 py-3.5 rounded-2xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 font-sub shadow-md cursor-pointer"
+        <a
+          href={COMPANY_INFO.googleFormUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-8 py-3.5 rounded-2xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 font-sub shadow-md cursor-pointer"
         >
           Apply via Google Form Now
-        </button>
+        </a>
       </section>
 
     </div>
