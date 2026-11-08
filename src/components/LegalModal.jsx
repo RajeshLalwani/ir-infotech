@@ -18,10 +18,10 @@ export default function LegalModal({ isOpen, onClose, initialDoc = 'privacy' }) 
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl overflow-y-auto">
-      <div className="relative w-full max-w-3xl glass-panel rounded-3xl p-6 sm:p-8 space-y-6 shadow-[0_0_60px_rgba(0,240,255,0.25)] border border-cyan-400/40 my-6">
+      <div className="relative w-full max-w-3xl glass-panel rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl border border-white/10 my-6">
         
-        {/* Glow Header Accent */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_15px_#00f0ff]" />
+        {/* Top Rim Light */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
 
         {/* Close Button */}
         <button
@@ -51,8 +51,8 @@ export default function LegalModal({ isOpen, onClose, initialDoc = 'privacy' }) 
                 onClick={() => setActiveDoc(d.id)}
                 className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer font-sub uppercase tracking-wider ${
                   activeDoc === d.id
-                    ? 'bg-cyan-400 text-black shadow-[0_0_15px_rgba(0,240,255,0.6)] font-bold'
-                    : 'glass-card text-slate-300 hover:text-white border border-cyan-400/20'
+                    ? 'bg-cyan-400 text-black shadow-md font-bold'
+                    : 'glass-card text-slate-300 hover:text-white border border-white/10'
                 }`}
               >
                 {d.title}

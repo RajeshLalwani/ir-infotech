@@ -32,53 +32,36 @@ export default function Preloader({ onFinish }) {
         fadeOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
-      {/* Ambient Radial Aura in Electric Aqua */}
-      <div className="absolute w-[500px] h-[500px] rounded-full bg-[#00f0ff]/10 blur-[150px] pointer-events-none animate-pulse" />
-
       {/* Centerpiece: Orbital Rings with ✨ Symbol in Electric Aqua */}
       <div className="relative flex items-center justify-center mb-8">
         
         {/* Outer Orbital Ring 1 (Rotates clockwise) in Electric Aqua */}
         <div 
-          className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border-2 border-[#00f0ff]/25 border-t-[#00f0ff] border-r-[#00f0ff]/80 animate-spin shadow-[0_0_30px_rgba(0,240,255,0.45)]" 
-          style={{ animationDuration: '2.5s' }} 
+          className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-cyan-400/30 border-t-cyan-400 animate-spin" 
+          style={{ animationDuration: '2s' }} 
         />
 
         {/* Outer Orbital Ring 2 (Counter-clockwise with orbital satellite bead) */}
         <div 
-          className="absolute w-44 h-44 sm:w-52 sm:h-52 rounded-full border border-dashed border-[#00f0ff]/35 animate-spin"
-          style={{ animationDuration: '6s', animationDirection: 'reverse' }}
+          className="absolute w-44 h-44 sm:w-52 sm:h-52 rounded-full border border-dashed border-cyan-400/25 animate-spin"
+          style={{ animationDuration: '5s', animationDirection: 'reverse' }}
         >
           {/* Orbital Satellite Dots in Electric Aqua */}
-          <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-[#00f0ff] shadow-[0_0_15px_#00f0ff]" />
-          <span className="absolute bottom-2 right-6 w-2.5 h-2.5 rounded-full bg-[#00f0ff] shadow-[0_0_10px_#00f0ff]" />
+          <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-cyan-400" />
+          <span className="absolute bottom-2 right-6 w-2 h-2 rounded-full bg-cyan-400" />
         </div>
-
-        {/* Elliptical Atomic Orbit Ring (Like the logo) */}
-        <div 
-          className="absolute w-52 sm:w-60 h-20 rounded-[100%] border border-[#00f0ff]/45 shadow-[0_0_20px_rgba(0,240,255,0.35)] animate-spin"
-          style={{ transform: 'rotate(25deg)', animationDuration: '7s' }}
-        />
 
         {/* Center Core: Literal ✨ Symbol in Electric Aqua */}
         <div className="absolute flex items-center justify-center">
           
-          {/* Pulsing Core Aura */}
-          <div className="w-24 h-24 rounded-full bg-[#00f0ff]/20 blur-md animate-ping" style={{ animationDuration: '2s' }} />
-          
           {/* Center Glass Sphere */}
-          <div className="absolute w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black/90 border border-[#00f0ff]/60 backdrop-blur-md flex items-center justify-center shadow-[0_0_30px_rgba(0,240,255,0.85)]">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-950 border border-cyan-400/40 flex items-center justify-center">
             
             {/* ✨ Symbol in pure Electric Aqua */}
             <div className="relative flex items-center justify-center select-none">
-              <span className="text-3xl sm:text-4xl text-[#00f0ff] drop-shadow-[0_0_20px_#00f0ff] animate-pulse">
+              <span className="text-3xl sm:text-4xl text-cyan-400">
                 ✨
               </span>
-              
-              {/* Micro sparkles floating around */}
-              <span className="absolute -top-3 -right-2 text-xs text-white animate-bounce">✦</span>
-              <span className="absolute -bottom-2 -left-2 text-[10px] text-[#00f0ff] animate-ping" style={{ animationDuration: '1.2s' }}>✧</span>
-              <span className="absolute top-1 -left-3 text-[11px] text-[#00f0ff] animate-pulse">★</span>
             </div>
 
           </div>
@@ -93,15 +76,15 @@ export default function Preloader({ onFinish }) {
           <BrandLogo size="lg" showTagline={true} />
         </div>
 
-        {/* Glowing Progress Bar in Electric Aqua */}
-        <div className="w-56 sm:w-64 h-1.5 bg-[#001018] rounded-full overflow-hidden border border-[#00f0ff]/40 p-[1px] mx-auto">
+        {/* Progress Bar in Electric Aqua */}
+        <div className="w-56 sm:w-64 h-1.5 bg-slate-900 rounded-full overflow-hidden border border-white/10 p-[1px] mx-auto">
           <div
-            className="h-full bg-gradient-to-r from-[#00f0ff] via-white to-[#00f0ff] rounded-full transition-all duration-200 shadow-[0_0_15px_#00f0ff]"
+            className="h-full bg-cyan-400 rounded-full transition-all duration-200"
             style={{ width: `${progress}%` }}
           />
         </div>
 
-        <p className="text-[10px] font-mono text-[#00f0ff] tracking-widest uppercase">
+        <p className="text-[10px] font-mono text-cyan-400 tracking-widest uppercase">
           INITIALIZING SECURE SYSTEMS · {progress}%
         </p>
       </div>

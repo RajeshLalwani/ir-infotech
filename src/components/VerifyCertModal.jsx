@@ -36,10 +36,10 @@ export default function VerifyCertModal({ isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl overflow-y-auto">
-      <div className="relative w-full max-w-2xl glass-panel rounded-3xl p-6 sm:p-8 space-y-6 shadow-[0_0_60px_rgba(0,240,255,0.3)] border border-cyan-400/40 my-6">
+      <div className="relative w-full max-w-2xl glass-panel rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl border border-white/10 my-6">
         
-        {/* Glow Line */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_15px_#00f0ff]" />
+        {/* Top Rim Line */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
 
         {/* Close Button */}
         <button
@@ -79,7 +79,7 @@ export default function VerifyCertModal({ isOpen, onClose }) {
             </div>
             <button
               type="submit"
-              className="px-6 py-3 rounded-xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(0,240,255,0.5)] font-sub"
+              className="px-6 py-3 rounded-xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md font-sub"
             >
               <Search className="w-4 h-4" />
               <span>Verify Now</span>
@@ -98,7 +98,7 @@ export default function VerifyCertModal({ isOpen, onClose }) {
                   setResult(SAMPLE_CERTIFICATES[id]);
                   setHasSearched(true);
                 }}
-                className="px-2.5 py-1 rounded-lg glass-card border border-cyan-400/20 hover:border-cyan-400/60 font-mono text-[11px] text-cyan-300 transition-all cursor-pointer"
+                className="px-2.5 py-1 rounded-lg glass-card border border-white/10 hover:border-cyan-400/50 font-mono text-[11px] text-cyan-300 transition-all cursor-pointer"
               >
                 {id}
               </button>
@@ -108,7 +108,7 @@ export default function VerifyCertModal({ isOpen, onClose }) {
           {/* Verification Result Card in Glassmorphism */}
           {hasSearched && (
             result ? (
-              <div className="relative rounded-2xl glass-card border border-cyan-400/50 p-6 shadow-[0_0_35px_rgba(0,240,255,0.2)]">
+              <div className="relative rounded-2xl glass-card border border-white/10 p-6 shadow-xl">
                 
                 {/* Verified Ribbon */}
                 <div className="flex items-center justify-between pb-4 border-b border-cyan-500/20">
@@ -178,10 +178,10 @@ export default function VerifyCertModal({ isOpen, onClose }) {
                 </div>
 
                 {/* Authority Stamp */}
-                <div className="mt-4 pt-3 border-t border-cyan-500/20 flex items-center justify-between text-[11px] text-slate-400">
+                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 flex items-center justify-center">
-                      <img src="/ir-logo.png" alt="Stamp" className="w-full h-full object-contain filter drop-shadow-[0_0_8px_#00f0ff]" />
+                      <img src="/ir-logo.png" alt="Stamp" className="w-full h-full object-contain" />
                     </div>
                     <span>{result.authorizedSignatory}</span>
                   </div>

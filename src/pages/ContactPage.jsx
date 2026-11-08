@@ -39,7 +39,7 @@ export default function ContactPage() {
         </div>
         <h1 className="font-tech text-4xl sm:text-5xl font-extrabold text-white leading-tight">
           Let’s Architect <br />
-          <span className="text-cyan-400 drop-shadow-[0_0_20px_rgba(0,240,255,0.8)]">Something Extraordinary</span>
+          <span className="text-cyan-400">Something Extraordinary</span>
         </h1>
         <p className="text-base text-slate-300 leading-relaxed">
           Whether you need enterprise software development, wish to enroll in our student training cohort, or explore strategic partnerships, our team responds within 24 hours.
@@ -52,14 +52,14 @@ export default function ContactPage() {
         {/* Left Column: Direct Info Cards */}
         <div className="lg:col-span-5 space-y-6">
           
-          <div className="glass-card rounded-3xl p-6 sm:p-8 space-y-6 border border-cyan-400/30">
+          <div className="glass-card rounded-3xl p-6 sm:p-8 space-y-6 border border-white/10 shadow-xl">
             <h3 className="font-tech text-xl font-bold text-white">Direct Communication</h3>
             
             <div className="space-y-4 text-xs">
               
               {/* Business Email */}
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shrink-0 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
+                <div className="w-10 h-10 rounded-xl bg-cyan-950/50 border border-cyan-400/30 flex items-center justify-center text-cyan-400 shrink-0">
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
@@ -73,7 +73,7 @@ export default function ContactPage() {
 
               {/* Phone / WhatsApp */}
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-950/70 border border-emerald-400/40 flex items-center justify-center text-emerald-400 shrink-0 shadow-[0_0_12px_rgba(16,185,129,0.35)]">
+                <div className="w-10 h-10 rounded-xl bg-emerald-950/50 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div className="space-y-1">
@@ -85,7 +85,7 @@ export default function ContactPage() {
                     href={`https://wa.me/918488984951?text=${encodeURIComponent('Hi IR InfoTech, I would like to connect with your team.')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 hover:bg-emerald-500/25 text-xs font-semibold transition-all shadow-[0_0_10px_rgba(16,185,129,0.2)]"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 hover:bg-emerald-500/25 text-xs font-semibold transition-all"
                   >
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                     <span>Chat on WhatsApp (+91 84889 84951)</span>
@@ -95,7 +95,7 @@ export default function ContactPage() {
 
               {/* Location */}
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shrink-0 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
+                <div className="w-10 h-10 rounded-xl bg-cyan-950/50 border border-cyan-400/30 flex items-center justify-center text-cyan-400 shrink-0">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
@@ -106,7 +106,7 @@ export default function ContactPage() {
 
               {/* Hours */}
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shrink-0 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
+                <div className="w-10 h-10 rounded-xl bg-cyan-950/50 border border-cyan-400/30 flex items-center justify-center text-cyan-400 shrink-0">
                   <Clock className="w-4 h-4" />
                 </div>
                 <div>
@@ -117,7 +117,7 @@ export default function ContactPage() {
 
               {/* LinkedIn */}
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shrink-0 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
+                <div className="w-10 h-10 rounded-xl bg-cyan-950/50 border border-cyan-400/30 flex items-center justify-center text-cyan-400 shrink-0">
                   <svg className="w-4 h-4 fill-current text-cyan-400" viewBox="0 0 24 24">
                     <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.27 1.64 1.64 0 0 0 0 3.27m1.4 9.74v-8.37H5.06v8.37h2.8z" />
                   </svg>
@@ -147,9 +147,9 @@ export default function ContactPage() {
           </div>
 
           {/* Hologram Brand Badge */}
-          <div className="glass-panel rounded-2xl p-6 flex items-center gap-4 border border-[#00f0ff]/25 hover:border-[#00f0ff]/60 transition-all">
+          <div className="glass-panel rounded-2xl p-6 flex items-center gap-4 border border-white/10 hover:border-cyan-400/40 transition-all">
             <div className="w-14 h-14 flex items-center justify-center shrink-0">
-              <img src="/ir-logo.png" alt="Logo" className="w-full h-full object-contain filter drop-shadow-[0_0_15px_#00f0ff]" />
+              <img src="/ir-logo.png" alt="Logo" className="w-full h-full object-contain" />
             </div>
             <div>
               <BrandLogo size="sm" showTagline={true} />
@@ -160,18 +160,18 @@ export default function ContactPage() {
 
         {/* Right Column: Interactive Form in Glassmorphism */}
         <div className="lg:col-span-7">
-          <div className="glass-panel rounded-3xl p-6 sm:p-10 shadow-[0_0_40px_rgba(0,240,255,0.2)] border border-cyan-400/40">
+          <div className="glass-panel rounded-3xl p-6 sm:p-10 shadow-xl border border-white/10">
             
             {submitted ? (
               <div className="py-12 text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-cyan-950 border border-cyan-400 flex items-center justify-center mx-auto text-cyan-400 shadow-[0_0_25px_rgba(0,240,255,0.4)]">
+                <div className="w-16 h-16 rounded-full bg-cyan-950/60 border border-cyan-400/40 flex items-center justify-center mx-auto text-cyan-400">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="font-tech text-2xl font-bold text-white">Message Dispatched!</h3>
                 <p className="text-sm text-slate-300 max-w-md mx-auto">
                   Thank you, <span className="text-cyan-400 font-semibold">{formData.name}</span>. Your inquiry has been routed to our technical advisory team.
                 </p>
-                <div className="inline-block px-4 py-2 glass-pill rounded-xl text-cyan-300 font-mono text-xs border border-cyan-400/30">
+                <div className="inline-block px-4 py-2 glass-pill rounded-xl text-cyan-300 font-mono text-xs border border-white/10">
                   INQ REF: {Math.floor(100000 + Math.random() * 900000)}
                 </div>
                 <div className="pt-4">
@@ -180,7 +180,7 @@ export default function ContactPage() {
                       setSubmitted(false);
                       setFormData({ name: '', email: '', phone: '', company: '', message: '' });
                     }}
-                    className="px-6 py-2.5 rounded-xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all cursor-pointer font-sub shadow-[0_0_15px_rgba(0,240,255,0.4)]"
+                    className="px-6 py-2.5 rounded-xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all cursor-pointer font-sub shadow-md"
                   >
                     Send Another Message
                   </button>
@@ -208,8 +208,8 @@ export default function ContactPage() {
                         onClick={() => setInquiryType(type)}
                         className={`py-2 px-3 rounded-xl text-xs font-semibold transition-all cursor-pointer text-center font-sub ${
                           inquiryType === type
-                            ? 'bg-cyan-400 text-black shadow-[0_0_12px_rgba(0,240,255,0.5)] font-bold'
-                            : 'glass-card text-slate-400 hover:text-white border border-cyan-400/20'
+                            ? 'bg-cyan-400 text-black shadow-md font-bold'
+                            : 'glass-card text-slate-400 hover:text-white border border-white/10'
                         }`}
                       >
                         {type}
@@ -227,7 +227,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Vikram Singhania"
-                      className="w-full px-3.5 py-2.5 text-sm glass-panel border border-cyan-400/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+                      className="w-full px-3.5 py-2.5 text-sm glass-panel border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
                     />
                   </div>
                   <div>
@@ -238,7 +238,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="vikram@company.com"
-                      className="w-full px-3.5 py-2.5 text-sm glass-panel border border-cyan-400/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+                      className="w-full px-3.5 py-2.5 text-sm glass-panel border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
                     />
                   </div>
                 </div>
@@ -252,7 +252,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+91 84889 84951"
-                      className="w-full px-3.5 py-2.5 text-sm glass-panel border border-cyan-400/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+                      className="w-full px-3.5 py-2.5 text-sm glass-panel border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
                     />
                   </div>
                   <div>
@@ -262,7 +262,7 @@ export default function ContactPage() {
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="e.g. TechCorp Solutions"
-                      className="w-full px-3.5 py-2.5 text-sm glass-panel border border-cyan-400/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+                      className="w-full px-3.5 py-2.5 text-sm glass-panel border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
                     />
                   </div>
                 </div>
@@ -275,13 +275,13 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Describe your project requirements, technology stack, timeline or student queries..."
-                    className="w-full px-3.5 py-2.5 text-sm glass-panel border border-cyan-400/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+                    className="w-full px-3.5 py-2.5 text-sm glass-panel border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-[0_0_20px_rgba(0,240,255,0.6)] transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
+                  className="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send Inquiry</span>

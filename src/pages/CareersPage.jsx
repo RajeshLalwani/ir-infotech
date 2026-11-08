@@ -31,7 +31,7 @@ export default function CareersPage({ onOpenApply }) {
         </div>
         <h1 className="font-tech text-4xl sm:text-5xl font-extrabold text-white leading-tight">
           Build Mission-Critical Systems <br />
-          <span className="text-cyan-400 drop-shadow-[0_0_20px_rgba(0,240,255,0.8)]">With Our Engineering Team</span>
+          <span className="text-cyan-400">With Our Engineering Team</span>
         </h1>
         <p className="text-base text-slate-300 leading-relaxed">
           We are always searching for passionate software engineers, cloud architects, and tech mentors who refuse to write mediocre code.
@@ -53,8 +53,8 @@ export default function CareersPage({ onOpenApply }) {
           {perks.map((p, idx) => {
             const Icon = p.icon;
             return (
-              <div key={idx} className="glass-card rounded-2xl p-6 space-y-3 hover:border-cyan-400 transition-all border border-cyan-400/20">
-                <div className="w-10 h-10 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
+              <div key={idx} className="glass-card rounded-2xl p-6 space-y-3 hover:border-cyan-400/50 transition-all border border-white/10">
+                <div className="w-10 h-10 rounded-xl bg-cyan-950/50 border border-cyan-400/30 flex items-center justify-center text-cyan-400">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h4 className="text-base font-bold text-white">{p.title}</h4>
@@ -123,7 +123,7 @@ export default function CareersPage({ onOpenApply }) {
               <div className="shrink-0">
                 <button
                   onClick={onOpenApply}
-                  className="w-full md:w-auto px-6 py-3 rounded-xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all cursor-pointer font-sub shadow-[0_0_15px_rgba(0,240,255,0.4)] flex items-center justify-center gap-2"
+                  className="w-full md:w-auto px-6 py-3 rounded-xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all cursor-pointer font-sub shadow-md flex items-center justify-center gap-2"
                 >
                   <span>Apply Now</span>
                   <ArrowRight className="w-4 h-4" />
@@ -135,7 +135,7 @@ export default function CareersPage({ onOpenApply }) {
       </section>
 
       {/* 4. Recruitment Desk Notice */}
-      <section className="rounded-3xl glass-panel border border-cyan-400/30 p-8 sm:p-12 text-center space-y-4 shadow-[0_0_40px_rgba(0,240,255,0.15)]">
+      <section className="rounded-3xl glass-panel border border-white/10 p-8 sm:p-12 text-center space-y-4 shadow-xl">
         <h3 className="font-tech text-2xl font-bold text-white">
           Don't See Your Exact Role?
         </h3>
@@ -147,7 +147,7 @@ export default function CareersPage({ onOpenApply }) {
             href={COMPANY_INFO.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-cyan-400 text-black text-xs font-bold uppercase tracking-wider hover:bg-cyan-300 font-sub shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-cyan-400 text-black text-xs font-bold uppercase tracking-wider hover:bg-cyan-300 font-sub shadow-md transition-all"
           >
             <svg className="w-4 h-4 fill-current text-black" viewBox="0 0 24 24">
               <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.27 1.64 1.64 0 0 0 0 3.27m1.4 9.74v-8.37H5.06v8.37h2.8z" />

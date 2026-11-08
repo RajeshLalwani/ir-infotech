@@ -28,25 +28,24 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
       {/* 1. HERO SECTION - REDESIGNED EXACTLY FROM THE REFERENCE BANNER */}
       <section className="relative pt-8 lg:pt-16 pb-16 overflow-hidden">
         
-        {/* Ambient Glowing Cyber Radial Lights */}
-        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-cyan-500/12 blur-[150px] pointer-events-none rounded-full" />
-        <div className="absolute top-10 right-0 w-96 h-96 bg-cyan-400/10 blur-[130px] pointer-events-none rounded-full" />
+        {/* Subtle Ambient Radial Highlight */}
+        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/5 blur-[120px] pointer-events-none rounded-full" />
 
         {/* Digital Wireframe Globe Graphic in Background (Matches reference banner right side) */}
-        <div className="absolute top-6 -right-20 w-[420px] h-[420px] sm:w-[540px] sm:h-[540px] opacity-25 pointer-events-none">
-          <div className="w-full h-full rounded-full border border-cyan-400/40 relative animate-spin" style={{ animationDuration: '45s' }}>
-            <div className="absolute inset-4 rounded-full border border-dashed border-cyan-300/30" />
-            <div className="absolute inset-12 rounded-full border border-cyan-400/20" />
+        <div className="absolute top-6 -right-20 w-[420px] h-[420px] sm:w-[540px] sm:h-[540px] opacity-15 pointer-events-none">
+          <div className="w-full h-full rounded-full border border-cyan-400/30 relative animate-spin" style={{ animationDuration: '60s' }}>
+            <div className="absolute inset-4 rounded-full border border-dashed border-cyan-300/20" />
+            <div className="absolute inset-12 rounded-full border border-cyan-400/15" />
             {/* Latitude / Longitude lines */}
-            <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-48 rounded-[100%] border border-cyan-400/30" />
-            <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-48 rounded-[100%] border border-cyan-400/30" />
+            <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-48 rounded-[100%] border border-cyan-400/20" />
+            <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-48 rounded-[100%] border border-cyan-400/20" />
           </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* Main Hero Container with Cyber Armor Tech Framing */}
-          <div className="cyber-corner-box glass-panel rounded-3xl p-6 sm:p-12 lg:p-14 border border-cyan-400/35 shadow-[0_0_60px_rgba(0,240,255,0.2)] relative overflow-hidden">
+          <div className="cyber-corner-box glass-panel rounded-3xl p-6 sm:p-12 lg:p-14 border border-white/10 shadow-2xl relative overflow-hidden">
             
             {/* Top Row: Logo with Holographic Pedestal + Brand Typography */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
@@ -60,12 +59,12 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
                     <img 
                       src="/ir-logo.png" 
                       alt="IR InfoTech Official Emblem" 
-                      className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(0,240,255,0.35)] hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
                     />
                   </div>
 
-                  {/* Subtle Ground Anchor Flare */}
-                  <div className="w-48 h-1 -mt-2 rounded-full bg-gradient-to-r from-transparent via-[#00f0ff]/40 to-transparent blur-sm" />
+                  {/* Subtle Ground Anchor Line */}
+                  <div className="w-32 h-[1px] -mt-2 bg-gradient-to-r from-transparent via-[#00f0ff]/30 to-transparent" />
 
                 </div>
               </div>
@@ -87,7 +86,7 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
                   <button
                     onClick={() => setActivePage('services')}
-                    className="w-full sm:w-auto px-7 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-[0_0_25px_rgba(0,240,255,0.7)] hover:shadow-[0_0_35px_rgba(0,240,255,0.9)] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer font-sub"
+                    className="w-full sm:w-auto px-7 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-md transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer font-sub"
                   >
                     <Cpu className="w-4 h-4" />
                     <span>Explore Solutions</span>
@@ -96,7 +95,7 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
 
                   <button
                     onClick={onOpenApply}
-                    className="w-full sm:w-auto px-7 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-cyan-300 glass-pill hover:bg-cyan-400 hover:text-black border border-cyan-400/50 transition-all flex items-center justify-center gap-2 cursor-pointer font-sub shadow-[0_0_15px_rgba(0,240,255,0.25)]"
+                    className="w-full sm:w-auto px-7 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-cyan-300 glass-pill hover:bg-cyan-400 hover:text-black border border-white/10 hover:border-cyan-400/50 transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
                   >
                     <GraduationCap className="w-4 h-4" />
                     <span>Apply for Internship</span>
@@ -128,7 +127,7 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
                     }}
                     className="cyber-offering-pill p-4 text-center group cursor-pointer flex flex-col items-center justify-between"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-300 mb-2.5 group-hover:scale-110 group-hover:border-cyan-400 transition-all shadow-[0_0_15px_rgba(0,240,255,0.25)]">
+                    <div className="w-10 h-10 rounded-xl bg-cyan-950/40 border border-cyan-400/30 flex items-center justify-center text-cyan-300 mb-2.5 group-hover:scale-110 group-hover:border-cyan-400 transition-all">
                       {item.icon === 'Code2' && <Code2 className="w-5 h-5 text-cyan-400" />}
                       {item.icon === 'Laptop' && <Laptop className="w-5 h-5 text-cyan-400" />}
                       {item.icon === 'Cpu' && <Cpu className="w-5 h-5 text-cyan-400" />}
@@ -157,9 +156,9 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
             {STATS.map((stat, i) => (
               <div
                 key={i}
-                className="glass-card rounded-2xl p-5 hover:border-cyan-400/60 transition-all group"
+                className="glass-card rounded-2xl p-5 hover:border-cyan-400/50 transition-all group"
               >
-                <p className="font-tech text-3xl sm:text-4xl font-extrabold text-cyan-400 group-hover:scale-105 transition-transform drop-shadow-[0_0_15px_rgba(0,240,255,0.6)]">
+                <p className="font-tech text-3xl sm:text-4xl font-extrabold text-cyan-400 group-hover:scale-105 transition-transform">
                   {stat.value}
                 </p>
                 <p className="text-sm font-bold text-white mt-1">{stat.label}</p>
@@ -189,13 +188,13 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
           {THREE_PILLARS.map((pillar) => (
             <div
               key={pillar.id}
-              className="glass-card rounded-3xl p-8 hover:border-cyan-400 transition-all duration-300 group flex flex-col justify-between relative overflow-hidden"
+              className="glass-card rounded-3xl p-8 hover:border-cyan-400/50 transition-all duration-300 group flex flex-col justify-between relative overflow-hidden"
             >
-              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
+              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
 
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-cyan-950/70 border border-cyan-400/50 flex items-center justify-center text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.4)] group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-cyan-950/50 border border-cyan-400/30 flex items-center justify-center text-cyan-300 group-hover:scale-110 transition-transform">
                     {pillar.id === 'services' && <ShieldCheck className="w-6 h-6 text-cyan-400" />}
                     {pillar.id === 'solutions' && <Cpu className="w-6 h-6 text-cyan-400" />}
                     {pillar.id === 'internships' && <GraduationCap className="w-6 h-6 text-cyan-400" />}
@@ -258,10 +257,10 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
           {SERVICES.map((service) => (
             <div
               key={service.id}
-              className="glass-card rounded-2xl p-6 hover:border-cyan-400/60 transition-all group flex flex-col justify-between"
+              className="glass-card rounded-2xl p-6 hover:border-cyan-400/50 transition-all group flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-cyan-950/60 border border-cyan-400/40 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform shadow-[0_0_12px_rgba(0,240,255,0.3)]">
+                <div className="w-10 h-10 rounded-xl bg-cyan-950/50 border border-cyan-400/30 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform">
                   {service.id === 'software-dev' && <Code2 className="w-5 h-5" />}
                   {service.id === 'web-dev' && <Laptop className="w-5 h-5" />}
                   {service.id === 'mobile-apps' && <Smartphone className="w-5 h-5" />}
@@ -280,7 +279,7 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
                 {/* Tech Badges */}
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {service.techStack.slice(0, 4).map((tech, idx) => (
-                    <span key={idx} className="text-[10px] font-mono px-2 py-0.5 rounded glass-pill border border-cyan-400/20 text-cyan-300">
+                    <span key={idx} className="text-[10px] font-mono px-2 py-0.5 rounded glass-pill border border-white/10 text-cyan-300">
                       {tech}
                     </span>
                   ))}
@@ -289,7 +288,7 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
 
               <button
                 onClick={() => setActivePage('services')}
-                className="text-xs font-semibold text-cyan-400 hover:text-white flex items-center gap-1 cursor-pointer pt-2 border-t border-cyan-500/20 font-sub uppercase tracking-wider"
+                className="text-xs font-semibold text-cyan-400 hover:text-white flex items-center gap-1 cursor-pointer pt-2 border-t border-white/10 font-sub uppercase tracking-wider"
               >
                 <span>Explore Capabilities</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -301,7 +300,7 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
 
       {/* 4. INTERNSHIPS & TALENT INCUBATOR HIGHLIGHTS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl glass-panel p-8 sm:p-12 overflow-hidden shadow-[0_0_60px_rgba(0,240,255,0.2)] border border-cyan-400/40">
+        <div className="relative rounded-3xl glass-panel p-8 sm:p-12 overflow-hidden border border-white/10 shadow-2xl">
           
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 mb-8">
             <div className="space-y-3 text-center lg:text-left">
@@ -319,14 +318,14 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <button
                 onClick={onOpenApply}
-                className="px-6 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-[0_0_20px_rgba(0,240,255,0.6)] transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
+                className="px-6 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
               >
                 <GraduationCap className="w-4 h-4" />
                 <span>Apply via Google Form</span>
               </button>
               <button
                 onClick={onOpenVerify}
-                className="px-5 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-cyan-300 glass-pill hover:bg-cyan-400 hover:text-black border border-cyan-400/40 transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
+                className="px-5 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-cyan-300 glass-pill hover:bg-cyan-400 hover:text-black border border-white/10 hover:border-cyan-400/40 transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
               >
                 <ShieldCheck className="w-4 h-4 text-cyan-400" />
                 <span>Verify Credential</span>
@@ -335,9 +334,9 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
           </div>
 
           {/* Quick Domain Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-6 border-t border-cyan-500/20 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-6 border-t border-white/10 text-center">
             {['Full-Stack Web', 'AI & ML Agentic', 'Mobile Apps (Flutter)', 'Data Science & SQL', 'Cyber Defense', 'Cloud & DevOps'].map((item, idx) => (
-              <div key={idx} className="glass-card p-3.5 rounded-xl border border-cyan-400/20 hover:border-cyan-400/60 transition-all">
+              <div key={idx} className="glass-card p-3.5 rounded-xl border border-white/10 hover:border-cyan-400/40 transition-all">
                 <p className="text-xs font-bold text-white">{item}</p>
                 <p className="text-[10px] text-cyan-400 mt-1 font-mono">1 to 6 Mos</p>
               </div>
@@ -349,7 +348,7 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
 
       {/* 5. CALL TO ACTION BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl glass-panel p-8 sm:p-14 text-center space-y-6 shadow-[0_0_50px_rgba(0,240,255,0.25)] border border-cyan-400/40 relative overflow-hidden">
+        <div className="rounded-3xl glass-panel p-8 sm:p-14 text-center space-y-6 border border-white/10 shadow-2xl relative overflow-hidden">
           
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill text-cyan-300 text-xs font-semibold">
             <Sparkles className="w-4 h-4 text-cyan-400" />
@@ -357,7 +356,7 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
           </div>
 
           <h2 className="font-tech text-3xl sm:text-5xl font-black text-white max-w-3xl mx-auto leading-tight">
-            Launch Your Next Big Tech Project With <span className="text-cyan-400 drop-shadow-[0_0_20px_rgba(0,240,255,0.8)]">IR InfoTech</span>
+            Launch Your Next Big Tech Project With <span className="text-cyan-400">IR InfoTech</span>
           </h2>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
@@ -367,13 +366,13 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <button
               onClick={() => setActivePage('contact')}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-[0_0_25px_rgba(0,240,255,0.6)] transition-all cursor-pointer font-sub"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-md transition-all cursor-pointer font-sub"
             >
               Schedule Tech Consultation
             </button>
             <button
               onClick={onOpenApply}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-cyan-300 glass-pill hover:bg-cyan-400 hover:text-black border border-cyan-400/40 transition-all cursor-pointer font-sub"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-cyan-300 glass-pill hover:bg-cyan-400 hover:text-black border border-white/10 hover:border-cyan-400/40 transition-all cursor-pointer font-sub"
             >
               Apply as Student Intern
             </button>

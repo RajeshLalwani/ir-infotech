@@ -18,10 +18,10 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
   };
 
   return (
-    <footer className="bg-[#000206] border-t border-cyan-400/20 text-slate-400 relative overflow-hidden">
+    <footer className="bg-[#000206] border-t border-white/10 text-slate-400 relative overflow-hidden">
       
-      {/* Top Glowing Laser Rim */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/70 to-transparent shadow-[0_0_12px_#00f0ff]" />
+      {/* Top Hairline Rim */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
 
       {/* Main Footer Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
@@ -34,10 +34,10 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
                 <img 
                   src="/ir-logo.png" 
                   alt="IR InfoTech Emblem" 
-                  className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(0,240,255,0.4)]"
+                  className="w-full h-full object-contain"
                 />
               </div>
-              <div className="w-[1.5px] h-10 bg-gradient-to-b from-transparent via-[#00f0ff] to-transparent shadow-[0_0_8px_#00f0ff] shrink-0" />
+              <div className="w-[1px] h-9 bg-white/20 shrink-0" />
               <BrandLogo size="md" showTagline={true} />
             </div>
 
@@ -67,7 +67,7 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
                 href="https://wa.me/918488984951?text=Hi%20IR%20InfoTech%2C%20I%20would%20like%20to%20connect%20with%20your%20team."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500/25 transition-colors cursor-pointer border border-emerald-400/40 font-sub uppercase tracking-wider shadow-[0_0_12px_rgba(16,185,129,0.25)]"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500/25 transition-colors cursor-pointer border border-emerald-400/30 font-sub uppercase tracking-wider"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span>WhatsApp</span>
@@ -76,7 +76,7 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
                 href={COMPANY_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold glass-pill text-cyan-300 hover:bg-cyan-950/60 transition-colors cursor-pointer border border-cyan-400/30 font-sub uppercase tracking-wider"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold glass-pill text-cyan-300 hover:bg-cyan-950/60 transition-colors cursor-pointer border border-white/10 font-sub uppercase tracking-wider"
               >
                 <svg className="w-3.5 h-3.5 fill-current text-cyan-400" viewBox="0 0 24 24">
                   <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.27 1.64 1.64 0 0 0 0 3.27m1.4 9.74v-8.37H5.06v8.37h2.8z" />
@@ -85,14 +85,14 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
               </a>
               <button
                 onClick={onOpenVerify}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold glass-pill text-cyan-300 hover:bg-cyan-950/60 transition-colors cursor-pointer border border-cyan-400/30 font-sub uppercase tracking-wider"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold glass-pill text-cyan-300 hover:bg-cyan-950/60 transition-colors cursor-pointer border border-white/10 font-sub uppercase tracking-wider"
               >
                 <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Verify Credential</span>
               </button>
               <button
                 onClick={onOpenApply}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-cyan-400 text-black hover:bg-cyan-300 transition-colors cursor-pointer font-sub uppercase tracking-wider shadow-[0_0_15px_rgba(0,240,255,0.4)]"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-cyan-400 text-black hover:bg-cyan-300 transition-colors cursor-pointer font-sub uppercase tracking-wider shadow-md"
               >
                 <GraduationCap className="w-3.5 h-3.5" />
                 <span>Apply</span>
@@ -216,7 +216,7 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenVerify, onOpe
 
           {/* System status pill */}
           <div className="flex items-center gap-2 px-3 py-1 rounded-full glass-pill border border-emerald-500/30 text-emerald-400 text-[11px]">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]" />
+            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span>All Enterprise Systems Operational · 99.98% SLA</span>
           </div>
         </div>

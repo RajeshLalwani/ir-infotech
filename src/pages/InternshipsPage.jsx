@@ -38,7 +38,7 @@ export default function InternshipsPage({ onOpenApply, onOpenVerify }) {
         </div>
         <h1 className="font-tech text-4xl sm:text-5xl font-extrabold text-white leading-tight">
           Paid Internships & <br />
-          <span className="text-cyan-400 drop-shadow-[0_0_20px_rgba(0,240,255,0.8)]">Corporate Tech Training</span>
+          <span className="text-cyan-400">Corporate Tech Training</span>
         </h1>
         <p className="text-base text-slate-300 leading-relaxed">
           Step beyond classroom theory. Write real-world production code on live enterprise projects, learn from senior software architects, and earn a digitally verifiable credential.
@@ -47,7 +47,7 @@ export default function InternshipsPage({ onOpenApply, onOpenVerify }) {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
           <button
             onClick={onOpenApply}
-            className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-[0_0_25px_rgba(0,240,255,0.6)] transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
           >
             <FileSpreadsheet className="w-4 h-4" />
             <span>Apply via Google Form</span>
@@ -55,7 +55,7 @@ export default function InternshipsPage({ onOpenApply, onOpenVerify }) {
           </button>
           <button
             onClick={onOpenVerify}
-            className="w-full sm:w-auto px-6 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-cyan-300 glass-pill hover:bg-cyan-400 hover:text-black border border-cyan-400/40 transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
+            className="w-full sm:w-auto px-6 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider text-cyan-300 glass-pill hover:bg-cyan-400 hover:text-black border border-white/10 hover:border-cyan-400/40 transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
           >
             <ShieldCheck className="w-4 h-4 text-cyan-400" />
             <span>Verify Existing Certificate</span>
@@ -73,8 +73,8 @@ export default function InternshipsPage({ onOpenApply, onOpenVerify }) {
         ].map((item, idx) => {
           const Icon = item.icon;
           return (
-            <div key={idx} className="glass-card rounded-2xl p-5 space-y-2">
-              <div className="w-9 h-9 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
+            <div key={idx} className="glass-card rounded-2xl p-5 space-y-2 border border-white/10">
+              <div className="w-9 h-9 rounded-xl bg-cyan-950/50 border border-cyan-400/30 flex items-center justify-center text-cyan-400">
                 <Icon className="w-4 h-4" />
               </div>
               <h4 className="text-sm font-bold text-white">{item.label}</h4>
@@ -142,7 +142,7 @@ export default function InternshipsPage({ onOpenApply, onOpenVerify }) {
               <div className="pt-3 border-t border-cyan-500/20">
                 <button
                   onClick={onOpenApply}
-                  className="w-full py-2.5 rounded-xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all flex items-center justify-center gap-2 cursor-pointer font-sub shadow-[0_0_15px_rgba(0,240,255,0.4)]"
+                  className="w-full py-2.5 rounded-xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all flex items-center justify-center gap-2 cursor-pointer font-sub shadow-md"
                 >
                   <span>Apply Now</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -282,7 +282,7 @@ export default function InternshipsPage({ onOpenApply, onOpenVerify }) {
       </section>
 
       {/* 7. Bottom Apply CTA */}
-      <section className="text-center rounded-3xl glass-panel border border-cyan-400/40 p-8 sm:p-12 space-y-4 shadow-[0_0_40px_rgba(0,240,255,0.2)]">
+      <section className="text-center rounded-3xl glass-panel border border-white/10 p-8 sm:p-12 space-y-4 shadow-xl">
         <h3 className="font-tech text-2xl font-bold text-white">
           Ready to Elevate Your Engineering Profile?
         </h3>
@@ -291,7 +291,7 @@ export default function InternshipsPage({ onOpenApply, onOpenVerify }) {
         </p>
         <button
           onClick={onOpenApply}
-          className="px-8 py-3.5 rounded-2xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 font-sub shadow-[0_0_25px_rgba(0,240,255,0.7)] cursor-pointer"
+          className="px-8 py-3.5 rounded-2xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 font-sub shadow-md cursor-pointer"
         >
           Apply via Google Form Now
         </button>

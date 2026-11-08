@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, ShieldCheck, ArrowRight, GraduationCap } from 'lucide-react';
-import BrandLogo from './BrandLogo';
+import { Menu, X, ArrowRight, ShieldCheck, GraduationCap } from 'lucide-react';
 
 export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenVerify }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,100 +9,85 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
     { id: 'about', label: 'About Us' },
     { id: 'services', label: 'Services' },
     { id: 'portfolio', label: 'Portfolio' },
-    { 
-      id: 'internships', 
-      label: 'Internships & Training', 
-      badge: 'Apply' 
-    },
+    { id: 'internships', label: 'Internships & Training', badge: 'Apply' },
     { id: 'careers', label: 'Careers' },
     { id: 'contact', label: 'Contact Us' },
   ];
 
-  const handleNavClick = (pageId) => {
-    setActivePage(pageId);
+  const handleNavClick = (id) => {
+    setActivePage(id);
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-2xl bg-black/80 border-b border-[#00f0ff]/20 transition-all">
-      
-      {/* Top Laser Line in Electric Aqua */}
-      <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent shadow-[0_0_12px_#00f0ff]" />
-
+    <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#03070f]/90 border-b border-white/10 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Logo & Brand: Transparent logo with zero black box */}
-          {/* Logo & Brand: Complete Official Brand Lockup (Emblem | IR InfoTech - IDEAS | INNOVATION | IMPACT) */}
+          {/* Logo & Brand Lockup */}
           <button 
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3 sm:gap-3.5 group text-left cursor-pointer focus:outline-none py-1"
+            className="flex items-center gap-3 group text-left cursor-pointer focus:outline-none py-1"
           >
             {/* Official Brand Emblem */}
             <div className="relative w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center shrink-0">
               <img 
                 src="/ir-logo.png" 
                 alt="IR InfoTech Emblem" 
-                className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(0,240,255,0.4)] group-hover:scale-105 transition-all duration-300"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
               />
             </div>
 
-            {/* Glowing Vertical Cyan Divider Line */}
-            <div className="w-[1.5px] h-9 sm:h-10 bg-gradient-to-b from-transparent via-[#00f0ff] to-transparent shadow-[0_0_8px_#00f0ff] shrink-0" />
+            {/* Clean Vertical Divider */}
+            <div className="w-[1.5px] h-9 sm:h-10 bg-gradient-to-b from-transparent via-[#00f0ff]/70 to-transparent shrink-0" />
 
-            {/* Brand Typography & Tagline with Laser Underline */}
+            {/* Brand Typography & Tagline */}
             <div className="flex flex-col select-none">
               <div className="flex items-baseline font-tech tracking-normal">
-                <span className="text-xl sm:text-2xl mr-2 italic font-black text-[#00f0ff] drop-shadow-[0_0_16px_rgba(0,240,255,0.95)]">
+                <span className="text-xl sm:text-2xl mr-2 italic font-black text-[#00f0ff]">
                   IR
                 </span>
-                <span className="text-xl sm:text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-300 drop-shadow-[0_2px_12px_rgba(255,255,255,0.35)]">
+                <span className="text-xl sm:text-2xl font-black tracking-tight text-white">
                   InfoTech
                 </span>
               </div>
               
-              {/* Horizontal Laser Glow Underline with Center Flare */}
-              <div className="relative w-full h-[1.5px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent shadow-[0_0_8px_#00f0ff] my-0.5">
-                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#00f0ff]" />
+              {/* Clean Hairline Underline */}
+              <div className="relative w-full h-[1px] bg-gradient-to-r from-transparent via-[#00f0ff]/50 to-transparent my-0.5">
+                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white/90" />
               </div>
 
-              <p className="text-[8px] sm:text-[9.5px] font-sub uppercase font-bold text-slate-200 tracking-[0.2em] drop-shadow-[0_0_6px_rgba(0,240,255,0.4)] whitespace-nowrap">
-                IDEAS <span className="text-[#00f0ff] font-extrabold px-0.5">|</span> INNOVATION <span className="text-[#00f0ff] font-extrabold px-0.5">|</span> IMPACT
+              <p className="text-[8px] sm:text-[9.5px] font-sub uppercase font-bold text-slate-300 tracking-[0.2em] whitespace-nowrap">
+                IDEAS <span className="text-[#00f0ff] font-semibold px-0.5">|</span> INNOVATION <span className="text-[#00f0ff] font-semibold px-0.5">|</span> IMPACT
               </p>
             </div>
           </button>
 
-          {/* Aesthetic Desktop Navigation: Pure text color glow on active, ZERO background change */}
-          <nav className="hidden lg:flex items-center space-x-1 sm:space-x-2">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-1 sm:space-x-1.5">
             {navLinks.map((link) => {
               const isActive = activePage === link.id;
               return (
                 <button
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}
-                  className={`relative px-3.5 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer flex items-center gap-1.5 font-sub group bg-transparent ${
+                  className={`relative px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-colors duration-200 cursor-pointer flex items-center gap-1.5 font-sub ${
                     isActive
-                      ? 'text-[#00f0ff] drop-shadow-[0_0_12px_rgba(0,240,255,0.9)]'
-                      : 'text-slate-300 hover:text-[#00f0ff] hover:drop-shadow-[0_0_8px_rgba(0,240,255,0.6)]'
+                      ? 'text-[#00f0ff]'
+                      : 'text-slate-300 hover:text-white'
                   }`}
                 >
                   <span>{link.label}</span>
                   
                   {link.badge && (
-                    <span className="text-[9px] uppercase font-black px-1.5 py-0.5 rounded-full bg-[#00f0ff] text-black shadow-[0_0_8px_#00f0ff]">
+                    <span className="text-[9px] uppercase font-bold px-1.5 py-0.5 rounded-full bg-[#00f0ff] text-black">
                       {link.badge}
                     </span>
                   )}
 
-                  {/* Aesthetic Active Underline (No background change, just a glowing laser beam indicator) */}
+                  {/* Clean Active Underline Indicator */}
                   {isActive && (
-                    <span className="absolute bottom-0 left-2 right-2 h-[2px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent shadow-[0_0_8px_#00f0ff]" />
-                  )}
-                  
-                  {/* Subtle hover laser bar */}
-                  {!isActive && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#00f0ff]/60 to-transparent transition-all duration-300" />
+                    <span className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#00f0ff]" />
                   )}
                 </button>
               );
@@ -112,24 +96,24 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-3">
-            {/* Verify Certificate Quick Trigger */}
+            {/* Verify Certificate */}
             <button
               onClick={onOpenVerify}
-              className="px-3.5 py-2 text-xs font-bold font-sub uppercase tracking-wider rounded-xl border border-[#00f0ff]/30 text-[#00f0ff] glass-pill hover:bg-[#00f0ff]/10 hover:border-[#00f0ff] transition-all flex items-center gap-1.5 cursor-pointer shadow-[0_0_12px_rgba(0,240,255,0.15)] hover:shadow-[0_0_20px_rgba(0,240,255,0.35)]"
+              className="px-3.5 py-2 text-xs font-semibold font-sub uppercase tracking-wider rounded-xl border border-white/15 text-slate-200 hover:text-white hover:border-[#00f0ff]/60 bg-white/5 hover:bg-white/10 transition-all flex items-center gap-1.5 cursor-pointer"
               title="Verify Student Internship Certificate"
             >
               <ShieldCheck className="w-4 h-4 text-[#00f0ff]" />
               <span>Verify Certificate</span>
             </button>
 
-            {/* Apply Now Primary CTA in Electric Aqua */}
+            {/* Apply Now Primary CTA */}
             <button
               onClick={onOpenApply}
-              className="relative group overflow-hidden px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider text-black bg-[#00f0ff] hover:bg-white shadow-[0_0_25px_rgba(0,240,255,0.7)] hover:shadow-[0_0_35px_rgba(0,240,255,1)] transition-all duration-300 flex items-center gap-2 cursor-pointer font-sub"
+              className="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider text-black bg-[#00f0ff] hover:bg-[#38f8ff] transition-all duration-200 flex items-center gap-2 cursor-pointer font-sub"
             >
               <GraduationCap className="w-4 h-4" />
               <span>Apply Now</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
@@ -137,13 +121,13 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
           <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={onOpenApply}
-              className="px-3 py-1.5 text-xs font-bold rounded-lg bg-[#00f0ff] text-black uppercase tracking-wider font-sub shadow-[0_0_10px_#00f0ff]"
+              className="px-3 py-1.5 text-xs font-bold rounded-lg bg-[#00f0ff] text-black uppercase tracking-wider font-sub"
             >
               Apply
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-slate-300 hover:text-white glass-pill"
+              className="p-2 rounded-xl text-slate-300 hover:text-white bg-white/5 border border-white/10"
             >
               {mobileMenuOpen ? <X className="w-6 h-6 text-[#00f0ff]" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -152,34 +136,34 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
         </div>
       </div>
 
-      {/* Mobile Drawer (Clean, transparent background on active link, just glowing aqua text) */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-black/95 backdrop-blur-2xl border-b border-[#00f0ff]/25 px-4 pt-3 pb-6 space-y-2">
+        <div className="lg:hidden bg-[#03070f] border-b border-white/10 px-4 pt-3 pb-6 space-y-2">
           {navLinks.map((link) => (
             <button
               key={link.id}
               onClick={() => handleNavClick(link.id)}
-              className={`w-full text-left px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-between transition-colors font-sub bg-transparent ${
+              className={`w-full text-left px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-between transition-colors font-sub ${
                 activePage === link.id
-                  ? 'text-[#00f0ff] drop-shadow-[0_0_10px_#00f0ff] border-l-2 border-[#00f0ff] pl-3'
-                  : 'text-slate-300 hover:text-[#00f0ff]'
+                  ? 'text-[#00f0ff] border-l-2 border-[#00f0ff] pl-3 bg-white/5'
+                  : 'text-slate-300 hover:text-white'
               }`}
             >
               <span>{link.label}</span>
               {link.badge && (
-                <span className="text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-[#00f0ff] text-black shadow-[0_0_6px_#00f0ff]">
+                <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#00f0ff] text-black">
                   {link.badge}
                 </span>
               )}
             </button>
           ))}
-          <div className="pt-4 border-t border-[#00f0ff]/20 flex flex-col gap-2.5">
+          <div className="pt-4 border-t border-white/10 flex flex-col gap-2.5">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenVerify();
               }}
-              className="w-full py-2.5 px-4 text-xs font-bold font-sub uppercase tracking-wider rounded-xl border border-[#00f0ff]/30 text-[#00f0ff] glass-pill flex items-center justify-center gap-2"
+              className="w-full py-2.5 px-4 text-xs font-semibold font-sub uppercase tracking-wider rounded-xl border border-white/15 text-slate-200 bg-white/5 flex items-center justify-center gap-2"
             >
               <ShieldCheck className="w-4 h-4 text-[#00f0ff]" />
               <span>Verify Certificate</span>
@@ -189,7 +173,7 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
                 setMobileMenuOpen(false);
                 onOpenApply();
               }}
-              className="w-full py-3 px-4 text-xs font-bold uppercase tracking-wider rounded-xl bg-[#00f0ff] text-black flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,240,255,0.7)] font-sub"
+              className="w-full py-3 px-4 text-xs font-bold uppercase tracking-wider rounded-xl bg-[#00f0ff] text-black flex items-center justify-center gap-2 font-sub"
             >
               <GraduationCap className="w-4 h-4" />
               <span>Apply for Internship</span>
@@ -197,6 +181,7 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
           </div>
         </div>
       )}
+
     </header>
   );
 }

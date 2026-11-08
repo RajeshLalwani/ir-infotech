@@ -55,7 +55,7 @@ export default function AboutPage({ setActivePage, onOpenApply }) {
         </div>
         <h1 className="font-tech text-4xl sm:text-5xl font-extrabold text-white leading-tight">
           Pioneering Future-Ready <br />
-          <span className="text-cyan-400 drop-shadow-[0_0_20px_rgba(0,240,255,0.8)]">Technology Solutions</span>
+          <span className="text-cyan-400">Technology Solutions</span>
         </h1>
         <p className="text-base text-slate-300 leading-relaxed">
           Founded on the conviction that high-performance engineering and real-world student incubation can thrive under one roof. We architect software that scales and train minds that build.
@@ -95,13 +95,12 @@ export default function AboutPage({ setActivePage, onOpenApply }) {
         {/* Visual Emblem Box in Glassmorphism */}
         <div className="lg:col-span-5 flex justify-center">
           <div className="relative group w-full max-w-sm">
-            <div className="absolute -inset-2 bg-cyan-400/20 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition-all duration-500" />
-            <div className="relative glass-panel rounded-3xl p-8 text-center space-y-4 border border-cyan-400/40">
+            <div className="relative glass-panel rounded-3xl p-8 text-center space-y-4 border border-white/10 shadow-xl">
               <div className="w-56 h-56 sm:w-64 sm:h-64 mx-auto flex items-center justify-center animate-float">
                 <img 
                   src="/ir-logo.png" 
                   alt="IR InfoTech Official Emblem" 
-                  className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(0,240,255,0.35)]" 
+                  className="w-full h-full object-contain" 
                 />
               </div>
               <div className="w-40 mx-auto laser-flare" />
@@ -120,8 +119,8 @@ export default function AboutPage({ setActivePage, onOpenApply }) {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         {/* Mission */}
-        <div className="rounded-3xl glass-card border border-cyan-400/30 p-8 space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-cyan-950/70 border border-cyan-400/50 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+        <div className="rounded-3xl glass-card border border-white/10 p-8 space-y-4">
+          <div className="w-12 h-12 rounded-2xl bg-cyan-950/50 border border-cyan-400/30 flex items-center justify-center text-cyan-400">
             <Target className="w-6 h-6" />
           </div>
           <h3 className="font-tech text-2xl font-bold text-white">Our Mission</h3>
@@ -131,8 +130,8 @@ export default function AboutPage({ setActivePage, onOpenApply }) {
         </div>
 
         {/* Vision */}
-        <div className="rounded-3xl glass-card border border-cyan-400/30 p-8 space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-cyan-950/70 border border-cyan-400/50 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+        <div className="rounded-3xl glass-card border border-white/10 p-8 space-y-4">
+          <div className="w-12 h-12 rounded-2xl bg-cyan-950/50 border border-cyan-400/30 flex items-center justify-center text-cyan-400">
             <Compass className="w-6 h-6" />
           </div>
           <h3 className="font-tech text-2xl font-bold text-white">Our Vision</h3>
@@ -159,8 +158,8 @@ export default function AboutPage({ setActivePage, onOpenApply }) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {objectives.map((obj, i) => (
-            <div key={i} className="flex items-start gap-3 glass-card p-4 rounded-xl border border-cyan-400/20">
-              <div className="w-6 h-6 rounded-full bg-cyan-950 border border-cyan-400 text-cyan-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 shadow-[0_0_8px_#00f0ff]">
+            <div key={i} className="flex items-start gap-3 glass-card p-4 rounded-xl border border-white/10">
+              <div className="w-6 h-6 rounded-full bg-cyan-950/80 border border-cyan-400 text-cyan-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
                 {i + 1}
               </div>
               <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
@@ -188,9 +187,9 @@ export default function AboutPage({ setActivePage, onOpenApply }) {
             return (
               <div
                 key={i}
-                className="glass-card rounded-2xl p-6 hover:border-cyan-400/60 transition-all group border border-cyan-400/20"
+                className="glass-card rounded-2xl p-6 hover:border-cyan-400/50 transition-all group border border-white/10"
               >
-                <div className="w-12 h-12 rounded-xl bg-cyan-950/70 border border-cyan-400/40 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform shadow-[0_0_12px_rgba(0,240,255,0.3)]">
+                <div className="w-12 h-12 rounded-xl bg-cyan-950/50 border border-cyan-400/30 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform">
                   <Icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
@@ -210,13 +209,13 @@ export default function AboutPage({ setActivePage, onOpenApply }) {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             onClick={() => setActivePage('services')}
-            className="px-7 py-3.5 rounded-2xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all font-sub shadow-[0_0_20px_rgba(0,240,255,0.6)] cursor-pointer"
+            className="px-7 py-3.5 rounded-2xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all font-sub shadow-md cursor-pointer"
           >
             Explore What We Build
           </button>
           <button
             onClick={onOpenApply}
-            className="px-7 py-3.5 rounded-2xl glass-pill border border-cyan-400/40 text-cyan-300 font-bold text-xs uppercase tracking-wider hover:bg-cyan-400 hover:text-black transition-all font-sub cursor-pointer"
+            className="px-7 py-3.5 rounded-2xl glass-pill border border-white/10 hover:border-cyan-400/40 text-cyan-300 font-bold text-xs uppercase tracking-wider hover:bg-cyan-400 hover:text-black transition-all font-sub cursor-pointer"
           >
             Join as Student Intern
           </button>

@@ -26,7 +26,7 @@ export default function PortfolioPage({ setActivePage }) {
           <span>Proven Deliverables</span>
         </div>
         <h1 className="font-tech text-4xl sm:text-5xl font-extrabold text-white leading-tight">
-          Portfolio & <span className="text-cyan-400 drop-shadow-[0_0_20px_rgba(0,240,255,0.8)]">Case Studies</span>
+          Portfolio & <span className="text-cyan-400">Case Studies</span>
         </h1>
         <p className="text-base text-slate-300 leading-relaxed">
           Explore production systems engineered by IR InfoTech across FinTech, HealthTech, Supply Chain, and Enterprise SaaS.
@@ -41,8 +41,8 @@ export default function PortfolioPage({ setActivePage }) {
             onClick={() => setActiveCategory(cat)}
             className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer font-sub ${
               activeCategory === cat
-                ? 'bg-cyan-400 text-black shadow-[0_0_15px_rgba(0,240,255,0.6)]'
-                : 'glass-card text-slate-300 hover:text-white border border-cyan-400/20 hover:border-cyan-400/50'
+                ? 'bg-cyan-400 text-black shadow-md'
+                : 'glass-card text-slate-300 hover:text-white border border-white/10 hover:border-cyan-400/40'
             }`}
           >
             {cat}
@@ -126,8 +126,8 @@ export default function PortfolioPage({ setActivePage }) {
       {/* Case Study Modal View */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl animate-fadeIn">
-          <div className="relative w-full max-w-2xl glass-panel border border-cyan-400/50 rounded-3xl p-6 sm:p-8 space-y-5 shadow-[0_0_60px_rgba(0,240,255,0.3)]">
-            <div className="flex items-center justify-between pb-3 border-b border-cyan-500/20">
+          <div className="relative w-full max-w-2xl glass-panel border border-white/10 rounded-3xl p-6 sm:p-8 space-y-5 shadow-2xl">
+            <div className="flex items-center justify-between pb-3 border-b border-white/10">
               <div>
                 <span className="text-xs font-mono text-cyan-400 uppercase">{selectedProject.category} Case Study</span>
                 <h3 className="text-xl font-bold text-white mt-1">{selectedProject.title}</h3>
@@ -151,7 +151,7 @@ export default function PortfolioPage({ setActivePage }) {
                 <p className="leading-relaxed">{selectedProject.summary}</p>
               </div>
 
-              <div className="glass-panel p-4 rounded-xl border border-cyan-400/40">
+              <div className="glass-panel p-4 rounded-xl border border-white/10">
                 <h4 className="font-mono text-cyan-400 text-xs font-bold mb-2">VERIFIED BUSINESS OUTCOMES:</h4>
                 <p className="text-sm font-mono text-emerald-400 font-bold">{selectedProject.metrics}</p>
               </div>
@@ -166,7 +166,7 @@ export default function PortfolioPage({ setActivePage }) {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-cyan-500/20 flex justify-end gap-3">
+            <div className="pt-4 border-t border-white/10 flex justify-end gap-3">
               <button
                 onClick={() => setSelectedProject(null)}
                 className="px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white cursor-pointer"
@@ -178,7 +178,7 @@ export default function PortfolioPage({ setActivePage }) {
                   setSelectedProject(null);
                   setActivePage('contact');
                 }}
-                className="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-cyan-400 text-black rounded-xl hover:bg-cyan-300 cursor-pointer font-sub shadow-[0_0_15px_rgba(0,240,255,0.5)]"
+                className="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-cyan-400 text-black rounded-xl hover:bg-cyan-300 cursor-pointer font-sub shadow-md"
               >
                 Build Similar Architecture
               </button>
@@ -188,7 +188,7 @@ export default function PortfolioPage({ setActivePage }) {
       )}
 
       {/* Bottom CTA */}
-      <section className="text-center rounded-3xl glass-panel border border-cyan-400/30 p-8 sm:p-12 space-y-4 shadow-[0_0_40px_rgba(0,240,255,0.15)]">
+      <section className="text-center rounded-3xl glass-panel border border-white/10 p-8 sm:p-12 space-y-4 shadow-xl">
         <h3 className="font-tech text-2xl font-bold text-white">
           Have an Ambitious Project in Mind?
         </h3>
@@ -197,7 +197,7 @@ export default function PortfolioPage({ setActivePage }) {
         </p>
         <button
           onClick={() => setActivePage('contact')}
-          className="px-7 py-3.5 rounded-2xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 font-sub shadow-[0_0_20px_rgba(0,240,255,0.6)] cursor-pointer"
+          className="px-7 py-3.5 rounded-2xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 font-sub shadow-md cursor-pointer"
         >
           Book Technical Scoping Session
         </button>

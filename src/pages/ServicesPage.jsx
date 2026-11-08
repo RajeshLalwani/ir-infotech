@@ -36,7 +36,7 @@ export default function ServicesPage({ setActivePage }) {
         </div>
         <h1 className="font-tech text-4xl sm:text-5xl font-extrabold text-white leading-tight">
           High-Velocity <br />
-          <span className="text-cyan-400 drop-shadow-[0_0_20px_rgba(0,240,255,0.8)]">Digital Solutions & IT Services</span>
+          <span className="text-cyan-400">Digital Solutions & IT Services</span>
         </h1>
         <p className="text-base text-slate-300 leading-relaxed">
           From full-cycle custom software and high-conversion web apps to autonomous AI workflows and cloud modernization. We build systems engineered to outlast market disruptions.
@@ -64,8 +64,8 @@ export default function ServicesPage({ setActivePage }) {
                 onClick={() => setSelectedService(s.id)}
                 className={`px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer font-sub flex items-center gap-2 ${
                   isSelected
-                    ? 'bg-cyan-400 text-black shadow-[0_0_20px_rgba(0,240,255,0.6)] scale-105'
-                    : 'glass-card text-slate-300 hover:text-white border border-cyan-400/20 hover:border-cyan-400/50'
+                    ? 'bg-cyan-400 text-black shadow-md'
+                    : 'glass-card text-slate-300 hover:text-white border border-white/10 hover:border-cyan-400/40'
                 }`}
               >
                 <span>{s.title}</span>
@@ -75,7 +75,7 @@ export default function ServicesPage({ setActivePage }) {
         </div>
 
         {/* Active Service Showcase Card in Glassmorphism */}
-        <div className="rounded-3xl glass-panel border border-cyan-400/40 p-8 sm:p-12 shadow-[0_0_50px_rgba(0,240,255,0.2)]">
+        <div className="rounded-3xl glass-panel border border-white/10 p-8 sm:p-12 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             {/* Left Description */}
@@ -99,7 +99,7 @@ export default function ServicesPage({ setActivePage }) {
                 </h4>
                 {currentService.features.map((feat, idx) => (
                   <div key={idx} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-cyan-950 border border-cyan-400 flex items-center justify-center text-cyan-400 shrink-0 shadow-[0_0_8px_#00f0ff]">
+                    <div className="w-5 h-5 rounded-full bg-cyan-950/80 border border-cyan-400 flex items-center justify-center text-cyan-400 shrink-0">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                     </div>
                     <span className="text-xs sm:text-sm text-slate-200">{feat}</span>
@@ -111,14 +111,14 @@ export default function ServicesPage({ setActivePage }) {
               <div className="pt-4 flex flex-wrap gap-3">
                 <button
                   onClick={() => setActivePage('contact')}
-                  className="px-6 py-3 rounded-2xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all cursor-pointer font-sub shadow-[0_0_20px_rgba(0,240,255,0.5)] flex items-center gap-2"
+                  className="px-6 py-3 rounded-2xl bg-cyan-400 text-black font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all cursor-pointer font-sub shadow-md flex items-center gap-2"
                 >
                   <span>Request Proposal for this Service</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setActivePage('portfolio')}
-                  className="px-5 py-3 rounded-2xl glass-pill border border-cyan-400/40 text-cyan-300 font-bold text-xs uppercase tracking-wider hover:bg-cyan-400 hover:text-black transition-all cursor-pointer font-sub"
+                  className="px-5 py-3 rounded-2xl glass-pill border border-white/10 hover:border-cyan-400/40 text-cyan-300 font-bold text-xs uppercase tracking-wider hover:bg-cyan-400 hover:text-black transition-all cursor-pointer font-sub"
                 >
                   View Case Studies
                 </button>
@@ -126,7 +126,7 @@ export default function ServicesPage({ setActivePage }) {
             </div>
 
             {/* Right Tech Stack & Architecture Box in Glassmorphism */}
-            <div className="lg:col-span-5 glass-card rounded-2xl p-6 space-y-6 border border-cyan-400/30">
+            <div className="lg:col-span-5 glass-card rounded-2xl p-6 space-y-6 border border-white/10">
               <div>
                 <span className="text-[11px] font-mono text-cyan-400 uppercase tracking-widest font-sub font-bold">
                   Primary Tech Ecosystem
@@ -138,9 +138,9 @@ export default function ServicesPage({ setActivePage }) {
                 {currentService.techStack.map((tech, idx) => (
                   <div
                     key={idx}
-                    className="p-3 glass-panel rounded-xl flex items-center gap-2 border border-cyan-400/20"
+                    className="p-3 glass-panel rounded-xl flex items-center gap-2 border border-white/5"
                   >
-                    <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_6px_#00f0ff]" />
+                    <span className="w-2 h-2 rounded-full bg-cyan-400" />
                     <span className="text-xs font-mono font-bold text-slate-200">{tech}</span>
                   </div>
                 ))}
@@ -208,7 +208,7 @@ export default function ServicesPage({ setActivePage }) {
       </section>
 
       {/* 4. Instant Project Estimator */}
-      <section className="rounded-3xl glass-panel border border-cyan-400/40 p-8 sm:p-12 shadow-[0_0_40px_rgba(0,240,255,0.2)]">
+      <section className="rounded-3xl glass-panel border border-white/10 p-8 sm:p-12 shadow-xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <div className="lg:col-span-6 space-y-4">
@@ -228,7 +228,7 @@ export default function ServicesPage({ setActivePage }) {
                 <select
                   value={projectType}
                   onChange={(e) => setProjectType(e.target.value)}
-                  className="w-full px-3 py-2 text-sm glass-panel border border-cyan-400/30 rounded-xl text-white focus:outline-none focus:border-cyan-400"
+                  className="w-full px-3 py-2 text-sm glass-panel border border-white/10 rounded-xl text-white focus:outline-none focus:border-cyan-400"
                 >
                   <option value="Custom Web Application (Next.js/React)">Custom Web Application (Next.js/React)</option>
                   <option value="Enterprise SaaS / ERP System">Enterprise SaaS / ERP System</option>
@@ -244,7 +244,7 @@ export default function ServicesPage({ setActivePage }) {
                   <select
                     value={scale}
                     onChange={(e) => setScale(e.target.value)}
-                    className="w-full px-3 py-2 text-sm glass-panel border border-cyan-400/30 rounded-xl text-white focus:outline-none focus:border-cyan-400"
+                    className="w-full px-3 py-2 text-sm glass-panel border border-white/10 rounded-xl text-white focus:outline-none focus:border-cyan-400"
                   >
                     <option value="Startup / MVP">Startup / MVP</option>
                     <option value="Growing Mid-Market">Growing Mid-Market</option>
@@ -256,7 +256,7 @@ export default function ServicesPage({ setActivePage }) {
                   <select
                     value={timeline}
                     onChange={(e) => setTimeline(e.target.value)}
-                    className="w-full px-3 py-2 text-sm glass-panel border border-cyan-400/30 rounded-xl text-white focus:outline-none focus:border-cyan-400"
+                    className="w-full px-3 py-2 text-sm glass-panel border border-white/10 rounded-xl text-white focus:outline-none focus:border-cyan-400"
                   >
                     <option value="2-4 Weeks (Rapid MVP)">2-4 Weeks (Rapid MVP)</option>
                     <option value="4-8 Weeks (Standard)">4-8 Weeks (Standard)</option>
@@ -268,22 +268,22 @@ export default function ServicesPage({ setActivePage }) {
           </div>
 
           {/* Right Summary Card in Glassmorphism */}
-          <div className="lg:col-span-6 glass-card rounded-2xl p-6 sm:p-8 space-y-5 border border-cyan-400/40 shadow-[0_0_30px_rgba(0,240,255,0.15)]">
-            <div className="flex items-center justify-between pb-3 border-b border-cyan-500/20">
+          <div className="lg:col-span-6 glass-card rounded-2xl p-6 sm:p-8 space-y-5 border border-white/10 shadow-lg">
+            <div className="flex items-center justify-between pb-3 border-b border-white/10">
               <span className="text-xs font-mono text-cyan-400 uppercase font-bold">Estimated Architecture Summary</span>
               <span className="text-[10px] font-mono text-emerald-400">READY TO TRANSMIT</span>
             </div>
 
             <div className="space-y-3 text-xs font-mono">
-              <div className="flex justify-between glass-panel p-2.5 rounded-xl border border-cyan-400/20">
+              <div className="flex justify-between glass-panel p-2.5 rounded-xl border border-white/5">
                 <span className="text-slate-400">Selected Solution:</span>
                 <span className="text-cyan-300 font-bold">{projectType}</span>
               </div>
-              <div className="flex justify-between glass-panel p-2.5 rounded-xl border border-cyan-400/20">
+              <div className="flex justify-between glass-panel p-2.5 rounded-xl border border-white/5">
                 <span className="text-slate-400">Target Timeline:</span>
                 <span className="text-white font-bold">{timeline}</span>
               </div>
-              <div className="flex justify-between glass-panel p-2.5 rounded-xl border border-cyan-400/20">
+              <div className="flex justify-between glass-panel p-2.5 rounded-xl border border-white/5">
                 <span className="text-slate-400">Target Scale:</span>
                 <span className="text-white font-bold">{scale}</span>
               </div>
@@ -291,7 +291,7 @@ export default function ServicesPage({ setActivePage }) {
 
             <button
               onClick={() => setActivePage('contact')}
-              className="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-[0_0_20px_rgba(0,240,255,0.6)] transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
+              className="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider text-black bg-cyan-400 hover:bg-cyan-300 shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer font-sub"
             >
               <Send className="w-4 h-4" />
               <span>Submit for Formal Technical Blueprint</span>
