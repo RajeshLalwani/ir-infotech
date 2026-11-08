@@ -35,12 +35,13 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
         <div className="flex items-center justify-between h-20">
           
           {/* Logo & Brand: Transparent logo with zero black box */}
+          {/* Logo & Brand: Complete Official Brand Lockup (Emblem | IR InfoTech - IDEAS | INNOVATION | IMPACT) */}
           <button 
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3.5 group text-left cursor-pointer focus:outline-none"
+            className="flex items-center gap-3 sm:gap-3.5 group text-left cursor-pointer focus:outline-none py-1"
           >
             {/* Official Brand Emblem */}
-            <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shrink-0">
+            <div className="relative w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center shrink-0">
               <img 
                 src="/ir-logo.png" 
                 alt="IR InfoTech Emblem" 
@@ -48,7 +49,29 @@ export default function Navbar({ activePage, setActivePage, onOpenApply, onOpenV
               />
             </div>
 
-            <BrandLogo size="md" />
+            {/* Glowing Vertical Cyan Divider Line */}
+            <div className="w-[1.5px] h-9 sm:h-10 bg-gradient-to-b from-transparent via-[#00f0ff] to-transparent shadow-[0_0_8px_#00f0ff] shrink-0" />
+
+            {/* Brand Typography & Tagline with Laser Underline */}
+            <div className="flex flex-col select-none">
+              <div className="flex items-baseline font-tech tracking-normal">
+                <span className="text-xl sm:text-2xl mr-2 italic font-black text-[#00f0ff] drop-shadow-[0_0_16px_rgba(0,240,255,0.95)]">
+                  IR
+                </span>
+                <span className="text-xl sm:text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-300 drop-shadow-[0_2px_12px_rgba(255,255,255,0.35)]">
+                  InfoTech
+                </span>
+              </div>
+              
+              {/* Horizontal Laser Glow Underline with Center Flare */}
+              <div className="relative w-full h-[1.5px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent shadow-[0_0_8px_#00f0ff] my-0.5">
+                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#00f0ff]" />
+              </div>
+
+              <p className="text-[8px] sm:text-[9.5px] font-sub uppercase font-bold text-slate-200 tracking-[0.2em] drop-shadow-[0_0_6px_rgba(0,240,255,0.4)] whitespace-nowrap">
+                IDEAS <span className="text-[#00f0ff] font-extrabold px-0.5">|</span> INNOVATION <span className="text-[#00f0ff] font-extrabold px-0.5">|</span> IMPACT
+              </p>
+            </div>
           </button>
 
           {/* Aesthetic Desktop Navigation: Pure text color glow on active, ZERO background change */}

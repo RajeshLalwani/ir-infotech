@@ -73,13 +73,10 @@ export default function HomePage({ setActivePage, onOpenApply, onOpenVerify }) {
               {/* Right Column: Large Brand Header & Tagline (Matches Reference Banner) */}
               <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
                 
-                {/* Brand Name Typography */}
+                {/* Brand Name Typography with Laser Underline and Tagline (1:1 with Official Lockup) */}
                 <div>
-                  <BrandLogo size="xl" showTagline={true} />
+                  <BrandLogo size="xl" showTagline={true} withUnderline={true} />
                 </div>
-
-                {/* Laser Flare Divider with Center Starburst (From Reference) */}
-                <div className="w-full max-w-lg laser-flare my-4 mx-auto lg:mx-0" />
 
                 {/* Value Proposition */}
                 <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
