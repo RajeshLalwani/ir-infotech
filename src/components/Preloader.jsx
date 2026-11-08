@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Sparkles } from 'lucide-react';
 import BrandLogo from './BrandLogo';
 
 export default function Preloader({ onFinish }) {
@@ -51,17 +52,20 @@ export default function Preloader({ onFinish }) {
           <span className="absolute bottom-2 right-6 w-2 h-2 rounded-full bg-cyan-400" />
         </div>
 
-        {/* Center Core: Literal ✨ Symbol in Electric Aqua */}
+        {/* Center Core: Glitter / Sparkles in Pure Electric Aqua */}
         <div className="absolute flex items-center justify-center">
           
           {/* Center Glass Sphere */}
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-950 border border-cyan-400/40 flex items-center justify-center">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-950 border border-[#00f0ff]/40 flex items-center justify-center">
             
-            {/* ✨ Symbol in pure Electric Aqua */}
-            <div className="relative flex items-center justify-center select-none">
-              <span className="text-3xl sm:text-4xl text-cyan-400">
-                ✨
-              </span>
+            {/* Glitter Sparkles in Pure Electric Aqua */}
+            <div className="relative flex items-center justify-center select-none text-[#00f0ff]">
+              {/* Primary Electric Aqua Sparkles Icon */}
+              <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 text-[#00f0ff] fill-[#00f0ff] filter drop-shadow-[0_0_8px_#00f0ff] animate-pulse" />
+              
+              {/* Micro Aqua Glitter Points */}
+              <span className="absolute -top-2.5 -right-2 text-[10px] text-[#00f0ff] font-bold animate-bounce">✦</span>
+              <span className="absolute -bottom-2 -left-2 text-[8px] text-[#00f0ff] animate-ping" style={{ animationDuration: '1.4s' }}>✧</span>
             </div>
 
           </div>
