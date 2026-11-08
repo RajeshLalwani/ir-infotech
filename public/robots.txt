@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ir-infotech.vercel.app/sitemap.xml
+Sitemap: https://ir-infotech-three.vercel.app/sitemap.xml
