@@ -305,26 +305,31 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                       <span className="text-cyan-400 tracking-widest select-none font-black text-xs">///</span>
                     </div>
 
-                    <div className="p-2.5 space-y-1.5 text-[10.5px] text-slate-800">
-                      <div className="flex items-start gap-2.5">
-                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
-                        <p>{bullet1}</p>
-                      </div>
-                      <div className="flex items-start gap-2.5">
-                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
-                        <p>{bullet2}</p>
-                      </div>
-                      <div className="flex items-start gap-2.5">
-                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
-                        <p>{bullet3}</p>
-                      </div>
-                      <div className="flex items-start gap-2.5">
-                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
-                        <p>{bullet4}</p>
-                      </div>
-                      <div className="flex items-start gap-2.5">
-                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
-                        <p>{bullet5}</p>
+                    <div className="p-3 relative">
+                      {/* Vertical Connecting Timeline Rail */}
+                      <div className="absolute left-[19px] top-4 bottom-5 w-[1.5px] bg-gradient-to-b from-cyan-400 via-teal-400 to-cyan-500 rounded-full" />
+
+                      <div className="space-y-2 text-[10.5px] text-slate-800 pl-4">
+                        <div className="flex items-start gap-2.5 relative">
+                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
+                          <p className="leading-snug">{bullet1}</p>
+                        </div>
+                        <div className="flex items-start gap-2.5 relative">
+                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
+                          <p className="leading-snug">{bullet2}</p>
+                        </div>
+                        <div className="flex items-start gap-2.5 relative">
+                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
+                          <p className="leading-snug">{bullet3}</p>
+                        </div>
+                        <div className="flex items-start gap-2.5 relative">
+                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
+                          <p className="leading-snug">{bullet4}</p>
+                        </div>
+                        <div className="flex items-start gap-2.5 relative">
+                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
+                          <p className="leading-snug">{bullet5}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -350,18 +355,21 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
               <div className="mt-2 pt-2 border-t border-slate-200 grid grid-cols-[1fr_auto_1fr_auto_1.15fr] items-center gap-3">
                 
                 {/* Col 1: Authorized Signatory */}
-                <div className="space-y-0.5">
-                  <p className="text-[10px] font-semibold text-slate-600">Yours sincerely,</p>
-                  <div className="h-11 flex items-end">
-                    <img
-                      src="/ir-signature.png"
-                      alt="Rajesh Lalwani Signature"
-                      className="h-10 object-contain filter contrast-125"
-                    />
+                <div className="flex items-stretch gap-2.5">
+                  <div className="w-1 bg-cyan-400 rounded-full shrink-0" />
+                  <div className="space-y-0.5">
+                    <p className="text-[10px] font-semibold text-slate-600">Yours sincerely,</p>
+                    <div className="h-11 flex items-end">
+                      <img
+                        src="/ir-signature.png"
+                        alt="Rajesh Lalwani Signature"
+                        className="h-10 object-contain filter contrast-125"
+                      />
+                    </div>
+                    <h4 className="text-xs font-black text-slate-950 font-tech">Rajesh Lalwani</h4>
+                    <p className="text-[9px] text-slate-600 font-bold uppercase tracking-wider">Founder & CEO</p>
+                    <p className="text-[9.5px] font-bold text-cyan-800">IR InfoTech</p>
                   </div>
-                  <h4 className="text-xs font-black text-slate-950 font-tech">Rajesh Lalwani</h4>
-                  <p className="text-[9px] text-slate-600 font-bold uppercase tracking-wider">Founder & CEO</p>
-                  <p className="text-[9.5px] font-bold text-cyan-800">IR InfoTech</p>
                 </div>
 
                 <div className="w-[1px] h-16 bg-slate-200" />
