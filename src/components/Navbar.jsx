@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Menu, X, ArrowRight, GraduationCap } from 'lucide-react';
+import { Menu, X, ArrowRight, GraduationCap, ShieldCheck } from 'lucide-react';
 
-export default function Navbar({ activePage, setActivePage, onOpenApply }) {
+export default function Navbar({ activePage, setActivePage, onOpenApply, onNavigateVerify }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -94,6 +94,15 @@ export default function Navbar({ activePage, setActivePage, onOpenApply }) {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-3">
+            {/* Verify Credential Link */}
+            <button
+              onClick={onNavigateVerify}
+              className="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-cyan-400 hover:bg-white/5 border border-white/5 hover:border-cyan-500/30 transition-all flex items-center gap-1.5 cursor-pointer font-sub tracking-wider"
+            >
+              <ShieldCheck className="w-4 h-4 text-cyan-400" />
+              <span>Verify Credential</span>
+            </button>
+
             {/* Apply Now Primary CTA */}
             <button
               onClick={onOpenApply}
@@ -146,6 +155,16 @@ export default function Navbar({ activePage, setActivePage, onOpenApply }) {
             </button>
           ))}
           <div className="pt-4 border-t border-white/10 flex flex-col gap-2.5">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onNavigateVerify?.();
+              }}
+              className="w-full py-2.5 px-4 text-xs font-bold uppercase tracking-wider rounded-xl bg-white/5 border border-white/10 text-cyan-400 flex items-center justify-center gap-2 font-sub"
+            >
+              <ShieldCheck className="w-4 h-4" />
+              <span>Verify Certificate</span>
+            </button>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

@@ -9,7 +9,7 @@ import {
 import BrandLogo from './BrandLogo';
 import { COMPANY_INFO, SERVICES, INTERNSHIP_DOMAINS } from '../data/content';
 
-export default function Footer({ setActivePage, onOpenLegal, onOpenApply }) {
+export default function Footer({ setActivePage, onOpenLegal, onOpenApply, onNavigateVerify, onNavigateAdmin }) {
   const currentYear = new Date().getFullYear();
 
   const handleNav = (page) => {
@@ -214,9 +214,26 @@ export default function Footer({ setActivePage, onOpenLegal, onOpenApply }) {
           </div>
         </div>
 
-        {/* Bottom Copyright */}
+        {/* Bottom Copyright & Portals */}
         <div className="pt-6 border-t border-cyan-500/10 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© {currentYear} IR InfoTech. All rights reserved.</p>
+          <div className="flex flex-wrap items-center gap-4">
+            <p>© {currentYear} IR InfoTech. All rights reserved.</p>
+            <span className="hidden sm:inline">•</span>
+            <button
+              onClick={onNavigateVerify}
+              className="hover:text-cyan-400 transition-colors cursor-pointer flex items-center gap-1"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Verify Certificate</span>
+            </button>
+            <span className="hidden sm:inline">•</span>
+            <button
+              onClick={onNavigateAdmin}
+              className="hover:text-cyan-400 transition-colors cursor-pointer flex items-center gap-1 text-slate-400"
+            >
+              <span>Admin Portal</span>
+            </button>
+          </div>
           <p className="text-[11px] text-slate-500 text-center md:text-right max-w-md">
             Dedicated to engineering excellence, scalable cloud software, and ethical student workforce development.
           </p>
