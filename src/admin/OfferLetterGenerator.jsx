@@ -10,31 +10,47 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
   const [downloading, setDownloading] = useState(false);
   const [referenceNo, setReferenceNo] = useState('');
   const [issueDate, setIssueDate] = useState(new Date().toISOString().split('T')[0]);
+  const [acceptanceDeadline, setAcceptanceDeadline] = useState('');
   const [settings, setSettings] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
   // Position Title (default: intern.domain or Software Development Intern)
   const [positionTitle, setPositionTitle] = useState('Software Development Intern');
 
-  // Universal Bullet Points (5 Deliverables - Works universally for Software, BDE, HR, Marketing, Design, etc.)
-  const [bullet1, setBullet1] = useState('Participate actively in functional project tasks, operational workflows, and assigned deliverables.');
-  const [bullet2, setBullet2] = useState('Collaborate with mentors and cross-functional teams to execute initiatives adhering to company standards.');
-  const [bullet3, setBullet3] = useState('Gain hands-on practical industry exposure with professional tools, modern methodologies, and corporate best practices.');
-  const [bullet4, setBullet4] = useState('Contribute proactively to team milestones, document project outcomes, and report progress regularly.');
-  const [bullet5, setBullet5] = useState('Engage in continuous skill enhancement, apply mentor feedback, and uphold organizational data integrity.');
+  // Exact Official Reference Bullets (4 Standard Deliverables as per Approved Template)
+  const [bullets, setBullets] = useState([
+    'Participate in the development and enhancement of software applications.',
+    'Collaborate with the team on design, coding, testing and deployment activities.',
+    'Gain hands-on experience with development tools, frameworks and best practices.',
+    'Contribute to assigned projects and share progress and learnings regularly.'
+  ]);
 
   useEffect(() => {
     if (isOpen && intern) {
       generateNextOfferReference().then(setReferenceNo);
       getCompanySettings().then(setSettings);
+      
       if (intern.domain && intern.domain !== 'ALL') {
         const cleaned = intern.domain.replace(/\(.*?\)/g, '').trim();
         setPositionTitle(cleaned.toLowerCase().includes('intern') ? cleaned : `${cleaned} Intern`);
       } else {
         setPositionTitle('Software Development Intern');
       }
+
+      // Compute acceptance deadline (default: 1 day after start_date or issue date)
+      if (intern.start_date) {
+        try {
+          const d = new Date(intern.start_date);
+          d.setDate(d.getDate() + 1);
+          setAcceptanceDeadline(d.toISOString().split('T')[0]);
+        } catch {
+          setAcceptanceDeadline(issueDate);
+        }
+      } else {
+        setAcceptanceDeadline(issueDate);
+      }
     }
-  }, [isOpen, intern]);
+  }, [isOpen, intern, issueDate]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -45,6 +61,10 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
   }, [isOpen, onClose]);
 
   if (!isOpen || !intern) return null;
+
+  const candidateFirstName = intern.full_name 
+    ? intern.full_name.trim().split(' ')[0] 
+    : 'Candidate';
 
   const formatDate = (dStr) => {
     if (!dStr) return '';
@@ -145,7 +165,7 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
         {/* Optional Customizer Drawer */}
         {isEditing && (
           <div className="p-4 bg-white/[0.03] rounded-2xl border border-white/10 space-y-3 shrink-0 my-3 text-xs">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
                 <label className="text-slate-300 block mb-1 font-semibold">Offer Position Title</label>
                 <input
@@ -164,39 +184,31 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                   className="w-full p-2 rounded-xl bg-black/40 border border-white/10 text-white"
                 />
               </div>
+              <div>
+                <label className="text-slate-300 block mb-1 font-semibold">Acceptance Deadline</label>
+                <input
+                  type="date"
+                  value={acceptanceDeadline}
+                  onChange={(e) => setAcceptanceDeadline(e.target.value)}
+                  className="w-full p-2 rounded-xl bg-black/40 border border-white/10 text-white"
+                />
+              </div>
             </div>
             <div className="space-y-1.5">
-              <label className="text-slate-300 block font-semibold">Deliverable Bullets (Universal)</label>
-              <input
-                type="text"
-                value={bullet1}
-                onChange={(e) => setBullet1(e.target.value)}
-                className="w-full p-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs mb-1"
-              />
-              <input
-                type="text"
-                value={bullet2}
-                onChange={(e) => setBullet2(e.target.value)}
-                className="w-full p-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs mb-1"
-              />
-              <input
-                type="text"
-                value={bullet3}
-                onChange={(e) => setBullet3(e.target.value)}
-                className="w-full p-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs mb-1"
-              />
-              <input
-                type="text"
-                value={bullet4}
-                onChange={(e) => setBullet4(e.target.value)}
-                className="w-full p-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs mb-1"
-              />
-              <input
-                type="text"
-                value={bullet5}
-                onChange={(e) => setBullet5(e.target.value)}
-                className="w-full p-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs"
-              />
+              <label className="text-slate-300 block font-semibold">Deliverable Bullets (Exact 4 Standard Points)</label>
+              {bullets.map((b, idx) => (
+                <input
+                  key={idx}
+                  type="text"
+                  value={b}
+                  onChange={(e) => {
+                    const next = [...bullets];
+                    next[idx] = e.target.value;
+                    setBullets(next);
+                  }}
+                  className="w-full p-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs mb-1"
+                />
+              ))}
             </div>
           </div>
         )}
@@ -250,21 +262,21 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                     <img
                       src="/udyam-badge-clean.png"
                       alt="Udyam Registered Enterprise"
-                      className="h-12 object-contain mt-0.5"
+                      className="h-12 object-contain mt-0.5 drop-shadow-xs"
                     />
                   </div>
                 </div>
 
-                {/* CYAN GRADIENT SUBJECT BANNER */}
+                {/* CYAN GRADIENT SUBJECT BANNER (EXACT REFERENCE DESIGN) */}
                 <div className="mb-3 px-5 py-2 rounded-full bg-gradient-to-r from-sky-400 via-cyan-400 to-cyan-500 text-slate-950 text-xs font-black flex items-center justify-between shadow-sm">
                   <span>Subject: Offer of Internship at IR InfoTech</span>
                   <span className="text-slate-950/70 tracking-widest font-black select-none">////</span>
                 </div>
 
-                {/* FORMAL LETTER BODY (EXACT MATCH TO REFERENCE) */}
+                {/* FORMAL LETTER BODY (EXACT MATCH TO APPROVED REFERENCE) */}
                 <div className="space-y-2.5 text-[11.5px] text-slate-700 leading-relaxed text-justify">
                   <p className="font-bold text-slate-950 text-xs">
-                    Dear {intern.full_name},
+                    Dear {candidateFirstName},
                   </p>
 
                   <p>
@@ -272,18 +284,18 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                   </p>
 
                   <p>
-                    Your internship will commence on <strong>{formatDate(intern.start_date)}</strong> for a period of <strong>{formatDuration(intern.duration_months)}</strong>, concluding on <strong>{formatDate(intern.end_date)}</strong>{intern.college_name ? <span>, and is affiliated with <strong>{intern.college_name}</strong></span> : ''}.
+                    Your internship will commence on <strong>{formatDate(intern.start_date)}</strong> for a period of <strong>{formatDuration(intern.duration_months)}</strong>, concluding on <strong>{formatDate(intern.end_date)}</strong>{intern.college_name ? <span>, and is affiliated with <strong>{intern.college_name}</strong></span> : ''}. {intern.is_paid || intern.stipend_type === 'Paid' ? `This is a paid internship with a monthly stipend of ${intern.stipend_amount || 'as agreed'}.` : 'This is an unpaid internship; no stipend will be provided.'}
                   </p>
 
-                  {/* 5 UNIVERSAL DELIVERABLES FEATURE BOX (LUCKY #5) */}
-                  <div className="my-2.5 border border-cyan-300 rounded-2xl overflow-hidden shadow-sm bg-gradient-to-b from-cyan-50/50 to-white">
+                  {/* 4 RESPONSIBILITIES FEATURE BOX (EXACT MATCH TO REFERENCE) */}
+                  <div className="my-2.5 border border-cyan-300 rounded-2xl overflow-hidden shadow-xs bg-[#e8fafc]/70">
                     {/* Dark Terminal Header Tab */}
-                    <div className="bg-[#031526] text-white px-4 py-1.5 flex items-center justify-between text-xs font-bold font-tech tracking-wider border-b border-cyan-700/40">
+                    <div className="bg-[#04282e] text-white px-4 py-1.5 flex items-center justify-between text-xs font-bold font-tech tracking-wider border-b border-cyan-700/40">
                       <div className="flex items-center gap-2 text-cyan-300">
                         <span className="bg-cyan-400/20 text-cyan-300 border border-cyan-400/40 px-1 py-0.5 rounded font-mono text-[9px]">&lt;/&gt;</span>
                         <span>During your internship, you will:</span>
                       </div>
-                      <span className="text-cyan-400 tracking-widest select-none font-black text-xs">///</span>
+                      <span className="text-cyan-400 tracking-widest select-none font-black text-xs">//</span>
                     </div>
 
                     {/* Connected Timeline Nodes with Continuous Vertical Rail */}
@@ -291,32 +303,18 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                       <div className="absolute left-[21px] top-4 bottom-5 w-[1.5px] bg-gradient-to-b from-cyan-400 via-teal-400 to-cyan-500 rounded-full" />
 
                       <div className="space-y-2 text-[10.5px] text-slate-800 pl-4">
-                        <div className="flex items-start gap-2.5 relative">
-                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
-                          <p className="leading-snug">{bullet1}</p>
-                        </div>
-                        <div className="flex items-start gap-2.5 relative">
-                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
-                          <p className="leading-snug">{bullet2}</p>
-                        </div>
-                        <div className="flex items-start gap-2.5 relative">
-                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
-                          <p className="leading-snug">{bullet3}</p>
-                        </div>
-                        <div className="flex items-start gap-2.5 relative">
-                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
-                          <p className="leading-snug">{bullet4}</p>
-                        </div>
-                        <div className="flex items-start gap-2.5 relative">
-                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
-                          <p className="leading-snug">{bullet5}</p>
-                        </div>
+                        {bullets.map((bullet, idx) => (
+                          <div key={idx} className="flex items-start gap-2.5 relative">
+                            <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
+                            <p className="leading-snug">{bullet}</p>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
 
                   <p>
-                    We are confident that this internship will be a valuable learning experience for you and will contribute to your professional growth. Please confirm your acceptance of this offer by replying to this communication by <strong>{formatDate(intern.start_date)}</strong>.
+                    We are confident that this internship will be a valuable learning experience for you and will contribute to your professional growth. Please confirm your acceptance of this offer by replying to this communication by <strong>{formatDate(acceptanceDeadline)}</strong>.
                   </p>
 
                   <p className="font-semibold text-slate-900 text-[11px]">
@@ -341,7 +339,7 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                       />
                     </div>
                     <h4 className="text-sm font-black text-slate-950 font-tech">Rajesh Lalwani</h4>
-                    <p className="text-[9.5px] text-slate-600 font-semibold text-slate-700 tracking-wide">Founder & CEO</p>
+                    <p className="text-[9.5px] font-semibold text-slate-700 tracking-wide">Founder & CEO</p>
                     <p className="text-[10px] font-bold text-cyan-800">IR InfoTech</p>
                   </div>
                 </div>
