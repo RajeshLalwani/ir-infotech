@@ -20,19 +20,19 @@ export default function OfficialSeal({ className = "w-28 h-28" }) {
         </defs>
 
         {/* Outer and Inner Concentric Stamp Rings */}
-        <circle cx="100" cy="100" r="95" fill="none" stroke="#082f49" strokeWidth="3" />
-        <circle cx="100" cy="100" r="87" fill="none" stroke="#0369a1" strokeWidth="1.5" />
-        <circle cx="100" cy="100" r="58" fill="none" stroke="#0369a1" strokeWidth="1.5" />
+        <circle cx="100" cy="100" r="95" fill="none" stroke="#0a2540" strokeWidth="3.5" />
+        <circle cx="100" cy="100" r="88" fill="none" stroke="#0284c7" strokeWidth="1.5" />
+        <circle cx="100" cy="100" r="58" fill="none" stroke="#0284c7" strokeWidth="1.5" />
 
         {/* Top Text: IR INFOTECH */}
-        <text className="text-[13.5px] font-black tracking-[4px] fill-[#082f49] uppercase" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+        <text className="text-[14px] font-black tracking-[4.5px] fill-[#0a2540] uppercase" style={{ fontFamily: 'Orbitron, sans-serif' }}>
           <textPath href="#sealTopArc" startOffset="50%" textAnchor="middle">
             IR INFOTECH
           </textPath>
         </text>
 
         {/* Bottom Text: IR INFOTECH */}
-        <text className="text-[13.5px] font-black tracking-[4px] fill-[#082f49] uppercase" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+        <text className="text-[14px] font-black tracking-[4.5px] fill-[#0a2540] uppercase" style={{ fontFamily: 'Orbitron, sans-serif' }}>
           <textPath href="#sealBottomArc" startOffset="50%" textAnchor="middle">
             IR INFOTECH
           </textPath>
@@ -47,61 +47,61 @@ export default function OfficialSeal({ className = "w-28 h-28" }) {
         </g>
 
         {/* Decorative inner dotted ring */}
-        <circle cx="100" cy="100" r="50" fill="none" stroke="#0369a1" strokeWidth="0.75" strokeDasharray="2,2.5" opacity="0.7" />
+        <circle cx="100" cy="100" r="50" fill="none" stroke="#0284c7" strokeWidth="0.8" strokeDasharray="2,2.5" opacity="0.6" />
 
         {/* Center Cyber Emblem (Pure Crisp Vector Graphics) */}
         <g id="sealCenterEmblem">
           {/* Top Circuit Traces branching upwards */}
-          <line x1="100" y1="81" x2="100" y2="70" stroke="#082f49" strokeWidth="1.8" strokeLinecap="round" />
-          <circle cx="100" cy="69" r="2.2" fill="#082f49" />
+          <line x1="100" y1="81" x2="100" y2="69" stroke="#0a2540" strokeWidth="2" strokeLinecap="round" />
+          <circle cx="100" cy="68" r="2.4" fill="#0a2540" />
 
-          <line x1="88" y1="81" x2="81" y2="73" stroke="#0369a1" strokeWidth="1.4" strokeLinecap="round" />
-          <circle cx="80" cy="72" r="1.8" fill="#0369a1" />
+          <line x1="88" y1="81" x2="81" y2="72" stroke="#0284c7" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="80" cy="71" r="2" fill="#0284c7" />
 
-          <line x1="112" y1="81" x2="119" y2="73" stroke="#0369a1" strokeWidth="1.4" strokeLinecap="round" />
-          <circle cx="120" cy="72" r="1.8" fill="#0369a1" />
+          <line x1="112" y1="81" x2="119" y2="72" stroke="#0284c7" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="120" cy="71" r="2" fill="#0284c7" />
 
           {/* Outer Inverted Triangle */}
           <polygon
-            points="73,81 127,81 100,127"
+            points="72,81 128,81 100,128"
             fill="none"
-            stroke="#082f49"
-            strokeWidth="2.5"
+            stroke="#0a2540"
+            strokeWidth="2.8"
             strokeLinejoin="round"
           />
 
           {/* Inner Inverted Triangle */}
           <polygon
-            points="81,85 119,85 100,120"
+            points="80,85 120,85 100,121"
             fill="none"
             stroke="#0284c7"
-            strokeWidth="1.2"
+            strokeWidth="1.4"
             strokeLinejoin="round"
           />
 
           {/* Cyber Eye Emblem (Almond Shape with Iris & Pupil) */}
           <path
-            d="M 85,99 C 91,91 109,91 115,99 C 109,107 91,107 85,99 Z"
+            d="M 84,99 C 91,91 109,91 116,99 C 109,107 91,107 84,99 Z"
             fill="none"
-            stroke="#082f49"
-            strokeWidth="2"
+            stroke="#0a2540"
+            strokeWidth="2.2"
             strokeLinejoin="round"
           />
           {/* Iris Ring */}
-          <circle cx="100" cy="99" r="5" fill="none" stroke="#0284c7" strokeWidth="1.6" />
+          <circle cx="100" cy="99" r="5.5" fill="none" stroke="#0284c7" strokeWidth="1.8" />
           {/* Center Pupil */}
-          <circle cx="100" cy="99" r="2.6" fill="#082f49" />
+          <circle cx="100" cy="99" r="2.8" fill="#0a2540" />
 
           {/* Eye Corner Circuit Flanks */}
-          <line x1="77" y1="99" x2="84" y2="99" stroke="#0369a1" strokeWidth="1.4" strokeLinecap="round" />
-          <circle cx="76" cy="99" r="1.5" fill="#0369a1" />
+          <line x1="75" y1="99" x2="83" y2="99" stroke="#0284c7" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="74" cy="99" r="1.6" fill="#0284c7" />
 
-          <line x1="116" y1="99" x2="123" y2="99" stroke="#0369a1" strokeWidth="1.4" strokeLinecap="round" />
-          <circle cx="124" cy="99" r="1.5" fill="#0369a1" />
+          <line x1="117" y1="99" x2="125" y2="99" stroke="#0284c7" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="126" cy="99" r="1.6" fill="#0284c7" />
 
           {/* Lower Center Accent Star */}
           <polygon
-            points="100,132 101.3,135.5 105,135.5 102,137.5 103.2,141 100,139 96.8,141 98,137.5 95,135.5 98.7,135.5"
+            points="100,133 101.5,137 106,137 102.5,139.5 104,143.5 100,141 96 143.5 97.5,139.5 94,137 98.5,137"
             fill="#0284c7"
           />
         </g>
