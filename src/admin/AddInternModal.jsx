@@ -3,14 +3,18 @@ import { X, UserPlus, CheckCircle2, AlertCircle, FileText, Calendar, Building2, 
 import { addIntern, updateIntern, generateNextInternId } from '../services/db';
 
 const DOMAINS = [
+  'Software Development',
   'Full-Stack Web Development (MERN / React)',
+  'Business Development (BDE)',
+  'Human Resources (HR)',
+  'UI/UX Architecture & Product Design',
+  'Digital Marketing & Content Strategy',
   'AI & Machine Learning Engineering',
   'Cloud Architecture & DevOps',
+  'Data Science & Analytics',
   'Mobile Application Development (React Native / Flutter)',
-  'Cybersecurity & Network Defense',
-  'UI/UX Architecture & Product Design',
-  'Data Science & Intelligent Analytics',
-  'Python & Enterprise Backend Systems'
+  'Python & Enterprise Backend Systems',
+  'Cybersecurity & Network Defense'
 ];
 
 export default function AddInternModal({ isOpen, onClose, onSuccess, editIntern = null }) {

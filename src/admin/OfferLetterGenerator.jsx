@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { X, Download, Edit3, Shield, Globe, Mail, Phone, MapPin, Code2 } from 'lucide-react';
+import { X, Download, Edit3, Shield, Globe, Mail, Phone, MapPin, Briefcase } from 'lucide-react';
 import OfficialSeal from '../components/OfficialSeal';
 import { createOfferLetter, generateNextOfferReference, getCompanySettings } from '../services/db';
 import jsPDF from 'jspdf';
@@ -13,21 +13,22 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
   const [settings, setSettings] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
-  // Position Title (default: Software Development Intern or custom)
+  // Position Title (default: intern.domain or Software Development Intern)
   const [positionTitle, setPositionTitle] = useState('Software Development Intern');
 
-  // Editable feature bullets
-  const [bullet1, setBullet1] = useState('Participate in the development and enhancement of software applications.');
-  const [bullet2, setBullet2] = useState('Collaborate with the team on design, coding, testing and deployment activities.');
-  const [bullet3, setBullet3] = useState('Gain hands-on experience with development tools, frameworks and best practices.');
-  const [bullet4, setBullet4] = useState('Contribute to assigned projects and share progress and learnings regularly.');
+  // Universal Bullet Points (Works universally for Software, BDE, HR, Marketing, Design, etc.)
+  const [bullet1, setBullet1] = useState('Participate actively in functional project tasks, operational workflows, and assigned deliverables.');
+  const [bullet2, setBullet2] = useState('Collaborate with mentors and cross-functional teams to execute initiatives adhering to company standards.');
+  const [bullet3, setBullet3] = useState('Gain hands-on practical industry exposure with professional tools, modern methodologies, and corporate best practices.');
+  const [bullet4, setBullet4] = useState('Contribute proactively to team milestones, document project outcomes, and report progress regularly.');
 
   useEffect(() => {
     if (isOpen && intern) {
       generateNextOfferReference().then(setReferenceNo);
       getCompanySettings().then(setSettings);
       if (intern.domain && intern.domain !== 'ALL') {
-        setPositionTitle(`${intern.domain.replace(/\(.*?\)/g, '').trim()} Intern`);
+        const cleaned = intern.domain.replace(/\(.*?\)/g, '').trim();
+        setPositionTitle(cleaned.toLowerCase().includes('intern') ? cleaned : `${cleaned} Intern`);
       } else {
         setPositionTitle('Software Development Intern');
       }
@@ -110,7 +111,7 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
               </span>
             </h2>
             <p className="text-xs text-slate-400">
-              Candidate: <span className="text-white font-semibold">{intern.full_name}</span> • College: <span className="text-slate-300">{intern.college_name}</span>
+              Candidate: <span className="text-white font-semibold">{intern.full_name}</span> • Role: <span className="text-cyan-400 font-semibold">{positionTitle}</span>
             </p>
           </div>
 
@@ -164,7 +165,7 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
               </div>
             </div>
             <div className="space-y-1.5">
-              <label className="text-slate-300 block font-semibold">Custom Deliverable Bullets</label>
+              <label className="text-slate-300 block font-semibold">Deliverable Bullets (Universal)</label>
               <input
                 type="text"
                 value={bullet1}
@@ -203,9 +204,9 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
             style={{ width: '794px', minHeight: '1123px' }}
           >
             <div>
-              {/* 1. TOP DARK CYBER HEADER (Matches User's ChatGPT Design) */}
+              {/* 1. TOP DARK CYBER HEADER */}
               <div className="bg-[#030611] text-white p-6 -mx-10 -mt-10 mb-6 relative overflow-hidden border-b-2 border-cyan-400">
-                {/* Cyber Glow Accent */}
+                {/* Cyber Glow Ambient */}
                 <div className="absolute -top-12 -right-12 w-48 h-48 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none" />
                 <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-cyan-500/15 rounded-full blur-2xl pointer-events-none" />
 
@@ -239,10 +240,10 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                 </div>
               </div>
 
-              {/* 2. RECIPIENT & UDYAM LAUREL BADGE SECTION */}
-              <div className="grid grid-cols-12 gap-4 pb-4 border-b border-slate-200 text-xs">
+              {/* 2. RECIPIENT & CLEAN DATE SECTION (Duplicate Udyam Badge Removed for Clean Corporate Look) */}
+              <div className="flex items-start justify-between pb-4 border-b border-slate-200 text-xs">
                 {/* Left: To Candidate */}
-                <div className="col-span-8 space-y-0.5">
+                <div className="space-y-0.5">
                   <p className="font-mono text-slate-500 font-semibold text-[11px]">
                     Ref. No.: <span className="text-slate-800 font-bold">{referenceNo}</span>
                   </p>
@@ -261,30 +262,20 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                   )}
                 </div>
 
-                {/* Right: Date & Udyam Laurel Wreath Badge */}
-                <div className="col-span-4 flex flex-col items-end justify-between border-l border-slate-200 pl-4">
-                  <div className="text-right">
-                    <span className="text-slate-500 text-[11px] font-semibold">Date: </span>
+                {/* Right: Clean Corporate Date & Reference Stamp */}
+                <div className="text-right space-y-1">
+                  <div>
+                    <span className="text-slate-500 text-[11px] font-semibold">Issue Date: </span>
                     <span className="font-bold text-slate-900 text-xs">{formatDate(issueDate)}</span>
                   </div>
-
-                  {/* Udyam Laurel Graphic Lockup */}
-                  <div className="flex flex-col items-center text-center mt-2 p-2 bg-slate-50 rounded-xl border border-slate-200/80 w-full">
-                    <div className="flex items-center justify-center gap-1.5 text-cyan-800">
-                      <span className="text-xs">🌿</span>
-                      <div className="text-[8.5px] font-black uppercase tracking-wider text-slate-800 leading-tight">
-                        UDYAM REGISTERED<br />ENTERPRISE
-                      </div>
-                      <span className="text-xs">🌿</span>
-                    </div>
-                    <span className="mt-1 px-2.5 py-0.5 rounded-full bg-[#082f49] text-cyan-300 font-mono text-[9px] font-bold tracking-wider">
-                      UDYAM-GJ-03-0089721
-                    </span>
+                  <div className="pt-2 text-[10px] text-slate-400">
+                    <p className="font-semibold text-slate-600 uppercase tracking-wider">Engagement Track</p>
+                    <p className="font-mono text-cyan-800 font-bold">{intern.internship_mode || 'Standard'} Mode</p>
                   </div>
                 </div>
               </div>
 
-              {/* 3. CYAN GRADIENT SUBJECT BANNER (With Diagonal Hashes ///) */}
+              {/* 3. CYAN GRADIENT SUBJECT BANNER */}
               <div className="my-4 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-400 via-cyan-300 to-teal-200 text-slate-950 text-xs font-black flex items-center justify-between shadow-sm">
                 <span>Subject: Offer of Internship at IR InfoTech</span>
                 <span className="text-cyan-800 tracking-widest font-black select-none">///</span>
@@ -297,7 +288,7 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                 </p>
 
                 <p>
-                  We are pleased to offer you the position of <strong>{positionTitle}</strong> at <strong>IR InfoTech</strong>. This opportunity will allow you to gain practical experience in modern software engineering, enhance your technical skills, and work on real-world projects under the mentorship of our experienced professionals.
+                  We are pleased to offer you the position of <strong>{positionTitle}</strong> at <strong>IR InfoTech</strong>. This opportunity will allow you to gain practical exposure across active corporate workflows, enhance your professional competencies, and collaborate on real-world initiatives under the mentorship of our team leads.
                 </p>
 
                 <p>
@@ -308,18 +299,18 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                   )}
                 </p>
 
-                {/* 5. USER'S EXACT FEATURE BOX (</> During your internship, you will:) */}
+                {/* 5. UNIVERSAL FEATURE BOX (Works for ALL roles without if-else complexity) */}
                 <div className="rounded-2xl border border-cyan-300 overflow-hidden my-3 shadow-sm bg-gradient-to-b from-cyan-50/80 to-white">
-                  {/* Card Header with Code Icon */}
+                  {/* Card Header with Icon */}
                   <div className="bg-[#051829] text-white px-4 py-1.5 flex items-center justify-between text-xs font-bold font-tech tracking-wider">
                     <div className="flex items-center gap-2 text-cyan-300">
-                      <Code2 className="w-4 h-4 text-cyan-400" />
+                      <Briefcase className="w-4 h-4 text-cyan-400" />
                       <span>During your internship, you will:</span>
                     </div>
                     <span className="text-cyan-400 tracking-widest select-none">///</span>
                   </div>
 
-                  {/* Bullet Nodes */}
+                  {/* Universal Bullet Nodes */}
                   <div className="p-3.5 space-y-2 text-[11px] text-slate-800">
                     <div className="flex items-start gap-2.5">
                       <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
@@ -400,7 +391,7 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
 
               </div>
 
-              {/* 8. SLICK DARK CYBER FOOTER BAR (Matches User's ChatGPT Design) */}
+              {/* 8. SLICK DARK CYBER FOOTER BAR */}
               <div className="mt-5 -mx-10 -mb-10 bg-[#030611] text-slate-300 p-3.5 border-t-2 border-cyan-400 text-[9.5px] space-y-1.5">
                 {/* Top Info Row */}
                 <div className="flex flex-wrap items-center justify-between gap-3 text-cyan-300 font-medium">
@@ -418,7 +409,7 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                   </div>
                 </div>
 
-                {/* Bottom Row */}
+                {/* Bottom Row: Official Udyam Registration & HQ */}
                 <div className="flex flex-wrap items-center justify-between gap-3 text-slate-400 text-[8.5px] pt-1 border-t border-white/10">
                   <div className="flex items-center gap-1">
                     <MapPin className="w-2.5 h-2.5 text-cyan-400" />
