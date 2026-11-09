@@ -247,59 +247,35 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                 </div>
               </div>
 
-              {/* 2. RECIPIENT & CLEAN DATE SECTION (Duplicate Udyam Badge Removed for Clean Corporate Look) */}
-              <div className="flex items-start justify-between pb-4 border-b border-slate-200 text-xs">
-                {/* Left: To Candidate */}
-                <div className="space-y-0.5">
-                  <p className="font-mono text-slate-500 font-semibold text-[11px]">
-                    Ref. No.: <span className="text-slate-800 font-bold">{referenceNo}</span>
-                  </p>
-                  <p className="text-slate-500 text-[11px] pt-1 font-semibold">To,</p>
-                  <h3 className="text-base font-black text-slate-950 tracking-wide uppercase" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                    {intern.full_name}
-                  </h3>
-                  <p className="text-slate-700 font-bold text-xs">{intern.college_name}</p>
-                  {intern.university_name && (
-                    <p className="text-slate-500 text-[11px]">{intern.university_name}</p>
-                  )}
-                  {intern.course_degree && (
-                    <p className="text-slate-500 text-[11px]">
-                      {intern.course_degree} {intern.department ? `(${intern.department})` : ''} {intern.current_semester ? `• ${intern.current_semester}` : ''}
-                    </p>
-                  )}
+              {/* 2. CLEAN CORPORATE DATE & REFERENCE BAR (Direct BrainyBeam Flow - No University/Semester/Mode clutter) */}
+              <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-200 text-xs">
+                <div className="font-mono text-slate-500 font-semibold text-[11px]">
+                  Ref. No.: <span className="text-slate-800 font-bold">{referenceNo}</span>
                 </div>
-
-                {/* Right: Clean Corporate Date & Reference Stamp */}
-                <div className="text-right space-y-1">
-                  <div>
-                    <span className="text-slate-500 text-[11px] font-semibold">Issue Date: </span>
-                    <span className="font-bold text-slate-900 text-xs">{formatDate(issueDate)}</span>
-                  </div>
-                  <div className="pt-2 text-[10px] text-slate-400">
-                    <p className="font-semibold text-slate-600 uppercase tracking-wider">Engagement Track</p>
-                    <p className="font-mono text-cyan-800 font-bold">{intern.internship_mode || 'Standard'} Mode</p>
-                  </div>
+                <div>
+                  <span className="text-slate-500 text-[11px] font-semibold">Date: </span>
+                  <span className="font-bold text-slate-900 text-xs">{formatDate(issueDate)}</span>
                 </div>
               </div>
 
               {/* 3. CYAN GRADIENT SUBJECT BANNER */}
-              <div className="my-4 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-400 via-cyan-300 to-teal-200 text-slate-950 text-xs font-black flex items-center justify-between shadow-sm">
+              <div className="mb-4 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-400 via-cyan-300 to-teal-200 text-slate-950 text-xs font-black flex items-center justify-between shadow-sm">
                 <span>Subject: Offer of Internship at IR InfoTech</span>
                 <span className="text-cyan-800 tracking-widest font-black select-none">///</span>
               </div>
 
-              {/* 4. FORMAL LETTER BODY */}
+              {/* 4. FORMAL LETTER BODY (Starts directly with Candidate Name) */}
               <div className="space-y-3 text-[11.5px] text-slate-700 leading-relaxed text-justify">
-                <p className="font-bold text-slate-950 text-xs">
+                <p className="font-bold text-slate-950 text-sm">
                   Dear {intern.full_name},
                 </p>
 
                 <p>
-                  We are pleased to offer you the position of <strong>{positionTitle}</strong> at <strong>IR InfoTech</strong>. This opportunity will allow you to gain practical exposure across active corporate workflows, enhance your professional competencies, and collaborate on real-world initiatives under the mentorship of our team leads.
+                  Congratulations! We are pleased to extend to you an offer for the position of <strong>{positionTitle}</strong> at <strong>IR InfoTech</strong>. This opportunity will allow you to gain practical exposure across active corporate workflows, enhance your professional competencies, and collaborate on real-world initiatives under the mentorship of our team leads.
                 </p>
 
                 <p>
-                  Your internship will commence on <strong>{formatDate(intern.start_date)}</strong> for a period of <strong>{formatDuration(intern.duration_months)}</strong>, concluding on <strong>{formatDate(intern.end_date)}</strong>, and is affiliated with <strong>{intern.college_name}</strong>.
+                  Your internship will commence on <strong>{formatDate(intern.start_date)}</strong> for a duration of <strong>{formatDuration(intern.duration_months)}</strong>, concluding on <strong>{formatDate(intern.end_date)}</strong>{intern.college_name ? <span>, and is affiliated with <strong>{intern.college_name}</strong></span> : ''}. During this period, you will participate in structured project initiatives designed to strengthen your applied capabilities and industry skills.
                 </p>
 
                 {/* 5. UNIVERSAL FEATURE BOX (5 Universal Deliverables) */}
