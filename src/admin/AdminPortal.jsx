@@ -29,6 +29,9 @@ export default function AdminPortal({ onNavigateToWebsite }) {
   const { isAuthenticated, adminUser, logout } = useAdminAuth();
   const [activeTab, setActiveTab] = useState('dashboard');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  const handleRefresh = () => setRefreshKey(prev => prev + 1);
 
   // Modal States
   const [isAddOpen, setIsAddOpen] = useState(false);
@@ -180,6 +183,7 @@ export default function AdminPortal({ onNavigateToWebsite }) {
         <div className="max-w-6xl mx-auto">
           {activeTab === 'dashboard' && (
             <AdminDashboard
+              key={refreshKey}
               onNavigateTab={setActiveTab}
               onOpenAddIntern={() => handleOpenAddIntern(null)}
               onOpenProfile={handleOpenProfile}
@@ -190,6 +194,7 @@ export default function AdminPortal({ onNavigateToWebsite }) {
 
           {activeTab === 'interns' && (
             <InternDirectory
+              key={refreshKey}
               onOpenAddIntern={() => handleOpenAddIntern(null)}
               onOpenProfile={handleOpenProfile}
               onOpenOffer={handleOpenOffer}
@@ -210,7 +215,7 @@ export default function AdminPortal({ onNavigateToWebsite }) {
         editIntern={editingIntern}
         onSuccess={() => {
           setIsAddOpen(false);
-          // Reload if on interns or dashboard
+          handleRefresh();
         }}
       />
 
