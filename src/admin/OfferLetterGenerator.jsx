@@ -212,10 +212,10 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
             className="w-[794px] min-h-[1123px] bg-white text-slate-800 relative flex flex-col justify-between shadow-2xl font-sans leading-normal selection:bg-cyan-200 selection:text-black box-border overflow-hidden"
             style={{ width: '794px', minHeight: '1123px', padding: 0 }}
           >
-            {/* 1. TOP HEADER BANNER (Full Bleed Edge-to-Edge, Exact Reference Asset) */}
+            {/* 1. TOP BALANCED CYBER HEADER (Full Bleed Edge-to-Edge) */}
             <div className="w-full block overflow-hidden shrink-0 select-none">
               <img
-                src="/cyber-header-exact.png"
+                src="/cyber-header-balanced.png"
                 alt="IR InfoTech Official Header"
                 className="w-full block pointer-events-none"
                 style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -223,140 +223,180 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
             </div>
 
             {/* 2. BODY CONTENT CONTAINER (Padding applies only to inner text content) */}
-            <div className="px-10 pt-2 pb-0 flex-1 flex flex-col justify-between">
+            <div className="px-10 pt-2.5 pb-0 flex-1 flex flex-col justify-between">
               <div>
-                {/* META BAR WITH EXACT UDYAM BADGE & VERTICAL DIVIDER */}
-                <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 pb-2 mb-2.5">
-                  <div className="space-y-0.5">
-                    <div className="font-mono text-cyan-950 font-bold text-xs">
-                      Ref. No.: <span className="text-slate-900">{referenceNo}</span>
-                    </div>
-                    <p className="text-[10px] text-slate-500 font-semibold mt-1">To,</p>
-                    <h3 className="text-sm font-black text-slate-950 font-tech uppercase tracking-wide">
+                {/* HORIZONTAL METADATA BAR */}
+                <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-200 text-xs">
+                  <div className="font-mono text-cyan-900 font-bold text-[11px]">
+                    Ref. No.: <span className="text-slate-900">{referenceNo}</span>
+                  </div>
+                  <div className="font-tech text-slate-500 font-bold tracking-wider uppercase text-[10.5px]">
+                    Formal Letter of Appointment
+                  </div>
+                  <div className="text-slate-500 font-semibold text-[11px]">
+                    Date: <span className="font-bold text-slate-900">{formatDate(issueDate)}</span>
+                  </div>
+                </div>
+
+                {/* RECIPIENT & SUMMARY 2-COLUMN BALANCED GRID (ELIMINATES RIGHT EMPTY SPACE) */}
+                <div className="grid grid-cols-[1.2fr_0.8fr] gap-4 items-stretch mb-2.5">
+                  {/* Left: Recipient Details */}
+                  <div className="flex flex-col justify-center space-y-0.5">
+                    <p className="text-[10px] text-cyan-800 font-bold uppercase tracking-wider">To,</p>
+                    <h3 className="text-base font-black text-slate-950 font-tech uppercase tracking-wide leading-tight">
                       {intern.full_name}
                     </h3>
+                    <p className="text-xs font-bold text-cyan-700">{positionTitle}</p>
                     {intern.college_name && (
-                      <p className="text-[11px] text-slate-600 font-medium">
+                      <p className="text-[10.5px] text-slate-600 font-medium leading-snug">
                         {intern.college_name}
                       </p>
                     )}
                   </div>
 
-                  <div className="w-[1.5px] h-16 bg-slate-300 mx-auto" />
-
-                  <div className="flex flex-col items-end gap-1">
-                    <div className="text-xs text-slate-800">
-                      <span className="text-slate-500 font-semibold">Date: </span>
-                      <span className="font-bold text-slate-900">{formatDate(issueDate)}</span>
+                  {/* Right: Summary Card (BALANCES THE RIGHT SIDE!) */}
+                  <div className="rounded-xl border border-cyan-200 bg-gradient-to-br from-cyan-50/80 to-white p-2.5 flex flex-col justify-center space-y-1 text-[10px] shadow-sm">
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-500 font-semibold">Tenure Duration:</span>
+                      <span className="font-bold text-cyan-700">{formatDuration(intern.duration_months)}</span>
                     </div>
-                    <img
-                      src="/udyam-badge-clean.png"
-                      alt="Udyam Registered Enterprise"
-                      className="h-13 object-contain mt-0.5"
-                    />
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-500 font-semibold">Commencement Date:</span>
+                      <span className="font-bold text-slate-900">{formatDate(intern.start_date)}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-500 font-semibold">Conclusion Date:</span>
+                      <span className="font-bold text-slate-900">{formatDate(intern.end_date)}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-500 font-semibold">Jurisdiction:</span>
+                      <span className="font-bold text-slate-900">Anand, Gujarat</span>
+                    </div>
                   </div>
                 </div>
 
-                {/* CYAN GRADIENT SUBJECT BANNER */}
-                <div className="mb-3 px-5 py-2 rounded-full bg-gradient-to-r from-sky-400 via-cyan-400 to-cyan-500 text-slate-950 text-xs font-black flex items-center justify-between shadow-sm">
-                  <span>Subject: Offer of Internship at IR InfoTech</span>
+                {/* FULL-WIDTH CYAN GRADIENT SUBJECT BANNER */}
+                <div className="mb-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-sky-400 via-cyan-400 to-cyan-500 text-slate-950 text-xs font-black flex items-center justify-between shadow-sm">
+                  <span>SUBJECT: OFFER OF INTERNSHIP & TECHNICAL APPOINTMENT AT IR INFOTECH</span>
                   <span className="text-slate-950/70 tracking-widest font-black select-none">////</span>
                 </div>
 
-                {/* FORMAL LETTER BODY (EXACT MATCH TO REFERENCE) */}
-                <div className="space-y-2.5 text-[11.5px] text-slate-700 leading-relaxed text-justify">
+                {/* FORMAL LETTER BODY (SLS & ELECON CORPORATE STANDARD) */}
+                <div className="space-y-2 text-[11px] text-slate-700 leading-relaxed text-justify">
                   <p className="font-bold text-slate-950 text-xs">
                     Dear {intern.full_name},
                   </p>
 
                   <p>
-                    We are pleased to offer you the position of <strong>{positionTitle}</strong> at <strong>IR InfoTech</strong>. This opportunity will allow you to gain practical experience in software development, enhance your technical skills and work on real-world projects under the guidance of our experienced professionals.
+                    We are pleased to inform you that you have been selected for an internship appointment at <strong>IR InfoTech</strong> as a <strong>{positionTitle}</strong>. This engagement will allow you to gain practical hands-on experience across active corporate workflows, enhance your professional competencies, and collaborate on real-world engineering projects under the mentorship of our technical team.
                   </p>
 
                   <p>
-                    Your internship will commence on <strong>{formatDate(intern.start_date)}</strong> for a period of <strong>{formatDuration(intern.duration_months)}</strong>, concluding on <strong>{formatDate(intern.end_date)}</strong>{intern.college_name ? <span>, and is affiliated with <strong>{intern.college_name}</strong></span> : ''}.
+                    Your internship will commence on <strong>{formatDate(intern.start_date)}</strong> for a structured period of <strong>{formatDuration(intern.duration_months)}</strong>, concluding on <strong>{formatDate(intern.end_date)}</strong>{intern.college_name ? <span>, and is affiliated with <strong>{intern.college_name}</strong></span> : ''}.
                   </p>
 
                   {/* 5 UNIVERSAL DELIVERABLES FEATURE BOX (LUCKY #5) */}
-                  <div className="my-2.5">
-                    <div className="inline-flex items-center gap-2 bg-[#031626] text-white px-4 py-1.5 rounded-t-xl text-xs font-bold font-tech tracking-wider border-t border-l border-r border-cyan-400">
-                      <span className="bg-cyan-400/20 text-cyan-300 border border-cyan-400/40 px-1 py-0.2 rounded font-mono text-[9px]">&lt;/&gt;</span>
-                      <span>During your internship, you will:</span>
-                      <span className="text-cyan-400 tracking-widest ml-2 select-none font-black text-xs">///</span>
+                  <div className="my-2 border border-cyan-300 rounded-xl overflow-hidden shadow-sm bg-gradient-to-b from-cyan-50/60 to-white">
+                    <div className="bg-[#031526] text-white px-3.5 py-1.5 flex items-center justify-between text-xs font-bold font-tech tracking-wider border-b border-cyan-700/50">
+                      <div className="flex items-center gap-2 text-cyan-300">
+                        <span className="bg-cyan-400/20 text-cyan-300 border border-cyan-400/40 px-1 py-0.2 rounded font-mono text-[9px]">&lt;/&gt;</span>
+                        <span>During your internship, you will:</span>
+                      </div>
+                      <span className="text-cyan-400 tracking-widest select-none font-black text-xs">///</span>
                     </div>
 
-                    <div className="rounded-b-2xl rounded-tr-2xl border-1.5 border-cyan-400 p-3 bg-gradient-to-b from-cyan-50/60 to-white shadow-sm space-y-2 text-[11px] text-slate-800">
+                    <div className="p-2.5 space-y-1.5 text-[10.5px] text-slate-800">
                       <div className="flex items-start gap-2.5">
-                        <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_5px_#06b6d4]" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
                         <p>{bullet1}</p>
                       </div>
                       <div className="flex items-start gap-2.5">
-                        <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_5px_#06b6d4]" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
                         <p>{bullet2}</p>
                       </div>
                       <div className="flex items-start gap-2.5">
-                        <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_5px_#06b6d4]" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
                         <p>{bullet3}</p>
                       </div>
                       <div className="flex items-start gap-2.5">
-                        <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_5px_#06b6d4]" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
                         <p>{bullet4}</p>
                       </div>
                       <div className="flex items-start gap-2.5">
-                        <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_5px_#06b6d4]" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
                         <p>{bullet5}</p>
                       </div>
                     </div>
                   </div>
 
+                  {/* SLS-INSPIRED STATUTORY TERMS & ANAND JURISDICTION */}
+                  <div className="p-2 bg-slate-50 rounded-lg border-l-2 border-cyan-500 text-[10px] text-slate-600 leading-snug">
+                    <p>
+                      <strong>Terms of Engagement:</strong> Duties assigned during this internship shall align with operational project objectives and should not be considered exhaustive. Interns are bound by strict confidentiality regarding company software, repositories, and client data. In the event of any disputes, jurisdiction for resolution shall solely reside within the competent courts of <strong>Anand, Gujarat, India</strong>.
+                    </p>
+                  </div>
+
                   <p>
-                    We are confident that this internship will be a valuable learning experience for you and will contribute to your professional growth. Please confirm your acceptance of this offer by replying to this communication by <strong>{formatDate(intern.start_date ? new Date(new Date(intern.start_date).getTime() + 86400000).toISOString().split('T')[0] : issueDate)}</strong>.
+                    We are confident that this tenure will be a valuable learning experience for you and will contribute significantly to your professional growth. Please confirm your acceptance of this offer by signing and returning this letter for our record.
                   </p>
 
-                  <p className="font-semibold text-slate-900">
-                    We look forward to having you on board at IR InfoTech.
+                  <p className="font-semibold text-slate-900 text-[10.5px]">
+                    We look forward to welcoming you to the IR InfoTech team.
                   </p>
                 </div>
               </div>
 
-              {/* 7. SIGNATURES & EXACT ROUND STAMP SECTION (2 COLUMNS) */}
-              <div className="mt-3 pt-2 grid grid-cols-[1fr_auto_1fr] items-center gap-6">
+              {/* 3. BALANCED 3-COLUMN AUTHENTICATION & ACCEPTANCE BLOCK (ELIMINATES RIGHT EMPTY SPACE!) */}
+              <div className="mt-2 pt-2 border-t border-slate-200 grid grid-cols-[1fr_auto_1fr_auto_1.15fr] items-center gap-3">
                 
-                {/* Left: Authorized Signatory */}
+                {/* Col 1: Authorized Signatory */}
                 <div className="space-y-0.5">
-                  <p className="text-[11px] font-semibold text-slate-600 mb-1">Yours sincerely,</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-[2.5px] h-12 bg-cyan-400 rounded-full" />
+                  <p className="text-[10px] font-semibold text-slate-600">Yours sincerely,</p>
+                  <div className="h-11 flex items-end">
                     <img
                       src="/ir-signature.png"
                       alt="Rajesh Lalwani Signature"
-                      className="h-12 object-contain filter contrast-125"
+                      className="h-10 object-contain filter contrast-125"
                     />
                   </div>
-                  <h4 className="text-sm font-black text-slate-950 font-tech mt-1">Rajesh Lalwani</h4>
-                  <p className="text-[10px] text-slate-600 font-bold uppercase tracking-wider">Founder & CEO</p>
-                  <p className="text-[11px] font-bold text-cyan-800">IR InfoTech</p>
+                  <h4 className="text-xs font-black text-slate-950 font-tech">Rajesh Lalwani</h4>
+                  <p className="text-[9px] text-slate-600 font-bold uppercase tracking-wider">Founder & CEO</p>
+                  <p className="text-[9.5px] font-bold text-cyan-800">IR InfoTech</p>
                 </div>
 
-                {/* Center: Thin Vertical Divider */}
-                <div className="w-[1.5px] h-20 bg-slate-300 mx-auto" />
+                <div className="w-[1px] h-16 bg-slate-200" />
 
-                {/* Right: Exact Round Corporate Stamp */}
-                <div className="flex justify-center items-center">
+                {/* Col 2: Official Corporate Seal */}
+                <div className="flex flex-col items-center justify-center">
                   <img
                     src="/ir-official-stamp-clean.png"
                     alt="IR InfoTech Official Stamp"
-                    className="w-28 h-28 object-contain pointer-events-none drop-shadow-sm"
+                    className="w-20 h-20 object-contain pointer-events-none drop-shadow-sm"
                   />
+                </div>
+
+                <div className="w-[1px] h-16 bg-slate-200" />
+
+                {/* Col 3: Candidate Acceptance (BALANCES THE RIGHT SIDE!) */}
+                <div className="space-y-1 pl-1">
+                  <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wider">
+                    Candidate Acceptance:
+                  </p>
+                  <p className="text-[8px] text-slate-500 leading-tight">
+                    I accept this offer of internship and agree to abide by all organizational guidelines.
+                  </p>
+                  <div className="h-7 border-b border-slate-400 w-full" />
+                  <p className="text-[9px] text-slate-900 font-semibold truncate">{intern.full_name}</p>
+                  <p className="text-[7.5px] text-slate-400">Signature & Date</p>
                 </div>
 
               </div>
             </div>
 
-            {/* 3. BOTTOM FOOTER BANNER (Full Bleed Edge-to-Edge, Exact Reference Asset) */}
+            {/* 4. BOTTOM BALANCED CYBER FOOTER (Full Bleed Edge-to-Edge) */}
             <div className="w-full block overflow-hidden shrink-0 select-none">
               <img
-                src="/cyber-footer-exact.png"
+                src="/cyber-footer-balanced.png"
                 alt="IR InfoTech Official Footer"
                 className="w-full block pointer-events-none"
                 style={{ width: '100%', height: 'auto', display: 'block' }}
