@@ -5,54 +5,57 @@ export default function OfficialSeal({ className = "w-28 h-28" }) {
     <div className={`relative flex items-center justify-center select-none ${className}`}>
       <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-sm">
         <defs>
+          {/* Top text arc */}
           <path
-            id="sealOuterTextPath"
-            d="M 100, 100 m -76, 0 a 76,76 0 1,1 152,0 a 76,76 0 1,1 -152,0"
+            id="sealTopArc"
+            d="M 28,100 A 72,72 0 0,1 172,100"
+            fill="none"
           />
+          {/* Bottom text arc */}
           <path
-            id="sealInnerTextPath"
-            d="M 100, 100 m -56, 0 a 56,56 0 1,1 112,0 a 56,56 0 1,1 -112,0"
+            id="sealBottomArc"
+            d="M 172,100 A 72,72 0 0,1 28,100"
+            fill="none"
           />
-          <linearGradient id="sealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#082f49" />
-            <stop offset="100%" stopColor="#0369a1" />
-          </linearGradient>
         </defs>
 
-        {/* Outer Serrated Star / Ring */}
-        <circle cx="100" cy="100" r="95" fill="none" stroke="#0284c7" strokeWidth="2" strokeDasharray="3,3" />
-        <circle cx="100" cy="100" r="91" fill="none" stroke="#0369a1" strokeWidth="1.5" />
-        <circle cx="100" cy="100" r="88" fill="none" stroke="#0284c7" strokeWidth="0.75" />
+        {/* Outer and Inner Concentric Stamp Rings */}
+        <circle cx="100" cy="100" r="95" fill="none" stroke="#082f49" strokeWidth="3" />
+        <circle cx="100" cy="100" r="87" fill="none" stroke="#0369a1" strokeWidth="1.5" />
+        <circle cx="100" cy="100" r="58" fill="none" stroke="#0369a1" strokeWidth="1.5" />
 
-        {/* Circular Curved Outer Text */}
-        <text className="text-[10.5px] font-bold tracking-[2.5px] fill-sky-950 uppercase" style={{ fontFamily: 'Rajdhani, sans-serif' }}>
-          <textPath href="#sealOuterTextPath" startOffset="0%">
-            ★ IR INFOTECH ★ ANAND, GUJARAT, INDIA ★
+        {/* Top Text: IR INFOTECH */}
+        <text className="text-[13.5px] font-black tracking-[4px] fill-[#082f49] uppercase" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+          <textPath href="#sealTopArc" startOffset="50%" textAnchor="middle">
+            IR INFOTECH
           </textPath>
         </text>
 
-        {/* Middle Ring */}
-        <circle cx="100" cy="100" r="66" fill="none" stroke="#0369a1" strokeWidth="1.5" />
-        <circle cx="100" cy="100" r="63" fill="none" stroke="#0284c7" strokeWidth="0.75" strokeDasharray="2,2" />
-
-        {/* Circular Curved Inner Text */}
-        <text className="text-[8px] font-semibold tracking-[1.5px] fill-sky-900 uppercase" style={{ fontFamily: 'sans-serif' }}>
-          <textPath href="#sealInnerTextPath" startOffset="0%">
-            • UDYAM-GJ-03-0089721 • CORPORATE SEAL •
+        {/* Bottom Text: IR INFOTECH */}
+        <text className="text-[13.5px] font-black tracking-[4px] fill-[#082f49] uppercase" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+          <textPath href="#sealBottomArc" startOffset="50%" textAnchor="middle">
+            IR INFOTECH
           </textPath>
         </text>
 
-        {/* Center Badge Core */}
-        <circle cx="100" cy="100" r="42" fill="#082f49" stroke="#0284c7" strokeWidth="1.5" />
-        
-        {/* Center Star & Embellishment */}
-        <g transform="translate(100, 100)">
-          <polygon points="0,-16 4,-5 16,-5 7,2 10,13 0,7 -10,13 -7,2 -16,-5 -4,-5" fill="#38bdf8" />
-          <circle cx="0" cy="0" r="2.5" fill="#082f49" />
-          <text y="24" textAnchor="middle" className="text-[7.5px] font-black tracking-wider fill-cyan-300" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-            VERIFIED
-          </text>
+        {/* Side Stars */}
+        <g fill="#0284c7">
+          {/* Left Star */}
+          <polygon points="22,100 24,94 30,94 25,90 27,84 22,88 17,84 19,90 14,94 20,94" transform="translate(0, 10)" />
+          {/* Right Star */}
+          <polygon points="178,100 180,94 186,94 181,90 183,84 178,88 173,84 175,90 170,94 176,94" transform="translate(0, 10)" />
         </g>
+
+        {/* Center Emblem */}
+        <image
+          href="/ir-logo.png"
+          x="62"
+          y="62"
+          width="76"
+          height="76"
+          preserveAspectRatio="xMidYMid meet"
+          style={{ filter: 'brightness(0) saturate(100%) invert(18%) sepia(85%) saturate(1900%) hue-rotate(185deg) brightness(90%) contrast(98%)' }}
+        />
       </svg>
     </div>
   );
