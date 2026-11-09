@@ -54,24 +54,111 @@ function setLocalItem(key, value) {
   }
 }
 
+// Official Initial Seed Records (Assigned Official 001 Intern Credential)
+export const DEFAULT_OFFICIAL_INTERN = {
+  id: 'intern_2026_0001',
+  intern_id: 'IRIT-INT-2026-0001',
+  full_name: 'RAHILMAHMAD VASIMMIYA MALEK',
+  email: 'rahilmahmad.malek@gmail.com',
+  mobile: '+91 84889 84951',
+  gender: 'Male',
+  college_name: 'Sardar Vallabhbhai Patel Institute of Computer Application',
+  university_name: 'Sardar Patel University',
+  course_degree: 'Master of Computer Applications (MCA)',
+  department: 'Computer Applications',
+  current_semester: 'Final Semester',
+  domain: 'Software Development Intern',
+  start_date: '2026-11-14',
+  duration_months: 1,
+  end_date: '2026-12-13',
+  internship_mode: 'Hybrid',
+  internship_type: 'Unpaid',
+  stipend_amount: 0,
+  assigned_mentor: 'Rajesh Lalwani, Founder & CEO',
+  status: 'Offer Sent',
+  created_at: '2026-11-07T10:00:00.000Z',
+  updated_at: '2026-11-07T10:00:00.000Z'
+};
+
+export const DEFAULT_OFFICIAL_OFFER = {
+  id: 'offer_2026_0001',
+  reference_no: 'IRIT/INT/2026/0001',
+  intern_id: 'intern_2026_0001',
+  intern_name: 'RAHILMAHMAD VASIMMIYA MALEK',
+  issue_date: '2026-11-07',
+  acceptance_deadline: '2026-11-08',
+  custom_responsibilities: '',
+  custom_terms: '',
+  status: 'ISSUED',
+  revision_count: 1,
+  created_at: '2026-11-07T10:00:00.000Z',
+  updated_at: '2026-11-07T10:00:00.000Z'
+};
+
+export const DEFAULT_OFFICIAL_CERTIFICATE = {
+  id: 'cert_2026_0001',
+  certificate_id: 'IRIT/CERT/2026/0001',
+  intern_id: 'intern_2026_0001',
+  intern_name: 'RAHILMAHMAD VASIMMIYA MALEK',
+  domain: 'Software Development Intern',
+  college_name: 'Sardar Vallabhbhai Patel Institute of Computer Application',
+  start_date: '2026-11-14',
+  end_date: '2026-12-13',
+  duration: '1 Month',
+  issue_date: '2026-12-13',
+  authorized_signatory: 'Rajesh Lalwani, Founder & CEO',
+  status: 'VALID',
+  revocation_reason: null,
+  revoked_at: null,
+  qr_verification_url: 'https://ir-infotech-three.vercel.app/verify-certificate?id=IRIT%2FCERT%2F2026%2F0001',
+  created_at: '2026-11-07T10:00:00.000Z',
+  updated_at: '2026-11-07T10:00:00.000Z'
+};
+
 // Ensure default settings exist in local database
 if (!localStorage.getItem(STORAGE_KEYS.SETTINGS)) {
   setLocalItem(STORAGE_KEYS.SETTINGS, DEFAULT_COMPANY_SETTINGS);
 }
-if (!localStorage.getItem(STORAGE_KEYS.INTERNS)) {
-  setLocalItem(STORAGE_KEYS.INTERNS, []);
+
+// Automatically ensure official 001 intern record (RAHILMAHMAD VASIMMIYA MALEK) is seeded
+function seedOfficialRecords() {
+  const interns = getLocalItem(STORAGE_KEYS.INTERNS, []);
+  const existingIdx = interns.findIndex(i => 
+    i.intern_id === 'IRIT-INT-2026-0001' || 
+    i.intern_id === '001' ||
+    i.full_name?.toUpperCase().includes('RAHILMAHMAD')
+  );
+
+  if (existingIdx === -1) {
+    interns.unshift(DEFAULT_OFFICIAL_INTERN);
+  } else {
+    interns[existingIdx] = { ...interns[existingIdx], ...DEFAULT_OFFICIAL_INTERN };
+  }
+  setLocalItem(STORAGE_KEYS.INTERNS, interns);
+
+  const offers = getLocalItem(STORAGE_KEYS.OFFERS, []);
+  if (!offers.some(o => o.reference_no === 'IRIT/INT/2026/0001')) {
+    offers.unshift(DEFAULT_OFFICIAL_OFFER);
+    setLocalItem(STORAGE_KEYS.OFFERS, offers);
+  }
+
+  const certs = getLocalItem(STORAGE_KEYS.CERTIFICATES, []);
+  if (!certs.some(c => c.certificate_id === 'IRIT/CERT/2026/0001')) {
+    certs.unshift(DEFAULT_OFFICIAL_CERTIFICATE);
+    setLocalItem(STORAGE_KEYS.CERTIFICATES, certs);
+  }
+
+  if (!localStorage.getItem(STORAGE_KEYS.REVISIONS)) {
+    setLocalItem(STORAGE_KEYS.REVISIONS, []);
+  }
+  if (!localStorage.getItem(STORAGE_KEYS.AUDIT_LOGS)) {
+    setLocalItem(STORAGE_KEYS.AUDIT_LOGS, []);
+  }
 }
-if (!localStorage.getItem(STORAGE_KEYS.OFFERS)) {
-  setLocalItem(STORAGE_KEYS.OFFERS, []);
-}
-if (!localStorage.getItem(STORAGE_KEYS.CERTIFICATES)) {
-  setLocalItem(STORAGE_KEYS.CERTIFICATES, []);
-}
-if (!localStorage.getItem(STORAGE_KEYS.REVISIONS)) {
-  setLocalItem(STORAGE_KEYS.REVISIONS, []);
-}
-if (!localStorage.getItem(STORAGE_KEYS.AUDIT_LOGS)) {
-  setLocalItem(STORAGE_KEYS.AUDIT_LOGS, []);
+try {
+  seedOfficialRecords();
+} catch (e) {
+  console.warn('Seeding official records fallback:', e);
 }
 
 // Helper: Record Audit Log
@@ -217,7 +304,15 @@ export async function getInterns(filters = {}, sort = { by: 'created_at', order:
 
 export async function getInternById(id) {
   const interns = await getInterns();
-  return interns.find(i => i.id === id || i.intern_id === id) || null;
+  const clean = String(id).trim().toUpperCase();
+  return interns.find(i => 
+    i.id === id || 
+    i.intern_id === id ||
+    i.intern_id?.toUpperCase() === clean ||
+    (clean === '001' && i.intern_id?.includes('0001')) ||
+    (clean === '0001' && i.intern_id?.includes('0001')) ||
+    i.full_name?.toUpperCase().includes(clean)
+  ) || null;
 }
 
 // Auto-generate sequential unique Intern ID: IRIT-INT-2026-0001
@@ -638,7 +733,13 @@ export async function verifyCertificatePublicly(searchId) {
 
   // Local storage lookup
   const certs = getLocalItem(STORAGE_KEYS.CERTIFICATES, []);
-  const match = certs.find(c => c.certificate_id && c.certificate_id.trim().toUpperCase() === cleanId);
+  const match = certs.find(c => 
+    (c.certificate_id && c.certificate_id.trim().toUpperCase() === cleanId) ||
+    (cleanId === '001' && c.certificate_id?.includes('0001')) ||
+    (cleanId === 'IRIT-INT-2026-0001' && c.certificate_id?.includes('0001')) ||
+    (cleanId === 'IRIT/INT/2026/0001' && c.certificate_id?.includes('0001')) ||
+    (c.intern_name && c.intern_name.trim().toUpperCase() === cleanId)
+  );
 
   if (!match) {
     return {
