@@ -145,16 +145,8 @@ export default function InternProfileModal({
                 <span className="text-white font-medium">{intern.mobile}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Date of Birth:</span>
-                <span className="text-slate-300">{intern.date_of_birth || 'Not specified'}</span>
-              </div>
-              <div className="flex justify-between">
                 <span className="text-slate-400">Gender:</span>
-                <span className="text-slate-300">{intern.gender || 'Not specified'}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-400">Address / City:</span>
-                <span className="text-slate-300">{intern.address || 'N/A'}</span>
+                <span className="text-slate-300">{intern.gender || 'Prefer not to say'}</span>
               </div>
             </div>
           </div>

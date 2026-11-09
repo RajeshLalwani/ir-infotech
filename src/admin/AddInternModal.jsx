@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, UserPlus, CheckCircle2, AlertCircle, FileText, Calendar, Building2, Briefcase, GraduationCap, Upload, Shield } from 'lucide-react';
+import { X, UserPlus, CheckCircle2, AlertCircle, FileText, Calendar, Building2, Briefcase, GraduationCap, Shield } from 'lucide-react';
 import { addIntern, updateIntern, generateNextInternId } from '../services/db';
 
 const DOMAINS = [
@@ -19,24 +19,22 @@ export default function AddInternModal({ isOpen, onClose, onSuccess, editIntern 
   const [error, setError] = useState(null);
   const [nextIdPreview, setNextIdPreview] = useState('...');
 
-  // Form Fields State
+  // Form Fields State (Streamlined & Clean)
   const [formData, setFormData] = useState({
-    // Personal
+    // Personal Information
     full_name: '',
     email: '',
     mobile: '',
-    date_of_birth: '',
     gender: 'Prefer not to say',
-    address: '',
-    // Academic
+
+    // Academic Profile
     college_name: '',
     university_name: '',
     course_degree: 'B.Tech / B.E.',
     department: 'Computer Engineering / IT',
     current_semester: '6th Semester',
-    academic_session: '2023-2027',
-    college_roll_no: '',
-    // Internship
+
+    // Internship Details
     domain: DOMAINS[0],
     start_date: new Date().toISOString().split('T')[0],
     duration_months: 2,
@@ -45,11 +43,6 @@ export default function AddInternModal({ isOpen, onClose, onSuccess, editIntern 
     internship_type: 'Unpaid',
     stipend_amount: 0,
     assigned_mentor: 'Senior Technical Lead, IR InfoTech',
-    assigned_project: '',
-    // Documents
-    resume_url: '',
-    college_id_url: '',
-    noc_url: '',
     status: 'Selected'
   });
 
@@ -81,6 +74,7 @@ export default function AddInternModal({ isOpen, onClose, onSuccess, editIntern 
     }
   }, [editIntern, isOpen]);
 
+  // Escape key listener for fast closing
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -150,7 +144,7 @@ export default function AddInternModal({ isOpen, onClose, onSuccess, editIntern 
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl overflow-y-auto">
-      <div className="relative w-full max-w-4xl glass-panel rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl border border-white/10 my-8 max-h-[90vh] overflow-y-auto">
+      <div className="relative w-full max-w-3xl glass-panel rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl border border-white/10 my-8 max-h-[90vh] overflow-y-auto">
         
         {/* Top Rim Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1.5px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent shadow-[0_0_8px_#00f0ff]" />
@@ -172,6 +166,7 @@ export default function AddInternModal({ isOpen, onClose, onSuccess, editIntern 
           </div>
           <button
             onClick={onClose}
+            aria-label="Close modal"
             className="p-2 text-slate-400 hover:text-white rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
@@ -196,7 +191,7 @@ export default function AddInternModal({ isOpen, onClose, onSuccess, editIntern 
                 <Shield className="w-3.5 h-3.5" />
                 Section A: Personal Information
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
                 <div>
                   <label className="text-slate-300 block mb-1 font-medium">Full Name *</label>
                   <input
@@ -234,16 +229,6 @@ export default function AddInternModal({ isOpen, onClose, onSuccess, editIntern 
                   />
                 </div>
                 <div>
-                  <label className="text-slate-300 block mb-1 font-medium">Date of Birth (Optional)</label>
-                  <input
-                    type="date"
-                    name="date_of_birth"
-                    value={formData.date_of_birth}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:outline-none focus:border-cyan-400"
-                  />
-                </div>
-                <div>
                   <label className="text-slate-300 block mb-1 font-medium">Gender</label>
                   <select
                     name="gender"
@@ -257,21 +242,10 @@ export default function AddInternModal({ isOpen, onClose, onSuccess, editIntern 
                     <option value="Prefer not to say">Prefer not to say</option>
                   </select>
                 </div>
-                <div>
-                  <label className="text-slate-300 block mb-1 font-medium">Permanent / City Address</label>
-                  <input
-                    type="text"
-                    name="address"
-                    value={formData.address}
-                    onChange={handleChange}
-                    placeholder="City, State"
-                    className="w-full px-3 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:outline-none focus:border-cyan-400"
-                  />
-                </div>
               </div>
             </div>
 
-            {/* SECTION B: ACADEMIC INFORMATION */}
+            {/* SECTION B: ACADEMIC PROFILE */}
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-cyan-400 border-b border-white/5 pb-1.5">
                 <GraduationCap className="w-3.5 h-3.5" />
@@ -291,7 +265,7 @@ export default function AddInternModal({ isOpen, onClose, onSuccess, editIntern 
                   />
                 </div>
                 <div>
-                  <label className="text-slate-300 block mb-1 font-medium">Affiliated University (Optional)</label>
+                  <label className="text-slate-300 block mb-1 font-medium">Affiliated University Name</label>
                   <input
                     type="text"
                     name="university_name"
@@ -452,49 +426,6 @@ export default function AddInternModal({ isOpen, onClose, onSuccess, editIntern 
               </div>
             </div>
 
-            {/* SECTION D: SECURE DOCUMENT ATTACHMENTS */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-cyan-400 border-b border-white/5 pb-1.5">
-                <FileText className="w-3.5 h-3.5" />
-                Section D: Document References
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-                <div>
-                  <label className="text-slate-300 block mb-1 font-medium">Resume / CV Document URL</label>
-                  <input
-                    type="url"
-                    name="resume_url"
-                    value={formData.resume_url}
-                    onChange={handleChange}
-                    placeholder="https://drive.google.com/..."
-                    className="w-full px-3 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:outline-none focus:border-cyan-400"
-                  />
-                </div>
-                <div>
-                  <label className="text-slate-300 block mb-1 font-medium">College ID Card Reference</label>
-                  <input
-                    type="text"
-                    name="college_id_url"
-                    value={formData.college_id_url}
-                    onChange={handleChange}
-                    placeholder="Verified / Document Link"
-                    className="w-full px-3 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:outline-none focus:border-cyan-400"
-                  />
-                </div>
-                <div>
-                  <label className="text-slate-300 block mb-1 font-medium">College Permission / NOC</label>
-                  <input
-                    type="text"
-                    name="noc_url"
-                    value={formData.noc_url}
-                    onChange={handleChange}
-                    placeholder="Submitted / Pending"
-                    className="w-full px-3 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:outline-none focus:border-cyan-400"
-                  />
-                </div>
-              </div>
-            </div>
-
             {/* Actions */}
             <div className="flex items-center justify-end gap-3 pt-4 border-t border-white/10">
               <button
@@ -523,20 +454,23 @@ export default function AddInternModal({ isOpen, onClose, onSuccess, editIntern 
                 Confirm Intern Record Registration
               </div>
               <p>
-                Please verify the details below before saving. This will allocate Intern ID <span className="text-cyan-400 font-mono font-bold">{nextIdPreview}</span> and prepare their candidate profile for document issuance.
+                Please verify the details below before committing. This will assign Intern ID <span className="text-cyan-400 font-mono font-bold">{nextIdPreview}</span> and prepare their candidate profile for document issuance.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs bg-white/[0.02] p-4 rounded-2xl border border-white/5">
               <div>
                 <span className="text-slate-500 block">Candidate:</span>
-                <span className="font-semibold text-white text-sm">{formData.full_name}</span>
+                <span className="font-semibold text-white text-sm">{formData.full_name} ({formData.gender})</span>
                 <span className="text-slate-400 block">{formData.email} • {formData.mobile}</span>
               </div>
               <div>
                 <span className="text-slate-500 block">Institution:</span>
                 <span className="font-semibold text-white">{formData.college_name}</span>
-                <span className="text-slate-400 block">{formData.course_degree} ({formData.department})</span>
+                <span className="text-slate-400 block">
+                  {formData.course_degree} ({formData.department}) • {formData.current_semester}
+                  {formData.university_name ? ` • ${formData.university_name}` : ''}
+                </span>
               </div>
               <div>
                 <span className="text-slate-500 block">Internship Track:</span>
