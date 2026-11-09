@@ -204,240 +204,176 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
         {/* LIVE A4 CANVAS PREVIEW (SCROLLABLE CONTAINER) */}
         <div className="flex-1 overflow-auto py-4 flex justify-center bg-slate-950/70 rounded-2xl p-2 sm:p-6 border border-white/5">
           
-          {/* THE MASTER A4 CANVAS (794px x 1123px exact dimensions) */}
+          {/* THE MASTER A4 CANVAS (794px x 1123px exact dimensions, 0 root padding for full-bleed header/footer) */}
           <div
             ref={printRef}
-            className="w-[794px] min-h-[1123px] bg-white text-slate-800 p-10 relative flex flex-col justify-between shadow-2xl font-sans leading-normal selection:bg-cyan-200 selection:text-black box-border"
-            style={{ width: '794px', minHeight: '1123px' }}
+            className="w-[794px] min-h-[1123px] bg-white text-slate-800 relative flex flex-col justify-between shadow-2xl font-sans leading-normal selection:bg-cyan-200 selection:text-black box-border overflow-hidden"
+            style={{ width: '794px', minHeight: '1123px', padding: 0 }}
           >
-            <div>
-              {/* 1. TOP DARK CYBER HEADER */}
-              <div className="bg-[#030611] text-white p-6 -mx-10 -mt-10 mb-6 relative overflow-hidden border-b-2 border-cyan-400">
-                {/* Cyber Glow Ambient */}
-                <div className="absolute -top-12 -right-12 w-48 h-48 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-cyan-500/15 rounded-full blur-2xl pointer-events-none" />
+            {/* 1. TOP HEADER BANNER (Full Bleed Edge-to-Edge, Exact Reference Asset) */}
+            <div className="w-full block overflow-hidden shrink-0 select-none">
+              <img
+                src="/cyber-header-perfect.png"
+                alt="IR InfoTech Official Header"
+                className="w-full block pointer-events-none"
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+              />
+            </div>
 
-                {/* Brand Lockup */}
-                <div className="flex items-center justify-between relative z-10">
-                  <div className="flex items-center gap-3.5">
-                    <img src="/ir-logo.png" alt="IR InfoTech" className="w-14 h-14 object-contain filter drop-shadow-[0_0_8px_rgba(0,240,255,0.4)]" />
-                    <div>
-                      <div className="flex items-baseline font-tech">
-                        <span className="text-2xl font-black italic text-[#00f0ff] mr-2">IR</span>
-                        <span className="text-2xl font-black text-white tracking-wider">InfoTech</span>
-                      </div>
-                      <p className="text-[10px] font-bold tracking-[0.25em] text-cyan-400 uppercase" style={{ fontFamily: 'Rajdhani, sans-serif' }}>
-                        IDEAS &nbsp;|&nbsp; INNOVATION &nbsp;|&nbsp; IMPACT
+            {/* 2. BODY CONTENT CONTAINER (Padding applies only to inner text content) */}
+            <div className="px-10 pt-2 pb-0 flex-1 flex flex-col justify-between">
+              <div>
+                {/* META BAR WITH EXACT UDYAM BADGE & VERTICAL DIVIDER */}
+                <div className="grid grid-cols-[1.2fr_auto_1fr] items-center gap-4 pb-2 mb-2">
+                  <div className="space-y-0.5">
+                    <div className="font-mono text-cyan-950 font-bold text-xs">
+                      Ref. No.: <span className="text-slate-900">{referenceNo}</span>
+                    </div>
+                    <p className="text-[10px] text-slate-500 font-semibold mt-1">To,</p>
+                    <h3 className="text-sm font-black text-slate-950 font-tech uppercase tracking-wide">
+                      {intern.full_name}
+                    </h3>
+                    {intern.college_name && (
+                      <p className="text-[11px] text-slate-600 font-medium">
+                        {intern.college_name}
                       </p>
+                    )}
+                  </div>
+
+                  <div className="w-[1.5px] h-16 bg-slate-300 mx-auto" />
+
+                  <div className="flex flex-col items-end gap-1">
+                    <div className="text-xs text-slate-800">
+                      <span className="text-slate-500 font-semibold">Date: </span>
+                      <span className="font-bold text-slate-900">{formatDate(issueDate)}</span>
                     </div>
-                  </div>
-
-                  {/* Ref No. in top corner */}
-                  <div className="text-right text-[11px] font-mono text-cyan-300">
-                    <p className="text-[9px] uppercase tracking-wider text-slate-400">Document Control</p>
-                    <p className="font-bold">{referenceNo}</p>
-                  </div>
-                </div>
-
-                {/* Centered Hexagonal Title Badge */}
-                <div className="mt-4 flex justify-center">
-                  <div className="inline-flex items-center px-8 py-1.5 rounded-full bg-[#051120] border-2 border-cyan-400 text-white text-xs font-black tracking-[0.2em] uppercase font-tech shadow-[0_0_12px_rgba(0,240,255,0.3)]">
-                    INTERNSHIP OFFER LETTER
+                    <img
+                      src="/udyam-badge-clean.png"
+                      alt="Udyam Registered Enterprise"
+                      className="h-12 object-contain mt-0.5"
+                    />
                   </div>
                 </div>
-              </div>
 
-              {/* 2. RECIPIENT & CLEAN DATE SECTION (Duplicate Udyam Badge Removed for Clean Corporate Look) */}
-              <div className="flex items-start justify-between pb-4 border-b border-slate-200 text-xs">
-                {/* Left: To Candidate */}
-                <div className="space-y-0.5">
-                  <p className="font-mono text-slate-500 font-semibold text-[11px]">
-                    Ref. No.: <span className="text-slate-800 font-bold">{referenceNo}</span>
+                {/* CYAN GRADIENT SUBJECT BANNER */}
+                <div className="mb-3 px-5 py-2 rounded-full bg-gradient-to-r from-sky-400 via-cyan-400 to-cyan-500 text-slate-950 text-xs font-black flex items-center justify-between shadow-sm">
+                  <span>Subject: Offer of Internship at IR InfoTech</span>
+                  <span className="text-slate-950/70 tracking-widest font-black select-none">////</span>
+                </div>
+
+                {/* FORMAL LETTER BODY (EXACT MATCH TO REFERENCE) */}
+                <div className="space-y-2.5 text-[11.5px] text-slate-700 leading-relaxed text-justify">
+                  <p className="font-bold text-slate-950 text-xs">
+                    Dear {intern.full_name},
                   </p>
-                  <p className="text-slate-500 text-[11px] pt-1 font-semibold">To,</p>
-                  <h3 className="text-base font-black text-slate-950 tracking-wide uppercase" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                    {intern.full_name}
-                  </h3>
-                  <p className="text-slate-700 font-bold text-xs">{intern.college_name}</p>
-                  {intern.university_name && (
-                    <p className="text-slate-500 text-[11px]">{intern.university_name}</p>
-                  )}
-                  {intern.course_degree && (
-                    <p className="text-slate-500 text-[11px]">
-                      {intern.course_degree} {intern.department ? `(${intern.department})` : ''} {intern.current_semester ? `• ${intern.current_semester}` : ''}
-                    </p>
-                  )}
-                </div>
 
-                {/* Right: Clean Corporate Date & Reference Stamp */}
-                <div className="text-right space-y-1">
-                  <div>
-                    <span className="text-slate-500 text-[11px] font-semibold">Issue Date: </span>
-                    <span className="font-bold text-slate-900 text-xs">{formatDate(issueDate)}</span>
-                  </div>
-                  <div className="pt-2 text-[10px] text-slate-400">
-                    <p className="font-semibold text-slate-600 uppercase tracking-wider">Engagement Track</p>
-                    <p className="font-mono text-cyan-800 font-bold">{intern.internship_mode || 'Standard'} Mode</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* 3. CYAN GRADIENT SUBJECT BANNER */}
-              <div className="my-4 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-400 via-cyan-300 to-teal-200 text-slate-950 text-xs font-black flex items-center justify-between shadow-sm">
-                <span>Subject: Offer of Internship at IR InfoTech</span>
-                <span className="text-cyan-800 tracking-widest font-black select-none">///</span>
-              </div>
-
-              {/* 4. FORMAL LETTER BODY */}
-              <div className="space-y-3 text-[11.5px] text-slate-700 leading-relaxed text-justify">
-                <p className="font-bold text-slate-950 text-xs">
-                  Dear {intern.full_name},
-                </p>
-
-                <p>
-                  We are pleased to offer you the position of <strong>{positionTitle}</strong> at <strong>IR InfoTech</strong>. This opportunity will allow you to gain practical exposure across active corporate workflows, enhance your professional competencies, and collaborate on real-world initiatives under the mentorship of our team leads.
-                </p>
-
-                <p>
-                  Your internship will commence on <strong>{formatDate(intern.start_date)}</strong> for a period of <strong>{formatDuration(intern.duration_months)}</strong>, concluding on <strong>{formatDate(intern.end_date)}</strong>, and is affiliated with <strong>{intern.college_name}</strong>.
-                </p>
-
-                {/* 5. UNIVERSAL FEATURE BOX (5 Universal Deliverables) */}
-                <div className="rounded-2xl border border-cyan-300 overflow-hidden my-3 shadow-sm bg-gradient-to-b from-cyan-50/80 to-white">
-                  {/* Card Header with Icon */}
-                  <div className="bg-[#051829] text-white px-4 py-1.5 flex items-center justify-between text-xs font-bold font-tech tracking-wider">
-                    <div className="flex items-center gap-2 text-cyan-300">
-                      <Briefcase className="w-4 h-4 text-cyan-400" />
-                      <span>During your internship, you will:</span>
-                    </div>
-                    <span className="text-cyan-400 tracking-widest select-none">///</span>
-                  </div>
-
-                  {/* Universal Bullet Nodes */}
-                  <div className="p-3.5 space-y-2 text-[11px] text-slate-800">
-                    <div className="flex items-start gap-2.5">
-                      <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
-                      <p>{bullet1}</p>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
-                      <p>{bullet2}</p>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
-                      <p>{bullet3}</p>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
-                      <p>{bullet4}</p>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
-                      <p>{bullet5}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 6. SLS-INSPIRED CORPORATE COMPLIANCE & ANAND JURISDICTION CLAUSE */}
-                <div className="p-3 bg-slate-50 rounded-xl border-l-2 border-cyan-500 text-[10.5px] text-slate-600 space-y-1">
                   <p>
-                    <strong>Terms & Working Guidelines:</strong> Duties will be assigned through your designated supervisor and should not be taken as exhaustive. Interns are required to maintain strict confidentiality regarding company software, repositories, and client systems both during and after the tenure. In the event of any disputes, jurisdiction for resolution shall solely reside in <strong>Anand, Gujarat</strong>.
+                    We are pleased to offer you the position of <strong>{positionTitle}</strong> at <strong>IR InfoTech</strong>. This opportunity will allow you to gain practical experience in software development, enhance your technical skills and work on real-world projects under the guidance of our experienced professionals.
+                  </p>
+
+                  <p>
+                    Your internship will commence on <strong>{formatDate(intern.start_date)}</strong> for a period of <strong>{formatDuration(intern.duration_months)}</strong>, concluding on <strong>{formatDate(intern.end_date)}</strong>{intern.college_name ? <span>, and is affiliated with <strong>{intern.college_name}</strong></span> : ''}.
+                  </p>
+
+                  {/* 5 UNIVERSAL DELIVERABLES FEATURE BOX (LUCKY #5) */}
+                  <div className="my-2.5 border border-cyan-300 rounded-2xl overflow-hidden shadow-sm bg-gradient-to-b from-cyan-50/50 to-white">
+                    {/* Dark Terminal Header Tab */}
+                    <div className="bg-[#031526] text-white px-4 py-1.5 flex items-center justify-between text-xs font-bold font-tech tracking-wider border-b border-cyan-700/40">
+                      <div className="flex items-center gap-2 text-cyan-300">
+                        <span className="bg-cyan-400/20 text-cyan-300 border border-cyan-400/40 px-1 py-0.5 rounded font-mono text-[9px]">&lt;/&gt;</span>
+                        <span>During your internship, you will:</span>
+                      </div>
+                      <span className="text-cyan-400 tracking-widest select-none font-black text-xs">///</span>
+                    </div>
+
+                    {/* Connected Timeline Nodes with Continuous Vertical Rail */}
+                    <div className="p-3.5 relative">
+                      <div className="absolute left-[21px] top-4 bottom-5 w-[1.5px] bg-gradient-to-b from-cyan-400 via-teal-400 to-cyan-500 rounded-full" />
+
+                      <div className="space-y-2 text-[10.5px] text-slate-800 pl-4">
+                        <div className="flex items-start gap-2.5 relative">
+                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
+                          <p className="leading-snug">{bullet1}</p>
+                        </div>
+                        <div className="flex items-start gap-2.5 relative">
+                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
+                          <p className="leading-snug">{bullet2}</p>
+                        </div>
+                        <div className="flex items-start gap-2.5 relative">
+                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
+                          <p className="leading-snug">{bullet3}</p>
+                        </div>
+                        <div className="flex items-start gap-2.5 relative">
+                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
+                          <p className="leading-snug">{bullet4}</p>
+                        </div>
+                        <div className="flex items-start gap-2.5 relative">
+                          <div className="w-2 h-2 rounded-full bg-cyan-400 border border-white mt-0.5 shrink-0 shadow-[0_0_4px_#06b6d4] z-10" />
+                          <p className="leading-snug">{bullet5}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p>
+                    We are confident that this internship will be a valuable learning experience for you and will contribute to your professional growth. Please confirm your acceptance of this offer by replying to this communication by <strong>{formatDate(intern.start_date)}</strong>.
+                  </p>
+
+                  <p className="font-semibold text-slate-900 text-[11px]">
+                    We look forward to having you on board at IR InfoTech.
                   </p>
                 </div>
+              </div>
 
-                <p>
-                  We are confident that this internship will be a valuable learning experience for you and will contribute to your professional growth. Please confirm your acceptance of this offer by signing and returning this letter for our record.
-                </p>
+              {/* 3. AUTHENTICATION & OFFICIAL CORPORATE SEAL BLOCK (EXACT MATCH TO REFERENCE — NO CANDIDATE ACCEPTANCE) */}
+              <div className="mt-4 pt-3 border-t border-slate-200 grid grid-cols-[1.3fr_auto_1.2fr] items-center gap-6">
+                
+                {/* Left: Authorized Signatory */}
+                <div className="flex items-stretch gap-3 pl-1">
+                  <div className="w-1 bg-cyan-400 rounded-full shrink-0" />
+                  <div className="space-y-0.5">
+                    <p className="text-[10.5px] font-semibold text-slate-600">Yours sincerely,</p>
+                    <div className="h-12 flex items-end">
+                      <img
+                        src="/ir-signature.png"
+                        alt="Rajesh Lalwani Signature"
+                        className="h-11 object-contain filter contrast-125"
+                      />
+                    </div>
+                    <h4 className="text-sm font-black text-slate-950 font-tech">Rajesh Lalwani</h4>
+                    <p className="text-[9.5px] text-slate-600 font-bold uppercase tracking-wider">Founder & CEO</p>
+                    <p className="text-[10px] font-bold text-cyan-800">IR InfoTech</p>
+                  </div>
+                </div>
 
-                <p className="font-semibold text-slate-900">
-                  We look forward to having you on board at IR InfoTech.
-                </p>
+                {/* Center: Thin Vertical Divider Line */}
+                <div className="w-[1px] h-20 bg-slate-200 mx-auto" />
+
+                {/* Right: Official Corporate Seal (Crisp, Transparent, Centered) */}
+                <div className="flex justify-center items-center pr-4">
+                  <img
+                    src="/ir-official-stamp-clean.png"
+                    alt="IR InfoTech Official Stamp"
+                    className="w-28 h-28 object-contain pointer-events-none drop-shadow-sm"
+                  />
+                </div>
+
               </div>
             </div>
 
-            {/* 7. SIGNATURES & OFFICIAL ROUND SEAL SECTION */}
-            <div className="mt-6 pt-3 border-t border-slate-200">
-              <div className="grid grid-cols-12 items-end">
-                
-                {/* Left: Authorized Signatory */}
-                <div className="col-span-5 space-y-1">
-                  <p className="text-[11px] font-semibold text-slate-600">Yours sincerely,</p>
-                  <div className="h-14 flex items-end">
-                    <img
-                      src="/ir-signature.png"
-                      alt="Rajesh Lalwani Signature"
-                      className="h-12 object-contain filter contrast-125"
-                    />
-                  </div>
-                  <h4 className="text-sm font-black text-slate-950 font-tech">Rajesh Lalwani</h4>
-                  <p className="text-[10px] text-slate-600 font-bold uppercase tracking-wider">Founder & CEO</p>
-                  <p className="text-[10px] font-bold text-cyan-800">IR InfoTech</p>
-                </div>
-
-                {/* Center Divider */}
-                <div className="col-span-1 flex justify-center h-20 items-center">
-                  <div className="w-[1px] h-16 bg-slate-200" />
-                </div>
-
-                {/* Right: Round IR InfoTech Corporate Seal Stamp */}
-                <div className="col-span-6 flex items-center justify-between pl-2">
-                  <div className="flex flex-col items-center">
-                    <OfficialSeal className="w-24 h-24" />
-                  </div>
-
-                  {/* Candidate Acceptance */}
-                  <div className="text-right space-y-1">
-                    <p className="text-[9.5px] text-slate-500 font-bold uppercase tracking-wider">
-                      Candidate Acceptance:
-                    </p>
-                    <div className="h-12 border-b border-slate-400 w-36 ml-auto" />
-                    <p className="text-[10px] text-slate-800 font-semibold">{intern.full_name}</p>
-                    <p className="text-[8.5px] text-slate-400">Signature & Date</p>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* 8. SLICK DARK CYBER FOOTER BAR */}
-              <div className="mt-5 -mx-10 -mb-10 bg-[#030611] text-slate-300 p-3.5 border-t-2 border-cyan-400 text-[9.5px] space-y-1.5">
-                {/* Top Info Row */}
-                <div className="flex flex-wrap items-center justify-between gap-3 text-cyan-300 font-medium">
-                  <div className="flex items-center gap-1.5">
-                    <Globe className="w-3 h-3 text-cyan-400" />
-                    <span>https://ir-infotech-three.vercel.app/</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Mail className="w-3 h-3 text-cyan-400" />
-                    <span>info.irinfotech@gmail.com</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Phone className="w-3 h-3 text-cyan-400" />
-                    <span>+91 84889 84951</span>
-                  </div>
-                </div>
-
-                {/* Bottom Row: Official Udyam Registration & HQ */}
-                <div className="flex flex-wrap items-center justify-between gap-3 text-slate-400 text-[8.5px] pt-1 border-t border-white/10">
-                  <div className="flex items-center gap-1">
-                    <MapPin className="w-2.5 h-2.5 text-cyan-400" />
-                    <span>Anand, Gujarat, India</span>
-                  </div>
-                  <div className="flex items-center gap-1 text-slate-300">
-                    <Shield className="w-2.5 h-2.5 text-cyan-400" />
-                    <span>Udyam Registered Enterprise</span>
-                  </div>
-                  <div className="font-mono text-cyan-300 font-semibold">
-                    Udyam Registration No.: UDYAM-GJ-03-0089721
-                  </div>
-                </div>
-              </div>
-
+            {/* 4. BOTTOM FOOTER BANNER (Full Bleed Edge-to-Edge, Exact Reference Asset) */}
+            <div className="w-full block overflow-hidden shrink-0 select-none">
+              <img
+                src="/cyber-footer-perfect.png"
+                alt="IR InfoTech Official Footer"
+                className="w-full block pointer-events-none"
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+              />
             </div>
 
           </div>
 
         </div>
-
       </div>
     </div>
   );
