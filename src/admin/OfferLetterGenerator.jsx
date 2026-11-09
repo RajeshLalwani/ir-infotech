@@ -226,7 +226,7 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                 {/* META BAR WITH EXACT UDYAM BADGE & VERTICAL DIVIDER */}
                 <div className="grid grid-cols-[1.2fr_auto_1fr] items-center gap-4 pb-2 mb-2">
                   <div className="space-y-0.5">
-                    <div className="font-mono text-cyan-950 font-bold text-xs">
+                    <div className="text-cyan-950 font-bold text-xs">
                       Ref. No.: <span className="text-slate-900">{referenceNo}</span>
                     </div>
                     <p className="text-[10px] text-slate-500 font-semibold mt-1">To,</p>
@@ -341,7 +341,7 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                       />
                     </div>
                     <h4 className="text-sm font-black text-slate-950 font-tech">Rajesh Lalwani</h4>
-                    <p className="text-[9.5px] text-slate-600 font-bold uppercase tracking-wider">Founder & CEO</p>
+                    <p className="text-[9.5px] text-slate-600 font-semibold text-slate-700 tracking-wide">Founder & CEO</p>
                     <p className="text-[10px] font-bold text-cyan-800">IR InfoTech</p>
                   </div>
                 </div>
