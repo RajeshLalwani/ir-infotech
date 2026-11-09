@@ -368,6 +368,7 @@ export default function AddInternModal({ isOpen, onClose, onSuccess, editIntern 
                     <option value={1}>1 Month (4 Weeks)</option>
                     <option value={2}>2 Months (8 Weeks)</option>
                     <option value={3}>3 Months (12 Weeks)</option>
+                    <option value={4}>4 Months (16 Weeks)</option>
                     <option value={6}>6 Months (Full Semester)</option>
                   </select>
                 </div>
