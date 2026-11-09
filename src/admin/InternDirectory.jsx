@@ -232,7 +232,7 @@ export default function InternDirectory({
                       {intern.college_name}
                     </td>
                     <td className="py-3.5 px-4 text-slate-400 whitespace-nowrap">
-                      <div>{intern.duration_months} Months ({intern.internship_mode})</div>
+                      <div>{intern.duration_months} {parseInt(intern.duration_months, 10) === 1 ? 'Month' : 'Months'} ({intern.internship_mode})</div>
                       <div className="text-[10px] text-slate-500">{intern.start_date} to {intern.end_date}</div>
                     </td>
                     <td className="py-3.5 px-4 whitespace-nowrap">

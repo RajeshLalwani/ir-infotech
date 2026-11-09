@@ -480,7 +480,7 @@ export default function AddInternModal({ isOpen, onClose, onSuccess, editIntern 
               <div>
                 <span className="text-slate-500 block">Internship Track:</span>
                 <span className="font-semibold text-cyan-300">{formData.domain}</span>
-                <span className="text-slate-400 block">{formData.internship_mode} • {formData.duration_months} Months</span>
+                <span className="text-slate-400 block">{formData.internship_mode} • {formData.duration_months} {parseInt(formData.duration_months, 10) === 1 ? 'Month' : 'Months'}</span>
               </div>
               <div>
                 <span className="text-slate-500 block">Schedule & Stipend:</span>

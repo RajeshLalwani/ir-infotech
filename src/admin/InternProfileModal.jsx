@@ -195,7 +195,7 @@ export default function InternProfileModal({
               <div>
                 <span className="text-slate-400 block">Schedule:</span>
                 <span className="text-white font-medium">{intern.start_date} to {intern.end_date}</span>
-                <span className="text-slate-500 block text-[11px]">{intern.duration_months} Months Duration</span>
+                <span className="text-slate-500 block text-[11px]">{intern.duration_months} {parseInt(intern.duration_months, 10) === 1 ? 'Month' : 'Months'} Duration</span>
               </div>
               <div>
                 <span className="text-slate-400 block">Mode & Type:</span>

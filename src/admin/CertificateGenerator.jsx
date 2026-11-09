@@ -371,7 +371,7 @@ export default function CertificateGenerator({ isOpen, onClose, intern, existing
                 <strong className="text-slate-950 font-bold underline decoration-cyan-500 decoration-2 underline-offset-4">
                   {existingCert?.domain || correctedDomain || intern.domain}
                 </strong>{' '}
-                from <strong>{formatDate(intern.start_date)}</strong> to <strong>{formatDate(intern.end_date)}</strong> ({intern.duration_months} Months Track) at IR InfoTech.
+                from <strong>{formatDate(intern.start_date)}</strong> to <strong>{formatDate(intern.end_date)}</strong> ({intern.duration_months} {parseInt(intern.duration_months, 10) === 1 ? 'Month' : 'Months'} Track) at IR InfoTech.
               </p>
               
               <p className="text-[11px] text-slate-500 max-w-xl mx-auto">

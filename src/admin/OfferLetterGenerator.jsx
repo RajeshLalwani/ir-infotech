@@ -16,11 +16,12 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
   // Position Title (default: intern.domain or Software Development Intern)
   const [positionTitle, setPositionTitle] = useState('Software Development Intern');
 
-  // Universal Bullet Points (Works universally for Software, BDE, HR, Marketing, Design, etc.)
+  // Universal Bullet Points (5 Deliverables - Works universally for Software, BDE, HR, Marketing, Design, etc.)
   const [bullet1, setBullet1] = useState('Participate actively in functional project tasks, operational workflows, and assigned deliverables.');
   const [bullet2, setBullet2] = useState('Collaborate with mentors and cross-functional teams to execute initiatives adhering to company standards.');
   const [bullet3, setBullet3] = useState('Gain hands-on practical industry exposure with professional tools, modern methodologies, and corporate best practices.');
   const [bullet4, setBullet4] = useState('Contribute proactively to team milestones, document project outcomes, and report progress regularly.');
+  const [bullet5, setBullet5] = useState('Engage in continuous skill enhancement, apply mentor feedback, and uphold organizational data integrity.');
 
   useEffect(() => {
     if (isOpen && intern) {
@@ -55,9 +56,9 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
     }
   };
 
-  const getFirstName = (fullName) => {
-    if (!fullName) return 'Candidate';
-    return fullName.trim().split(' ')[0];
+  const formatDuration = (m) => {
+    const val = parseInt(m, 10);
+    return `${m} ${val === 1 ? 'Month' : 'Months'}`;
   };
 
   const handleDownloadPDF = async () => {
@@ -188,6 +189,12 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                 type="text"
                 value={bullet4}
                 onChange={(e) => setBullet4(e.target.value)}
+                className="w-full p-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs mb-1"
+              />
+              <input
+                type="text"
+                value={bullet5}
+                onChange={(e) => setBullet5(e.target.value)}
                 className="w-full p-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs"
               />
             </div>
@@ -284,7 +291,7 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
               {/* 4. FORMAL LETTER BODY */}
               <div className="space-y-3 text-[11.5px] text-slate-700 leading-relaxed text-justify">
                 <p className="font-bold text-slate-950 text-xs">
-                  Dear {getFirstName(intern.full_name)},
+                  Dear {intern.full_name},
                 </p>
 
                 <p>
@@ -292,14 +299,10 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                 </p>
 
                 <p>
-                  Your internship will commence on <strong>{formatDate(intern.start_date)}</strong> for a period of <strong>{intern.duration_months} Months</strong>, concluding on <strong>{formatDate(intern.end_date)}</strong>, and is affiliated with <strong>{intern.college_name}</strong>. {intern.internship_type === 'Paid' ? (
-                    <span>This is an approved <strong>Paid Internship</strong> with a monthly performance stipend of <strong>₹{intern.stipend_amount}</strong>.</span>
-                  ) : (
-                    <span>This is an <strong>unpaid internship</strong>; no stipend will be provided.</span>
-                  )}
+                  Your internship will commence on <strong>{formatDate(intern.start_date)}</strong> for a period of <strong>{formatDuration(intern.duration_months)}</strong>, concluding on <strong>{formatDate(intern.end_date)}</strong>, and is affiliated with <strong>{intern.college_name}</strong>.
                 </p>
 
-                {/* 5. UNIVERSAL FEATURE BOX (Works for ALL roles without if-else complexity) */}
+                {/* 5. UNIVERSAL FEATURE BOX (5 Universal Deliverables) */}
                 <div className="rounded-2xl border border-cyan-300 overflow-hidden my-3 shadow-sm bg-gradient-to-b from-cyan-50/80 to-white">
                   {/* Card Header with Icon */}
                   <div className="bg-[#051829] text-white px-4 py-1.5 flex items-center justify-between text-xs font-bold font-tech tracking-wider">
@@ -327,6 +330,10 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                     <div className="flex items-start gap-2.5">
                       <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
                       <p>{bullet4}</p>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
+                      <p>{bullet5}</p>
                     </div>
                   </div>
                 </div>
