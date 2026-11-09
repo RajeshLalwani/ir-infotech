@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { X, Download, Edit3, Shield, Globe, Mail, Phone, MapPin, Briefcase } from 'lucide-react';
 import OfficialSeal from '../components/OfficialSeal';
+import CyberLetterheadHeader from '../components/CyberLetterheadHeader';
+import CyberLetterheadFooter from '../components/CyberLetterheadFooter';
 import { createOfferLetter, generateNextOfferReference, getCompanySettings } from '../services/db';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -211,15 +213,8 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
             style={{ width: '794px', minHeight: '1123px' }}
           >
             <div>
-              {/* 1. TOP HEADER BANNER (Exact Image from User Reference) */}
-              <div className="-mx-10 -mt-10 mb-4 overflow-hidden">
-                <img
-                  src="/letterhead-header.png"
-                  alt="IR InfoTech Letterhead Header"
-                  className="w-full object-cover block"
-                  style={{ width: '100%', height: 'auto' }}
-                />
-              </div>
+              {/* 1. TOP HEADER BANNER (100% Crisp Native Vector Cyber Header) */}
+              <CyberLetterheadHeader className="-mx-10 -mt-10 mb-4" />
 
               {/* 2. CLEAN CORPORATE DATE & REFERENCE CONTROL BAR */}
               <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-200 text-xs">
@@ -249,7 +244,7 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                 </p>
 
                 <p>
-                  Your internship will commence on <strong>{formatDate(intern.start_date)}</strong> for a duration of <strong>{formatDuration(intern.duration_months)}</strong>, concluding on <strong>{formatDate(intern.end_date)}</strong>{intern.college_name ? <span>, and is affiliated with <strong>{intern.college_name}</strong></span> : ''}. During this period, you will participate in structured project initiatives designed to strengthen your applied capabilities and industry skills.
+                  Your internship will commence on <strong>{formatDate(intern.start_date)}</strong> for a duration of <strong>{formatDuration(intern.duration_months)}</strong>, concluding on <strong>{formatDate(intern.end_date)}</strong>. During this period, you will participate in structured project initiatives designed to strengthen your applied capabilities, problem-solving faculties, and industry engineering standards.
                 </p>
 
                 {/* 5. UNIVERSAL FEATURE BOX (5 Universal Deliverables) */}
@@ -348,15 +343,8 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
 
               </div>
 
-              {/* 8. SLICK DARK CYBER FOOTER BAR (Exact Image from User Reference) */}
-              <div className="-mx-10 -mb-10 mt-4 overflow-hidden">
-                <img
-                  src="/letterhead-footer.png"
-                  alt="IR InfoTech Letterhead Footer"
-                  className="w-full object-cover block"
-                  style={{ width: '100%', height: 'auto' }}
-                />
-              </div>
+              {/* 8. SLICK DARK CYBER FOOTER BAR (100% Crisp Native Vector Cyber Footer) */}
+              <CyberLetterheadFooter className="-mx-10 -mb-10 mt-4" />
 
             </div>
 
