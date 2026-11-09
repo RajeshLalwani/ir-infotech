@@ -211,113 +211,24 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
             style={{ width: '794px', minHeight: '1123px' }}
           >
             <div>
-              {/* 1. TOP DARK CYBER HEADER (Exact Visual Match to ChatGPT Design) */}
-              <div className="bg-gradient-to-b from-[#010814] via-[#031528] to-[#010b18] text-white p-7 -mx-10 -mt-10 mb-5 relative overflow-hidden border-b-2 border-cyan-400 shadow-[0_4px_20px_rgba(0,240,255,0.15)]">
-                {/* Glowing Cyber Wave SVG Lines */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40" viewBox="0 0 800 160" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="neonGlowA" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#00f0ff" stopOpacity="0.8" />
-                      <stop offset="50%" stopColor="#0284c7" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="#00f0ff" stopOpacity="0.8" />
-                    </linearGradient>
-                    <linearGradient id="neonGlowB" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#00f0ff" stopOpacity="0.1" />
-                      <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.6" />
-                      <stop offset="100%" stopColor="#00f0ff" stopOpacity="0.1" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M -50,140 C 150,40 300,160 500,60 C 650,-20 750,80 850,20" fill="none" stroke="url(#neonGlowA)" strokeWidth="2" />
-                  <path d="M -50,110 C 200,150 400,20 600,130 C 700,180 800,90 850,60" fill="none" stroke="url(#neonGlowB)" strokeWidth="1.5" />
-                </svg>
-
-                {/* Cyber Glow Ambient Orbs */}
-                <div className="absolute -top-12 -left-12 w-56 h-56 bg-cyan-500/25 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute -top-12 -right-12 w-56 h-56 bg-cyan-500/25 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-16 bg-cyan-400/20 rounded-full blur-2xl pointer-events-none" />
-
-                {/* Brand Lockup */}
-                <div className="flex items-center justify-between relative z-10 px-1">
-                  <div className="flex items-center gap-4">
-                    <img
-                      src="/ir-logo.png"
-                      alt="IR InfoTech"
-                      className="w-16 h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,240,255,0.65)]"
-                    />
-                    <div>
-                      <div className="flex items-baseline font-tech">
-                        <span className="text-3xl font-black italic text-[#00f0ff] mr-2 drop-shadow-[0_0_8px_rgba(0,240,255,0.6)]">IR</span>
-                        <span className="text-3xl font-black text-white tracking-wider">InfoTech</span>
-                      </div>
-                      <p className="text-[10.5px] font-bold tracking-[0.28em] text-cyan-300 uppercase mt-0.5" style={{ fontFamily: 'Rajdhani, sans-serif' }}>
-                        IDEAS &nbsp;|&nbsp; INNOVATION &nbsp;|&nbsp; IMPACT
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Ref No. in top corner */}
-                  <div className="text-right text-[11px] font-mono text-cyan-300">
-                    <p className="text-[9px] uppercase tracking-wider text-slate-400">Document Control</p>
-                    <p className="font-bold">{referenceNo}</p>
-                  </div>
-                </div>
-
-                {/* Center Hexagonal Title Badge with Horizontal Glowing Beam */}
-                <div className="relative mt-4 flex items-center justify-center">
-                  <div className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent shadow-[0_0_8px_#00f0ff]" />
-                  <div
-                    className="relative z-10 px-9 py-2 bg-[#020b18] border-2 border-[#00f0ff] text-white text-xs font-black tracking-[0.22em] uppercase font-tech shadow-[0_0_16px_rgba(0,240,255,0.6)] flex items-center justify-center"
-                    style={{ clipPath: 'polygon(14px 0%, calc(100% - 14px) 0%, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0% 50%)' }}
-                  >
-                    INTERNSHIP OFFER LETTER
-                  </div>
-                </div>
+              {/* 1. TOP HEADER BANNER (Exact Image from User Reference) */}
+              <div className="-mx-10 -mt-10 mb-4 overflow-hidden">
+                <img
+                  src="/letterhead-header.png"
+                  alt="IR InfoTech Letterhead Header"
+                  className="w-full object-cover block"
+                  style={{ width: '100%', height: 'auto' }}
+                />
               </div>
 
-              {/* 2. RECIPIENT & UDYAM LAUREL BADGE SECTION (Matches ChatGPT Design) */}
-              <div className="flex items-start justify-between pb-3.5 mb-3 border-b border-slate-200 text-xs">
-                {/* Left: To Candidate */}
-                <div className="space-y-0.5">
-                  <p className="font-mono text-cyan-800 font-bold text-[11px]">
-                    Ref. No.: <span className="text-slate-900">{referenceNo}</span>
-                  </p>
-                  <p className="text-slate-500 text-[11px] pt-1 font-semibold">To,</p>
-                  <h3 className="text-base font-black text-slate-950 tracking-wide uppercase" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                    {intern.full_name}
-                  </h3>
-                  <p className="text-slate-700 font-bold text-xs">{intern.college_name}</p>
+              {/* 2. CLEAN CORPORATE DATE & REFERENCE CONTROL BAR */}
+              <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-200 text-xs">
+                <div className="font-mono text-slate-600 font-semibold text-[11px]">
+                  Ref. No.: <span className="text-slate-900 font-bold">{referenceNo}</span>
                 </div>
-
-                {/* Right: Date & Udyam Laurel Wreath Lockup */}
-                <div className="text-right space-y-2 flex flex-col items-end">
-                  <div className="text-xs">
-                    <span className="text-slate-500 font-semibold">Date: </span>
-                    <span className="font-bold text-slate-900">{formatDate(issueDate)}</span>
-                  </div>
-
-                  {/* Laurel Wreath Badge */}
-                  <div className="flex flex-col items-center pt-0.5">
-                    <div className="flex items-center justify-center gap-1.5 text-cyan-800">
-                      <svg className="w-5 h-9 text-cyan-800" viewBox="0 0 24 40" fill="currentColor">
-                        <path d="M12 35 C10 28, 4 22, 2 12 C1 8, 3 4, 6 2 C7 5, 8 10, 8 15 C8 20, 11 25, 12 30 Z" opacity="0.9" />
-                        <path d="M8 30 C5 24, 2 18, 4 10 C5 12, 7 16, 7 20 Z" opacity="0.7" />
-                        <circle cx="5" cy="5" r="1.5" />
-                        <circle cx="3" cy="14" r="1.5" />
-                      </svg>
-                      <div className="text-[9px] font-black uppercase tracking-wider text-slate-800 text-center leading-tight">
-                        UDYAM<br />REGISTERED<br />ENTERPRISE
-                      </div>
-                      <svg className="w-5 h-9 text-cyan-800 transform -scale-x-100" viewBox="0 0 24 40" fill="currentColor">
-                        <path d="M12 35 C10 28, 4 22, 2 12 C1 8, 3 4, 6 2 C7 5, 8 10, 8 15 C8 20, 11 25, 12 30 Z" opacity="0.9" />
-                        <path d="M8 30 C5 24, 2 18, 4 10 C5 12, 7 16, 7 20 Z" opacity="0.7" />
-                        <circle cx="5" cy="5" r="1.5" />
-                        <circle cx="3" cy="14" r="1.5" />
-                      </svg>
-                    </div>
-                    <span className="mt-1 px-3 py-0.5 rounded-full bg-[#082f49] text-cyan-300 font-mono text-[9px] font-bold tracking-wider shadow-sm">
-                      UDYAM-GJ-03-0089721
-                    </span>
-                  </div>
+                <div>
+                  <span className="text-slate-500 text-[11px] font-semibold">Date: </span>
+                  <span className="font-bold text-slate-900 text-xs">{formatDate(issueDate)}</span>
                 </div>
               </div>
 
@@ -327,68 +238,61 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                 <span className="text-cyan-800 tracking-widest font-black select-none">///</span>
               </div>
 
-              {/* 4. FORMAL LETTER BODY */}
+              {/* 4. FORMAL LETTER BODY (Starts directly with Candidate Full Name) */}
               <div className="space-y-2.5 text-[11.5px] text-slate-700 leading-relaxed text-justify">
-                <p className="font-bold text-slate-950 text-xs">
+                <p className="font-bold text-slate-950 text-sm">
                   Dear {intern.full_name},
                 </p>
 
                 <p>
-                  We are pleased to offer you the position of <strong>{positionTitle}</strong> at <strong>IR InfoTech</strong>. This opportunity will allow you to gain practical experience in software development, enhance your technical skills and work on real-world projects under the guidance of our experienced professionals.
+                  Congratulations! We are pleased to extend to you an offer for the position of <strong>{positionTitle}</strong> at <strong>IR InfoTech</strong>. This opportunity will allow you to gain practical exposure across active corporate workflows, enhance your professional competencies, and collaborate on real-world initiatives under the mentorship of our team leads.
                 </p>
 
                 <p>
-                  Your internship will commence on <strong>{formatDate(intern.start_date)}</strong> for a period of <strong>{formatDuration(intern.duration_months)}</strong>, concluding on <strong>{formatDate(intern.end_date)}</strong>, and is affiliated with <strong>{intern.college_name}</strong>.
+                  Your internship will commence on <strong>{formatDate(intern.start_date)}</strong> for a duration of <strong>{formatDuration(intern.duration_months)}</strong>, concluding on <strong>{formatDate(intern.end_date)}</strong>{intern.college_name ? <span>, and is affiliated with <strong>{intern.college_name}</strong></span> : ''}. During this period, you will participate in structured project initiatives designed to strengthen your applied capabilities and industry skills.
                 </p>
 
-                {/* 5. CONNECTED TIMELINE FEATURE BOX (Exact Match to ChatGPT Design) */}
-                <div className="rounded-2xl border border-cyan-300 overflow-hidden my-3 shadow-sm bg-gradient-to-b from-cyan-50/70 to-white">
-                  {/* Card Header with Code Emblem */}
-                  <div className="bg-[#031b2e] text-white px-4 py-1.5 flex items-center justify-between text-xs font-bold font-tech tracking-wider border-b border-cyan-400/30">
+                {/* 5. UNIVERSAL FEATURE BOX (5 Universal Deliverables) */}
+                <div className="rounded-2xl border border-cyan-300 overflow-hidden my-2.5 shadow-sm bg-gradient-to-b from-cyan-50/80 to-white">
+                  {/* Card Header with Icon */}
+                  <div className="bg-[#051829] text-white px-4 py-1.5 flex items-center justify-between text-xs font-bold font-tech tracking-wider">
                     <div className="flex items-center gap-2 text-cyan-300">
-                      <span className="px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 font-mono text-[10px] font-bold border border-cyan-500/40">
-                        &lt;/&gt;
-                      </span>
+                      <Briefcase className="w-4 h-4 text-cyan-400" />
                       <span>During your internship, you will:</span>
                     </div>
                     <span className="text-cyan-400 tracking-widest select-none">///</span>
                   </div>
 
-                  {/* Connected Vertical Timeline Bullets */}
-                  <div className="p-3.5 pl-7 relative space-y-2.5 text-[11px] text-slate-800">
-                    {/* Vertical Cyan Connecting Bar */}
-                    <div className="absolute left-4 top-4 bottom-4 w-[2px] bg-gradient-to-b from-cyan-500 via-teal-400 to-cyan-500 shadow-[0_0_4px_#00f0ff]" />
-
-                    {/* Bullet 1 */}
-                    <div className="relative flex items-start gap-3">
-                      <div className="absolute -left-4 top-1 w-2.5 h-2.5 rounded-full bg-cyan-500 border-2 border-white shadow-[0_0_6px_#00f0ff]" />
-                      <p className="leading-snug">{bullet1}</p>
+                  {/* Universal Bullet Nodes */}
+                  <div className="p-3 space-y-2 text-[11px] text-slate-800">
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
+                      <p>{bullet1}</p>
                     </div>
-
-                    {/* Bullet 2 */}
-                    <div className="relative flex items-start gap-3">
-                      <div className="absolute -left-4 top-1 w-2.5 h-2.5 rounded-full bg-cyan-500 border-2 border-white shadow-[0_0_6px_#00f0ff]" />
-                      <p className="leading-snug">{bullet2}</p>
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
+                      <p>{bullet2}</p>
                     </div>
-
-                    {/* Bullet 3 */}
-                    <div className="relative flex items-start gap-3">
-                      <div className="absolute -left-4 top-1 w-2.5 h-2.5 rounded-full bg-cyan-500 border-2 border-white shadow-[0_0_6px_#00f0ff]" />
-                      <p className="leading-snug">{bullet3}</p>
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
+                      <p>{bullet3}</p>
                     </div>
-
-                    {/* Bullet 4 */}
-                    <div className="relative flex items-start gap-3">
-                      <div className="absolute -left-4 top-1 w-2.5 h-2.5 rounded-full bg-cyan-500 border-2 border-white shadow-[0_0_6px_#00f0ff]" />
-                      <p className="leading-snug">{bullet4}</p>
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
+                      <p>{bullet4}</p>
                     </div>
-
-                    {/* Bullet 5 */}
-                    <div className="relative flex items-start gap-3">
-                      <div className="absolute -left-4 top-1 w-2.5 h-2.5 rounded-full bg-cyan-500 border-2 border-white shadow-[0_0_6px_#00f0ff]" />
-                      <p className="leading-snug">{bullet5}</p>
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1 shrink-0 shadow-[0_0_4px_#06b6d4]" />
+                      <p>{bullet5}</p>
                     </div>
                   </div>
+                </div>
+
+                {/* 6. SLS-INSPIRED CORPORATE COMPLIANCE & ANAND JURISDICTION CLAUSE */}
+                <div className="p-2.5 bg-slate-50 rounded-xl border-l-2 border-cyan-500 text-[10.5px] text-slate-600 space-y-1">
+                  <p>
+                    <strong>Terms & Working Guidelines:</strong> Duties will be assigned through your designated supervisor and should not be taken as exhaustive. Interns are required to maintain strict confidentiality regarding company software, repositories, and client systems both during and after the tenure. In the event of any disputes, jurisdiction for resolution shall solely reside in <strong>Anand, Gujarat</strong>.
+                  </p>
                 </div>
 
                 <p>
@@ -401,8 +305,8 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
               </div>
             </div>
 
-            {/* 7. SIGNATURES & OFFICIAL CORPORATE STAMP SECTION */}
-            <div className="mt-4 pt-3 border-t border-slate-200">
+            {/* 7. SIGNATURES & OFFICIAL ROUND STAMP SECTION */}
+            <div className="mt-3 pt-3 border-t border-slate-200">
               <div className="grid grid-cols-12 items-end">
                 
                 {/* Left: Authorized Signatory */}
@@ -425,7 +329,7 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
                   <div className="w-[1px] h-16 bg-slate-200" />
                 </div>
 
-                {/* Right: Round IR InfoTech Corporate Seal Stamp */}
+                {/* Right: Round IR InfoTech Corporate Seal Stamp (Exact User Asset) */}
                 <div className="col-span-6 flex items-center justify-between pl-2">
                   <div className="flex flex-col items-center">
                     <OfficialSeal className="w-24 h-24" />
@@ -444,43 +348,14 @@ export default function OfferLetterGenerator({ isOpen, onClose, intern, onSucces
 
               </div>
 
-              {/* 8. SLICK DARK CYBER FOOTER BAR (Exact Match to ChatGPT Design) */}
-              <div className="mt-4 -mx-10 -mb-10 bg-gradient-to-b from-[#010814] via-[#020f20] to-[#010610] text-slate-300 p-4 border-t-2 border-cyan-400 text-[9.5px] space-y-2 shadow-[0_-4px_20px_rgba(0,240,255,0.15)] relative overflow-hidden">
-                {/* Glowing Wave SVG line in Footer */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-25" viewBox="0 0 800 80" preserveAspectRatio="none">
-                  <path d="M -50,50 C 200,10 400,70 600,20 C 700,0 800,40 850,20" fill="none" stroke="#00f0ff" strokeWidth="1.5" />
-                </svg>
-
-                {/* Top Info Row */}
-                <div className="flex flex-wrap items-center justify-between gap-3 text-cyan-300 font-medium relative z-10">
-                  <div className="flex items-center gap-1.5">
-                    <Globe className="w-3.5 h-3.5 text-cyan-400" />
-                    <span className="text-white hover:text-cyan-300">https://ir-infotech-three.vercel.app/</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Mail className="w-3.5 h-3.5 text-cyan-400" />
-                    <span className="text-white">info.irinfotech@gmail.com</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Phone className="w-3.5 h-3.5 text-cyan-400" />
-                    <span className="text-white">+91 84889 84951</span>
-                  </div>
-                </div>
-
-                {/* Bottom Row: Official Udyam Registration & HQ */}
-                <div className="flex flex-wrap items-center justify-between gap-3 text-slate-400 text-[8.5px] pt-1.5 border-t border-white/10 relative z-10">
-                  <div className="flex items-center gap-1">
-                    <MapPin className="w-2.5 h-2.5 text-cyan-400" />
-                    <span>Anand, Gujarat, India</span>
-                  </div>
-                  <div className="flex items-center gap-1 text-slate-300">
-                    <Shield className="w-2.5 h-2.5 text-cyan-400" />
-                    <span>Udyam Registered Enterprise</span>
-                  </div>
-                  <div className="font-mono text-cyan-300 font-semibold">
-                    Udyam Registration No.: UDYAM-GJ-03-0089721
-                  </div>
-                </div>
+              {/* 8. SLICK DARK CYBER FOOTER BAR (Exact Image from User Reference) */}
+              <div className="-mx-10 -mb-10 mt-4 overflow-hidden">
+                <img
+                  src="/letterhead-footer.png"
+                  alt="IR InfoTech Letterhead Footer"
+                  className="w-full object-cover block"
+                  style={{ width: '100%', height: 'auto' }}
+                />
               </div>
 
             </div>
